@@ -3,4 +3,4 @@
 
 ---
 ## mock-up
-[KUKU](https://drive.google.com/drive/folders/14CaQbvy6sqFdhFmp0QtTrOzJLjPUoIPg?usp=sharing)
+[KUKU](https://www.figma.com/file/gCYA8I9lnOQmAwLkEN7sO2/Design?node-id=0%3A1)
