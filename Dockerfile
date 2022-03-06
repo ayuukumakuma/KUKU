@@ -7,5 +7,5 @@ RUN apk update && \
     yarn upgrade \
     yarn -g add create-nuxt-app
 
-ENV HOST 0.0.0.0
+ENV HOST 192.168.128.250
 EXPOSE 3000
