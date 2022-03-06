@@ -5,11 +5,11 @@ services:
     build: .
     ports:
       - "3000:3000"
-    working_dir: "/src"
+    working_dir: "/front"
     # volumesでコンテナ内にデータ保持
     volumes:
-      - "./src:/src"
-      - node_modules_volume:/src/node_modules
+      - "./front:/front"
+      - node_modules_volume:/front/node_modules
     # コンテナの起動を維持
     tty: true
     environment:

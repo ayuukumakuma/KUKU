@@ -47,10 +47,6 @@
               issue board </a
             >.
           </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
           <div class="text-xs-right">
             <em><small>&mdash; John Leider</small></em>
           </div>
