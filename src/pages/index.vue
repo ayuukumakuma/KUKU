@@ -7,7 +7,7 @@
       </v-card>
       <v-card>
         <v-card-title class="headline">
-          develop
+          Develop
         </v-card-title>
         <v-card-text>
           <p>
