@@ -1,18 +1,43 @@
-version: '3'
+version: '3.8'
 
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    working_dir: "/src"
-    # volumesでコンテナ内にデータ保持
-    volumes:
-      - "./src:/src"
-      - node_modules_volume:/src/node_modules
-    # コンテナの起動を維持
-    tty: true
+  db:
+    image: postgres:12.3-alpine
     environment:
-    - CHOKIDAR_USEPOLLING=true
-volumes:
-  node_modules_volume:
+      TZ: UTC
+      PGTZ: UTC
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    # ボリューム：コンテナが終了してもデータを永続的に保管して置けるデータ領域
+    volumes:
+      - ./api/tmp/db:/var/lib/postgresql/data
+
+  api:
+    build:
+      # Dockerfileの保存場所がdocker-compose.ymlと異なる場合はcontextで指定、名前がDockerfileでないときはDockerfile: ファイル名で指定する
+      context: ./api
+      # Dockerfileへ環境変数を渡す
+      args:
+        WORKDIR: $WORKDIR
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    volumes:
+      - ./api:/$WORKDIR
+    # 他コンテナとの依存関係
+    depends_on:
+      - db
+    ports:
+      - "$API_PORT:$CONTAINER_PORT"
+
+  front:
+    build:
+      context: ./front
+      args:
+        WORKDIR: $WORKDIR
+        CONTAINER_PORT: $CONTAINER_PORT
+    command: yarn run dev
+    volumes:
+      - ./front:/$WORKDIR
+    ports:
+      - "$FRONT_PORT:$CONTAINER_PORT"
+    depends_on:
+      - api
