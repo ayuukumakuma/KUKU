@@ -8,5 +8,4 @@ export default ({ $axios }) => {
   $axios.onError((config) => {
     console.log(config)
   })
-
 }
