@@ -39,10 +39,11 @@ services:
     command: yarn run dev
     volumes:
       - ./front:/$WORKDIR
-      # - /$WORKDIR/node_modules
+      - /$WORKDIR/node_modules
     ports:
       - "$FRONT_PORT:$CONTAINER_PORT"
     depends_on:
       - api
     environment:
       - CHOKIDAR_USEPOLLING=true
+    tty: true

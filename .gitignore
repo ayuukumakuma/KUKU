@@ -1,2 +1,4 @@
-/.env
-/.ash_history
+.env
+.ash_history
+node_modules/
+*.log
