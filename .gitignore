@@ -1,4 +1,5 @@
 .env
 .ash_history
+master.key
 node_modules/
 *.log
