@@ -1,9 +1,21 @@
 <template>
   <div>
-    <button type="button" name="button" @click="getMsg">getAPI</button>
-    <div v-for="(msg, i) in msgs" :key="i">
+    <v-btn
+    id="button"
+      class="primary sentence--text"
+      @click="getMsg"
+    >
+      getAPI
+    </v-btn>
+    <v-btn @click="$router.push('./')">
+      TOP
+    </v-btn>
+    <v-card
+      v-for="(msg, i) in msgs"
+      :key="i"
+    >
       {{ msg }}
-    </div>
+    </v-card>
   </div>
 </template>
 
@@ -21,3 +33,12 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+#button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%);
+}
+</style>

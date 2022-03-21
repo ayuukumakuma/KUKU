@@ -14,6 +14,7 @@
 			id="start-btn"
 			class="rounded-xl sentence--text"
 			color="primary"
+			@click="$router.push('./test_api')"
 		>
 			はじめる
 		</v-btn>
