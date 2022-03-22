@@ -14,6 +14,7 @@
 			id="start-btn"
 			class="rounded-xl sentence--text"
 			color="primary"
+			@click="$router.push('./test_api')"
 		>
 			はじめる
 		</v-btn>
@@ -77,5 +78,28 @@ body {
 	}
 }
 
+#equal {
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	z-index: 0;
+	transform: rotate(-40deg);
+}
+
+#equal-content {
+	position: absolute;
+	background: var(--v-content-base);
+	height: 16px;
+	width: 150px;
+	&::after {
+		position: absolute;
+		background: var(--v-content-base);
+		display: block;
+		content: "";
+		height: 16px;
+		width: 150px;
+		top: 70px;
+	}
+}
 
 </style>
