@@ -1,5 +1,9 @@
 <template>
   <div>
+    <NavigationBar
+      page="APIテスト"
+      back="./manu"
+     />
     <button type="button" name="button" @click="getMsg">getAPI</button>
     <div v-for="(msg, i) in msgs" :key="i">
       {{ msg }}
