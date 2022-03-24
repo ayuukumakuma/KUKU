@@ -1,17 +1,18 @@
 <template>
-  <v-card
-    height="152px"
-    width="152px"
+  <v-btn
+    id="tile"
+    class="mb-6"
+    height="160px"
+    width="160px"
     color="#e0f7fa"
     rounded="xl"
   >
-    〇
-  </v-card>
+    {{ }}
+  </v-btn>
 </template>
 
 <script>
 export default {}
 </script>
 <style lang="scss" scoped>
-
 </style>

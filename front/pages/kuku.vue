@@ -29,34 +29,15 @@
 		<div id="equal">
 			<div id="equal-content" />
 		</div>
-    <v-container
+    <div
       id="tiles"
+      class="mx-6"
     >
-      <v-row>
-        <v-col
-          class="pl-6 pr-3"
-        >
-          <OptionTiles />
-        </v-col>
-        <v-col
-          class="pl-3 pr-6"
-        >
-          <OptionTiles />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col
-          class="pl-6 pr-3"
-        >
-          <OptionTiles />
-        </v-col>
-        <v-col
-          class="pl-3 pr-6"
-        >
-          <OptionTiles />
-        </v-col>
-      </v-row>
-    </v-container>
+      <OptionTiles />
+      <OptionTiles />
+      <OptionTiles />
+      <OptionTiles />
+    </div>
   </div>
 </template>
 
@@ -74,6 +55,9 @@ body {
 #tiles {
   position: absolute;
   bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #question1 {
