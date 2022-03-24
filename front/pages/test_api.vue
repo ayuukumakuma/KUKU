@@ -1,21 +1,13 @@
 <template>
   <div>
-    <v-btn
-    id="button"
-      class="primary sentence--text"
-      @click="getMsg"
-    >
-      getAPI
-    </v-btn>
-    <v-btn @click="$router.push('./')">
-      TOP
-    </v-btn>
-    <v-card
-      v-for="(msg, i) in msgs"
-      :key="i"
-    >
+    <NavigationBar
+      page="APIテスト"
+      back="./manu"
+     />
+    <button type="button" name="button" @click="getMsg">getAPI</button>
+    <div v-for="(msg, i) in msgs" :key="i">
       {{ msg }}
-    </v-card>
+    </div>
   </div>
 </template>
 
