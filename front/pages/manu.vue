@@ -13,6 +13,7 @@
             height="240px"
             class="content rounded-xl"
             hover
+            @click="$router.push('./kuku')"
            >
             <v-card-title
               id="title"
@@ -28,6 +29,7 @@
             height="150"
             class="content rounded-xl"
             hover
+            @click="$router.push('./data')"
            >
             <v-card-title
               id="title"
