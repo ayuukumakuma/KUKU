@@ -2,7 +2,7 @@
   <div>
     <NavigationBar
       page="KUKU"
-      back="./manu"
+      back="./menu"
     />
     <v-container
       id="tiles"
