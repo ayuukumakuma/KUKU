@@ -5,7 +5,7 @@
       back="./"
      />
      <v-container
-      id="manu"
+      id="menu"
      >
        <v-row>
          <v-col class="px-6 pb-3">
@@ -72,7 +72,7 @@ export default {
 body {
   position: relative;
 }
-#manu {
+#menu {
   position: absolute;
   top: 124px;
 }

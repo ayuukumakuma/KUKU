@@ -14,7 +14,7 @@
 			id="start-btn"
 			class="rounded-xl sentence--text"
 			color="primary"
-			@click="$router.push('./manu')"
+			@click="$router.push('./menu')"
 		>
 			はじめる
 		</v-btn>
