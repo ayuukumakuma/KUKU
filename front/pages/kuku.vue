@@ -10,21 +10,20 @@
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
-      class="mt-4"
+      class="mt-6"
     />
     <v-img
       id="question2"
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
-      class="mt-4"
+      class="mt-6"
     />
     <v-img
       id="answer"
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
-      class="mb-4"
     />
     <div id="cross">
 			<div id="cross-content" />
@@ -34,7 +33,6 @@
 		</div>
     <div
       id="tiles"
-      class="mx-6"
     >
       <OptionTiles />
       <OptionTiles />
@@ -57,8 +55,8 @@ body {
 
 #tiles {
   position: absolute;
-  bottom: 8px;
-  height: 45vh;
+  bottom: 0;
+  height: 50vh;
   display: flex;
   justify-content: space-around;
   align-content: space-around;
@@ -80,23 +78,26 @@ body {
 #answer {
   position: absolute;
   left: 50%;
+  top: 80px;
+  margin-top: 222px;
   transform: translate(-50%);
-  margin-top: 290px;
 }
 
 #cross {
 	position: absolute;
 	left: 50%;
+  top: 80px;
 	z-index: 0;
-  margin-top: 150px;
+  margin-top: 78px;
 }
 
 #equal {
   position: absolute;
   left: 50%;
+  top: 80px;
+  margin-top: 142px;
   z-index: 0;
   transform: rotate(90deg);
-  margin-top: 220px;
 }
 
 #cross-content {
@@ -115,7 +116,6 @@ body {
 		transform: rotate(90deg);
 	}
 }
-
 
 #equal-content {
 	position: absolute;

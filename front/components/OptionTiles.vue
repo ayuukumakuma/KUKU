@@ -1,8 +1,8 @@
 <template>
   <v-btn
     id="tile"
-    height="19vh"
-    width="40vw"
+    height="160px"
+    width="160px"
     color="#e0f7fa"
     rounded
   >
