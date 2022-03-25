@@ -8,22 +8,22 @@
     <v-img
       id="question1"
       src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
+      height="15vh"
+      width="32vw"
       class="mt-4"
     />
     <v-img
       id="question2"
       src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
+      height="15vh"
+      width="32vw"
       class="mt-4"
     />
     <v-img
       id="answer"
       src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
+      height="15vh"
+      width="32vw"
     />
     <div id="cross">
 			<div id="cross-content" />
