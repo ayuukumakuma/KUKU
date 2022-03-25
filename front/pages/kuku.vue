@@ -10,14 +10,14 @@
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
-      class="mt-6"
+      class="mt-4"
     />
     <v-img
       id="question2"
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
-      class="mt-6"
+      class="mt-4"
     />
     <v-img
       id="answer"
@@ -33,6 +33,7 @@
 		</div>
     <div
       id="tiles"
+      class="mb-2"
     >
       <OptionTiles />
       <OptionTiles />
@@ -56,7 +57,7 @@ body {
 #tiles {
   position: absolute;
   bottom: 0;
-  height: 50vh;
+  height: 45vh;
   display: flex;
   justify-content: space-around;
   align-content: space-around;
@@ -79,7 +80,7 @@ body {
   position: absolute;
   left: 50%;
   top: 80px;
-  margin-top: 222px;
+  margin-top: 198px;
   transform: translate(-50%);
 }
 
@@ -88,14 +89,14 @@ body {
 	left: 50%;
   top: 80px;
 	z-index: 0;
-  margin-top: 78px;
+  margin-top: 70px;
 }
 
 #equal {
   position: absolute;
   left: 50%;
   top: 80px;
-  margin-top: 142px;
+  margin-top: 134px;
   z-index: 0;
   transform: rotate(90deg);
 }
