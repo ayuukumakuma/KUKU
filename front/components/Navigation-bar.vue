@@ -47,7 +47,7 @@ export default {
   height: 64px;
   width: calc(100vw - 16px);
   display: flex;
-  top: 48px;
+  top: 16px;
   border-radius: 0 32px 32px 0;
 }
 
