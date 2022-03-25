@@ -1,11 +1,10 @@
 <template>
   <v-btn
     id="tile"
-    class="mb-6"
-    height="160px"
-    width="160px"
+    height="19vh"
+    width="40vw"
     color="#e0f7fa"
-    rounded="xl"
+    rounded
   >
     {{ }}
   </v-btn>

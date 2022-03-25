@@ -10,18 +10,21 @@
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
+      class="mt-4"
     />
     <v-img
       id="question2"
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
+      class="mt-4"
     />
     <v-img
       id="answer"
       src="/test/test.jpg"
       max-height="120px"
       max-width="120px"
+      class="mb-4"
     />
     <div id="cross">
 			<div id="cross-content" />
@@ -54,38 +57,46 @@ body {
 
 #tiles {
   position: absolute;
-  bottom: 24px;
+  bottom: 8px;
+  height: 45vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-content: space-around;
   flex-wrap: wrap;
 }
 
 #question1 {
   position: absolute;
-  top: 22%;
-  left: 32px;
-  transform: translateY(-50%);
+  top: 80px;
+  left: 8%;
 }
 
 #question2 {
   position: absolute;
-  top: 22%;
-  right: 32px;
-  transform: translateY(-50%);
+  top: 80px;
+  right: 8%;
 }
 
 #answer {
   position: absolute;
   left: 50%;
-  top: 38%;
   transform: translate(-50%);
+  margin-top: 290px;
 }
 
 #cross {
 	position: absolute;
-	top: 22%;
 	left: 50%;
 	z-index: 0;
+  margin-top: 150px;
+}
+
+#equal {
+  position: absolute;
+  left: 50%;
+  z-index: 0;
+  transform: rotate(90deg);
+  margin-top: 220px;
 }
 
 #cross-content {
@@ -105,13 +116,6 @@ body {
 	}
 }
 
-#equal {
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	z-index: 0;
-  transform: rotate(90deg);
-}
 
 #equal-content {
 	position: absolute;
