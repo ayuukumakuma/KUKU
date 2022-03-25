@@ -11,6 +11,7 @@
       height="15vh"
       width="32vw"
       class="mt-4"
+      contain
     />
     <v-img
       id="question2"
@@ -18,12 +19,14 @@
       height="15vh"
       width="32vw"
       class="mt-4"
+      contain
     />
     <v-img
       id="answer"
       src="/test/test.jpg"
       height="15vh"
       width="32vw"
+      contain
     />
     <div id="cross">
 			<div id="cross-content" />
