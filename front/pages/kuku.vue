@@ -4,7 +4,10 @@
       page="KUKU"
       back="./menu"
     />
-    <!-- static内はルートにマッピングされる -->
+    <QuestionTiles
+      multiplicand="4"
+    />
+    <!-- static内はルートにマッピングされる
     <v-img
       id="question1"
       src="/test/test.jpg"
@@ -28,8 +31,8 @@
 		</div>
 		<div id="equal">
 			<div id="equal-content" />
-		</div>
-    <v-container
+		</div> -->
+    <!-- <v-container
       id="tiles"
     >
       <v-row>
@@ -56,7 +59,7 @@
           <OptionTiles />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
