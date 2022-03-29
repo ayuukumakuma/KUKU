@@ -5,7 +5,10 @@ export const state = () => ({
 })
 
 export const getters = {
-  GetMultiplicand: (state) => (id) =>{
+  GetMultiplicand: (state) => (id) => {
     return state.datas.find((data) => data.id === id).shape
+  },
+  GetMultiplying: (state) => (id) => {
+    return state.datas.find((data) => data.id === id).color
   },
 }

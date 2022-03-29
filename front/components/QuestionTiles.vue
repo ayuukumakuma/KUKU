@@ -11,6 +11,14 @@
         {{ multiplicand }}
       </div>
     </div>
+    <div id="multiplying">
+      <ColorSvg
+        :color="`${GetMultiplying}`"
+       />
+       <div id="multiplying-text">
+         {{ multiplying }}
+       </div>
+    </div>
     <div id="cross">
       <div id="cross-content" />
     </div>
@@ -27,6 +35,10 @@ export default {
       type: String,
       default: '',
     },
+    multiplying: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {}
@@ -35,27 +47,49 @@ export default {
     GetMultiplicand() {
       return this.$store.getters['json/GetMultiplicand'](this.multiplicand)
     },
+    GetMultiplying() {
+      return this.$store.getters['json/GetMultiplying'](this.multiplying)
+    }
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'Graduate';
+  src: url('../assets/font/Graduate-Regular.ttf');
+}
 #multiplicand {
 	position: absolute;
-	margin-top: 96px;
+	top: 96px;
 	left: 6vw;
 }
 
-#multiplicand-text {
+#multiplying {
 	position: absolute;
-	top: 20%;
+	top: 96px;
+	right: 4vw;
+}
+
+#multiplicand-text {
+  font-family: "Graduate";
+	position: absolute;
+	top: 11%;
 	left: 33%;
-  font-size: 56px;
+  font-size: 64px;
+}
+
+#multiplying-text {
+  font-family: "Graduate";
+	position: absolute;
+	top: 11%;
+	right: 37%;
+  font-size: 64px;
 }
 
 #cross {
   position: absolute;
-  top: 22%;
+  top: 154px;
   left: 50%;
   z-index: 0;
 }
@@ -79,7 +113,7 @@ export default {
 
 #equal {
   position: absolute;
-  top: 30%;
+  top: 220px;
   left: 50%;
   z-index: 0;
   transform: rotate(90deg);

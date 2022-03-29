@@ -5,61 +5,9 @@
       back="./menu"
     />
     <QuestionTiles
-      multiplicand="4"
+      multiplicand="6"
+      multiplying="9"
     />
-    <!-- static内はルートにマッピングされる
-    <v-img
-      id="question1"
-      src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
-    />
-    <v-img
-      id="question2"
-      src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
-    />
-    <v-img
-      id="answer"
-      src="/test/test.jpg"
-      max-height="120px"
-      max-width="120px"
-    />
-    <div id="cross">
-			<div id="cross-content" />
-		</div>
-		<div id="equal">
-			<div id="equal-content" />
-		</div> -->
-    <!-- <v-container
-      id="tiles"
-    >
-      <v-row>
-        <v-col
-          class="pl-6 pr-3"
-        >
-          <OptionTiles />
-        </v-col>
-        <v-col
-          class="pl-3 pr-6"
-        >
-          <OptionTiles />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col
-          class="pl-6 pr-3"
-        >
-          <OptionTiles />
-        </v-col>
-        <v-col
-          class="pl-3 pr-6"
-        >
-          <OptionTiles />
-        </v-col>
-      </v-row>
-    </v-container> -->
   </div>
 </template>
 
