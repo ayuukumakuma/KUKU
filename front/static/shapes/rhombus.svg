@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="100" height="100" viewBox="148 130.3 100 100">
-  <defs>
-    <path id="a" d="M37.5 25 50 50H0l12.5-25L25 0z" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#000;fill-rule:nonzero;opacity:1" vector-effect="non-scaling-stroke"/>
-  </defs>
-  <use xlink:href="#a" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#000;fill-rule:nonzero;opacity:1" transform="matrix(1.47 0 0 .99 161.3 131)" vector-effect="non-scaling-stroke"/>
-  <use xlink:href="#a" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-dashoffset:0;stroke-linejoin:miter;stroke-miterlimit:4;fill:#000;fill-rule:nonzero;opacity:1" transform="matrix(1.47 0 0 -.99 161.3 229.7)" vector-effect="non-scaling-stroke"/>
-</svg>

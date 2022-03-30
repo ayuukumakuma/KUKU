@@ -1,54 +1,33 @@
 <template>
   <div>
-    <NavigationBar
-      page="KUKU"
-      back="./menu"
+    <NavigationBar page="KUKU" back="./menu" />
+
+    <QuestionTiles
+      :multiplicand="String(multiplicand_num)"
+      :multiplying="String(multiplying_num)"
     />
-    <!-- static内はルートにマッピングされる -->
-    <v-img
-      id="question1"
-      src="/test/test.jpg"
-      height="15vh"
-      width="32vw"
-      class="mt-4"
-      contain
-    />
-    <v-img
-      id="question2"
-      src="/test/test.jpg"
-      height="15vh"
-      width="32vw"
-      class="mt-4"
-      contain
-    />
-    <v-img
-      id="answer"
-      src="/test/test.jpg"
-      height="15vh"
-      width="32vw"
-      contain
-    />
-    <div id="cross">
-			<div id="cross-content" />
-		</div>
-		<div id="equal">
-			<div id="equal-content" />
-		</div>
-    <div
-      id="tiles"
-      class="mb-2"
-    >
-      <OptionTiles />
-      <OptionTiles />
-      <OptionTiles />
-      <OptionTiles />
+    <div id="test">
+      <v-btn x-large style="font-size: 32px" @click="SettingQuestion">
+        乱数
+      </v-btn>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      multiplicand_num: 1,
+      multiplying_num: 1,
+    }
+  },
+  methods: {
+    SettingQuestion() {
+      this.multiplicand_num = Math.floor(Math.random() * 9) + 1
+      this.multiplying_num = Math.floor(Math.random() * 9) + 1
+    },
+  },
 }
 </script>
 
@@ -56,85 +35,10 @@ export default {
 body {
   position: relative;
 }
-
-#tiles {
-  position: absolute;
-  bottom: 0;
-  height: 45vh;
-  display: flex;
-  justify-content: space-around;
-  align-content: space-around;
-  flex-wrap: wrap;
-}
-
-#question1 {
-  position: absolute;
-  top: 80px;
-  left: 8%;
-}
-
-#question2 {
-  position: absolute;
-  top: 80px;
-  right: 8%;
-}
-
-#answer {
+#test {
   position: absolute;
   left: 50%;
-  top: 80px;
-  margin-top: 198px;
   transform: translate(-50%);
-}
-
-#cross {
-	position: absolute;
-	left: 50%;
-  top: 80px;
-	z-index: 0;
-  margin-top: 70px;
-}
-
-#equal {
-  position: absolute;
-  left: 50%;
-  top: 80px;
-  margin-top: 134px;
-  z-index: 0;
-  transform: rotate(90deg);
-}
-
-#cross-content {
-	position: absolute;
-	background: var(--v-sentence-base);
-	height: 8px;
-	width: 56px;
-  left: -28px;
-	transform: rotate(-45deg);
-	&::before {
-		background: var(--v-sentence-base);
-		display: block;
-		content: "";
-		height: 8px;
-		width: 56px;
-		transform: rotate(90deg);
-	}
-}
-
-#equal-content {
-	position: absolute;
-	background: var(--v-sentence-base);
-	height: 8px;
-	width: 56px;
-  top: -19px;
-	&::before {
-		position: absolute;
-		background: var(--v-sentence-base);
-		display: block;
-		content: "";
-		height: 8px;
-		width: 56px;
-		top: 30px;
-	}
+  bottom: 20%;
 }
 </style>
