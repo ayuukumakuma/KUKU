@@ -3,13 +3,16 @@
     <div id="multiplicand">
       <v-img
         id="multiplicand-shape"
-        :src="`/shapes/${GetMultiplicand}.svg`"
+        :src="`/svg/shapes/${GetMultiplicand}.svg`"
         width="120px"
         height="120px"
       />
       <div id="multiplicand-text">
         {{ multiplicand }}
       </div>
+    </div>
+    <div id="cross">
+      <div id="cross-content" />
     </div>
     <div id="multiplying">
       <ColorSvg
@@ -19,11 +22,15 @@
          {{ multiplying }}
        </div>
     </div>
-    <div id="cross">
-      <div id="cross-content" />
-    </div>
     <div id="equal">
       <div id="equal-content" />
+    </div>
+    <div id="answer">
+      <v-img
+        src="/svg/question.svg"
+        width="64px"
+        height="64px"
+      ></v-img>
     </div>
   </div>
 </template>
@@ -134,5 +141,12 @@ export default {
     width: 56px;
     top: 30px;
   }
+}
+
+#answer {
+  position: absolute;
+  left: 50%;
+  top: 320px;
+  transform: translate(-50%);
 }
 </style>

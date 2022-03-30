@@ -9,31 +9,31 @@
       :multiplying="String(multiplying_num)"
     />
     <div id="test">
-      テスト
-      <v-slider
-        v-model="multiplicand_num"
-        label="かけられる数"
-        max="9"
-        min="1"
-      />
-      <v-slider
-        v-model="multiplying_num"
-        label="かける数"
-        max="9"
-        min="1"
-      />
+      <v-btn
+        x-large
+        style="font-size: 32px;"
+        @click="SettingQuestion"
+      >
+        乱数
+      </v-btn>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-data() {
-  return {
-    multiplicand_num: 1,
-    multiplying_num: 1,
-  }
-},
+  data() {
+    return {
+      multiplicand_num: 1,
+      multiplying_num: 1,
+    }
+  },
+  methods: {
+    SettingQuestion() {
+      this.multiplicand_num = Math.floor(Math.random() * 9) + 1;
+      this.multiplying_num = Math.floor(Math.random() * 9) + 1;
+    }
+  },
 }
 </script>
 
@@ -43,7 +43,8 @@ body {
 }
 #test {
   position: absolute;
-  bottom: 0;
-  width: 100vw;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 20%;
 }
 </style>
