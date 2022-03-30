@@ -43,12 +43,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 #nav-bar {
-  position: absolute;
+  position: fixed;
   height: 64px;
   width: calc(100vw - 16px);
   display: flex;
-  top: 48px;
+  top: 16px;
   border-radius: 0 32px 32px 0;
+  z-index: 1;
 }
 
 #back-icon {

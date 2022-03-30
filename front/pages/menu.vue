@@ -10,7 +10,7 @@
        <v-row>
          <v-col class="px-6 pb-3">
            <v-card
-            height="240px"
+            height="300px"
             class="content rounded-xl"
             hover
             @click="$router.push('./kuku')"
@@ -74,10 +74,10 @@ body {
 }
 #menu {
   position: absolute;
-  top: 124px;
+  top: 96px;
 }
 #title {
   font-size: 40px;
-  padding: 16px 0 0 16px;
+  padding: 24px 0 0 24px;
 }
 </style>
