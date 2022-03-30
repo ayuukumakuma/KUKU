@@ -1,10 +1,12 @@
 <template>
-  <v-btn
+  <div>
+    <v-btn
     id="tile"
     height="20vh"
     width="40vw"
     color="#e0f7fa"
     rounded
+    depressed
   >
     <ShapeSvg
       :shape="GetMultiplicand"
@@ -14,6 +16,7 @@
       {{ answer }}
     </div>
   </v-btn>
+  </div>
 </template>
 
 <script>
