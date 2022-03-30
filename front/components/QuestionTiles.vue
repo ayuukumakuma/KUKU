@@ -47,9 +47,6 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {}
-  },
   computed: {
     GetMultiplicand() {
       return this.$store.getters['json/GetMultiplicand'](this.multiplicand)
