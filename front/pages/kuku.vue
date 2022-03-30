@@ -6,6 +6,8 @@
       :multiplicand="String(multiplicand_num)"
       :multiplying="String(multiplying_num)"
     />
+    <!-- ここからテスト -->
+    <p style="position: absolute; top: 35%;">これはテストです</p>
     <div v-show="isCorrect" id="ok">正解</div>
     <div id="test">
       <v-btn
@@ -16,6 +18,7 @@
         出題
       </v-btn>
     </div>
+    <!-- ここまでテスト -->
     <div id="option-tiles">
       <OptionTiles
         :multiplicand="String(multiplicand_num)"
