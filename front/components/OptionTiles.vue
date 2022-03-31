@@ -6,7 +6,6 @@
     width="40vw"
     color="#e0f7fa"
     rounded
-    depressed
   >
     <ShapeSvg
       :shape="GetMultiplicand"

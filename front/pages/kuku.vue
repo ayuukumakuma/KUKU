@@ -5,17 +5,17 @@
     <QuestionTiles
       :multiplicand="String(multiplicand_num)"
       :multiplying="String(multiplying_num)"
+      :correct="isCorrect"
+      :answer_num="String(multiplicand_num * multiplying_num)"
     />
     <!-- ここからテスト -->
     <p style="position: absolute; top: 35%;">これはテストです</p>
-    <div v-show="isCorrect" id="ok">正解</div>
     <div id="test">
       <v-btn
-        x-large
         style="font-size: 32px"
         @click="SettingQuestion(), DummyAnswer(), NonnegativeRandomNumber(), isCorrect = false"
       >
-        出題
+        ○
       </v-btn>
     </div>
     <!-- ここまでテスト -->
@@ -116,18 +116,9 @@ export default {
 body {
   position: relative;
 }
-#ok {
-  position: absolute;
-  top: 38%;
-  right: 10%;
-  font-size: 40px;
-  border: solid 3px;
-  border-radius: 20px;
-  padding: 8px;
-}
 #test {
   position: absolute;
-  left: 10%;
+  left: 8px;
   top: 40%;
 }
 #option-tiles {

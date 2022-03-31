@@ -15,22 +15,22 @@
       <div id="cross-content" />
     </div>
     <div id="multiplying">
-      <ColorSvg
-        :color="`${GetMultiplying}`"
-       />
-       <div id="multiplying-text">
-         {{ multiplying }}
-       </div>
+      <ColorSvg :color="`${GetMultiplying}`" />
+      <div id="multiplying-text">
+        {{ multiplying }}
+      </div>
     </div>
     <div id="equal">
       <div id="equal-content" />
     </div>
-    <div id="answer">
-      <v-img
-        src="/svg/question.svg"
-        width="64px"
-        height="64px"
-      ></v-img>
+    <div v-show="!correct" id="answer" style="top: 310px">
+      <v-img src="/svg/question.svg" width="64px" height="64px"></v-img>
+    </div>
+    <div v-show="correct" id="answer">
+      <ShapeSvg :shape="GetMultiplicand" :color="GetMultiplying" />
+      <div id="answer-text">
+        {{ answer_num }}
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +46,14 @@ export default {
       type: String,
       default: '',
     },
+    correct: {
+      type: Boolean,
+      default: false,
+    },
+    answer_num: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     GetMultiplicand() {
@@ -53,7 +61,7 @@ export default {
     },
     GetMultiplying() {
       return this.$store.getters['json/GetMultiplying'](this.multiplying)
-    }
+    },
   },
 }
 </script>
@@ -64,30 +72,30 @@ export default {
   src: url('../assets/font/Graduate-Regular.ttf');
 }
 #multiplicand {
-	position: absolute;
-	top: 96px;
-	left: 6vw;
+  position: absolute;
+  top: 96px;
+  left: 6vw;
 }
 
 #multiplying {
-	position: absolute;
-	top: 96px;
-	right: 4vw;
+  position: absolute;
+  top: 96px;
+  right: 4vw;
 }
 
 #multiplicand-text {
-  font-family: "Graduate";
-	position: absolute;
-	top: 11%;
-	left: 33%;
+  font-family: 'Graduate';
+  position: absolute;
+  top: 11%;
+  left: 33%;
   font-size: 64px;
 }
 
 #multiplying-text {
-  font-family: "Graduate";
-	position: absolute;
-	top: 11%;
-	right: 37%;
+  font-family: 'Graduate';
+  position: absolute;
+  top: 11%;
+  right: 37%;
   font-size: 64px;
 }
 
@@ -143,7 +151,17 @@ export default {
 #answer {
   position: absolute;
   left: 50%;
-  top: 320px;
+  top: 290px;
   transform: translate(-50%);
+}
+
+#answer-text {
+  font-family: 'Graduate';
+  font-size: 40px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
 }
 </style>
