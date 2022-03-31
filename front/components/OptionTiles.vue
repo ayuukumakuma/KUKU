@@ -6,6 +6,8 @@
     width="40vw"
     color="#e0f7fa"
     rounded
+    :disabled="disabled"
+    @click="$emit('click')"
   >
     <ShapeSvg
       :shape="GetMultiplicand"
@@ -33,6 +35,10 @@ export default {
       type: String,
       default: '',
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    }
   },
   computed: {
     GetMultiplicand() {

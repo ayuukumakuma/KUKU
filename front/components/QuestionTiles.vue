@@ -23,7 +23,7 @@
     <div id="equal">
       <div id="equal-content" />
     </div>
-    <div v-show="!correct" id="answer" style="top: 310px">
+    <div v-show="!correct & !wrong" id="answer" style="top: 310px">
       <v-img src="/svg/question.svg" width="64px" height="64px"></v-img>
     </div>
     <div v-show="correct" id="answer">
@@ -32,6 +32,7 @@
         {{ answer_num }}
       </div>
     </div>
+    <div v-show="wrong" id="answer">×</div>
   </div>
 </template>
 
@@ -47,6 +48,10 @@ export default {
       default: '',
     },
     correct: {
+      type: Boolean,
+      default: false,
+    },
+    wrong: {
       type: Boolean,
       default: false,
     },
