@@ -4,8 +4,9 @@
     id="tile"
     height="20vh"
     width="40vw"
-    color="#e0f7fa"
+    color="cLight"
     rounded
+    depressed
     :disabled="disabled"
     @click="$emit('click')"
   >

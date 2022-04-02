@@ -6,35 +6,39 @@
       :multiplicand="String(multiplicandNum)"
       :multiplying="String(multiplyingNum)"
       :correct="isCorrect"
-      :wrong="isWrong"
       :answer_num="String(multiplicandNum * multiplyingNum)"
     />
     <!-- ここからテスト -->
-    <p style="position: absolute; top: 35%">これはテストです。現在setTimeoutを使用し、今後、非同期処理にする予定。
-    </p>
     <div id="test">
       <v-btn
-        style="font-size: 20px"
-        small
-        height="40px"
+        color="secondary"
+        fab
+        outlined
         @click="
           NextQuestion(), reset()
         "
       >
-        リセット
+        <v-icon x-large>
+          mdi-cached
+        </v-icon>
       </v-btn>
-      <div v-if="isWrong">×</div>
     </div>
     <!-- ここまでテスト -->
     <div id="progress">
       <v-progress-circular
         :value="progressNum * 10"
         size="72"
-        rotate="275"
+        rotate="270"
         width="36"
-        color="primary"
+        color="secondary"
       ></v-progress-circular>
       {{ correctNum }}
+    </div>
+    <div v-if="isCorrect" id="answer">
+      <v-img src="/svg/correct.svg" />
+    </div>
+    <div v-if="isWrong" id="answer">
+      <v-img src="/svg/wrong.svg" />
     </div>
     <div id="option-tiles">
       <OptionTiles
@@ -70,6 +74,7 @@
         @click="wrong"
       />
     </div>
+    <div v-if="showPopup" id="bg-cover"></div>
   </div>
 </template>
 
@@ -88,20 +93,27 @@ export default {
       arr: [1, 2, 3, 4],
       isCorrect: false,
       isWrong: false,
-      progressNum: 0,
+      progressNum: 1,
       correctNum: 0,
       disabled: false,
+      showPopup: false,
     }
   },
   mounted() {
-    this.NextQuestion()
+    this.FirstQuestion()
   },
   methods: {
-    NextQuestion(){
+    FirstQuestion(){
       this.SettingQuestion()
       this.DummyAnswer()
       this.NonnegativeRandomNumber()
       this.disabled = false
+      this.isCorrect = false
+      this.isWrong = false
+    },
+    NextQuestion(){
+      this.FirstQuestion()
+      this.showPopup = false
     },
     SettingQuestion() {
       this.multiplicandNum = Math.floor(Math.random() * 9) + 1
@@ -143,26 +155,27 @@ export default {
     reset() {
       this.isCorrect = false
       this.isWrong = false
-      this.progressNum = 0
+      this.progressNum = 1
       this.correctNum = 0
     },
     correct() {
-      if (this.progressNum === 10) {
-        this.reset()
+      if (this.progressNum === 10) this.reset()
+      else {
+        this.progressNum += 1
+        this.correctNum += 1
       }
       this.isCorrect = true
-      this.isWrong = false
-      this.progressNum += 1
-      this.correctNum += 1
       this.disabled = true
-      setTimeout(this.NextQuestion, 2000)
+      this.showPopup = true
+      setTimeout(this.NextQuestion, 1000)
     },
     wrong() {
-      this.isCorrect = false
+      if (this.progressNum === 10) this.reset()
+      else this.progressNum += 1
       this.isWrong = true
-      this.progressNum += 1
       this.disabled = true
-      setTimeout(this.NextQuestion, 2000)
+      this.showPopup = true
+      setTimeout(this.NextQuestion, 1000)
     }
   },
 }
@@ -181,6 +194,17 @@ body {
   left: 8px;
   top: 44%;
 }
+
+#answer {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
 #progress {
   font-family: 'Graduate';
   font-size: 32px;
@@ -190,29 +214,21 @@ body {
   height: 80px;
   width: 80px;
 }
+
 #correct-num {
   position: absolute;
   top: 0;
   left: 0;
   margin: 0;
 }
-#progress-bar {
-  content: '';
-  width: 80px;
-  height: 3px;
-  background: var(--v-sentence-base);
-  font-size: 56px;
-  position: absolute;
-  left: 35%;
-  top: 15%;
-  transform: rotate(-45deg) translate(-50%);
-}
+
 #question-num {
   position: absolute;
   bottom: -4px;
   right: 0;
   margin: 0;
 }
+
 #option-tiles {
   bottom: 16px;
   height: 45%;
@@ -221,5 +237,13 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
+}
+
+#bg-cover {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
 }
 </style>

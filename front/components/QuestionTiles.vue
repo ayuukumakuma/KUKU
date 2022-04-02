@@ -3,7 +3,7 @@
     <div id="multiplicand">
       <v-img
         id="multiplicand-shape"
-        :src="`/svg/shapes/${GetMultiplicand}.svg`"
+        :src="`/svg/shapes/${GetShape}.svg`"
         width="120px"
         height="120px"
       />
@@ -15,7 +15,7 @@
       <div id="cross-content" />
     </div>
     <div id="multiplying">
-      <ColorSvg :color="`${GetMultiplying}`" />
+      <ColorSvg :color="`${GetColor}`" />
       <div id="multiplying-text">
         {{ multiplying }}
       </div>
@@ -23,16 +23,15 @@
     <div id="equal">
       <div id="equal-content" />
     </div>
-    <div v-show="!correct & !wrong" id="answer" style="top: 310px">
+    <div v-show="!correct" id="answer" style="top: 310px">
       <v-img src="/svg/question.svg" width="64px" height="64px"></v-img>
     </div>
     <div v-show="correct" id="answer">
-      <ShapeSvg :shape="GetMultiplicand" :color="GetMultiplying" />
+      <ShapeSvg :shape="GetShape" :color="GetColor" />
       <div id="answer-text">
         {{ answer_num }}
       </div>
     </div>
-    <div v-show="wrong" id="answer">×</div>
   </div>
 </template>
 
@@ -51,20 +50,16 @@ export default {
       type: Boolean,
       default: false,
     },
-    wrong: {
-      type: Boolean,
-      default: false,
-    },
     answer_num: {
       type: String,
       default: '',
     },
   },
   computed: {
-    GetMultiplicand() {
+    GetShape() {
       return this.$store.getters['json/GetMultiplicand'](this.multiplicand)
     },
-    GetMultiplying() {
+    GetColor() {
       return this.$store.getters['json/GetMultiplying'](this.multiplying)
     },
   },
