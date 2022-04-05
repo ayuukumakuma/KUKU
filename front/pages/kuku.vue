@@ -1,8 +1,6 @@
 <template>
   <div>
-    <NavigationBar page="KUKU" back="./menu" />
-
-    <QuestionTiles
+      <QuestionTiles
       :multiplicand="String(multiplicandNum)"
       :multiplying="String(multiplyingNum)"
       :correct="isCorrect"
