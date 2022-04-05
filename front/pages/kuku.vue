@@ -99,6 +99,7 @@ export default {
   },
   mounted() {
     this.FirstQuestion()
+    this.reset()
   },
   methods: {
     FirstQuestion(){
