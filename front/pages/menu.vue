@@ -11,8 +11,8 @@
          <v-col class="px-6 pb-3">
            <v-card
             height="300px"
-            class="content rounded-xl"
-            hover
+            class="content rounded-lg"
+            elevation="0"
             @click="$router.push('./kuku')"
            >
             <v-card-title
@@ -27,8 +27,8 @@
          <v-col class="px-6 pb-3">
            <v-card
             height="150"
-            class="content rounded-xl"
-            hover
+            class="content rounded-lg"
+            elevation="0"
             @click="$router.push('./data')"
            >
             <v-card-title
@@ -43,8 +43,8 @@
          <v-col class="px-6 pb-3">
            <v-card
             height="150"
-            class=" content rounded-xl"
-            hover
+            class=" content rounded-lg"
+            elevation="0"
             @click="$router.push('./test_api')"
            >
              <v-card-title

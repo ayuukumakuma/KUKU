@@ -12,8 +12,9 @@
 		</div>
 		<v-btn
 			id="start-btn"
-			class="rounded-xl sentence--text"
+			class="rounded-lg sentence--text"
 			color="primary"
+			depressed
 			@click="$router.push('./menu')"
 		>
 			はじめる
