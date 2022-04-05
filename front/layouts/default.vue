@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <NavigationBar v-if="$route.path != '/'"/>
       <Nuxt />
     </v-main>
   </v-app>

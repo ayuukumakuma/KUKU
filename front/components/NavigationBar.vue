@@ -8,14 +8,14 @@
         id="back-icon"
         size="56px"
         color="sentence"
-        @click="backPage"
+        @click="$route.name === 'menu' ? $router.push('/') : $router.push('menu')"
       >
         mdi-arrow-left
       </v-icon>
       <div
         id="nav-bar-text"
       >
-        {{ page }}
+        {{ pageName }}
       </div>
     </div>
   </div>
@@ -23,22 +23,25 @@
 <script>
 export default {
   name: "NavigationBar",
-  props: {
-    page: {
-      type: String,
-      default: "",
-    },
-    back: {
-      type: String,
-      default: "",
-    },
-
-  },
-  methods: {
-    backPage() {
-      this.$router.push(this.back)
+  computed: {
+    pageName() {
+      const route = this.$route.name
+      let res = ''
+      if (route === 'menu') {
+        res = 'メニュー'
+      }
+      else if (route === 'data') {
+        res = 'きろく'
+      }
+      else if (route === 'kuku') {
+        res = 'KUKU'
+      }
+      else if (route === 'test_api') {
+        res = 'APIテスト'
+      }
+      return res
     }
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>
