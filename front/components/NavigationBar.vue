@@ -39,6 +39,9 @@ export default {
       else if (route === 'test_api') {
         res = 'APIテスト'
       }
+      else if (route === 'result') {
+        res = 'けっか'
+      }
       return res
     }
   }
