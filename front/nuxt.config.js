@@ -81,7 +81,7 @@ export default {
           sLight: '#fff350',
           sDark: '#c79100',
           content: '#b2ebf2',
-          cLight: "#e0f7fa",
+          cLight: '#e0f7fa',
           sentence: '#212121',
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,

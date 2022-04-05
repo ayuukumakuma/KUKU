@@ -1,5 +1,16 @@
 <template>
   <div>
+    <div id="all-correct">
+      {{
+        getScore === 10
+          ? 'おめでとう!!'
+          : getScore >= 7
+          ? 'おしい!!'
+          : getScore >= 4
+          ? 'いい感じ!!'
+          : '頑張ろう!!'
+      }}
+    </div>
     <div id="answer-group">
       <p id="answer-before"><span>10</span>問中...</p>
       <p id="answer">
@@ -17,7 +28,7 @@
         height="64px"
         depressed
         color="secondary"
-        @click="$router.push('/kuku')"
+        @click="clickEvent('kuku')"
         >もういっかい</v-btn
       >
       <v-btn
@@ -29,7 +40,7 @@
         rounded
         depressed
         color="primary"
-        @click="$router.push('/menu')"
+        @click="clickEvent('menu')"
         >メニューに戻る</v-btn
       >
     </div>
@@ -41,8 +52,14 @@ export default {
   computed: {
     getScore() {
       return this.$store.getters['score/getScore']
-    }
-  }
+    },
+  },
+  methods: {
+    clickEvent(router) {
+      this.$router.push(`/${router}`)
+      this.$store.dispatch('score/resetScore')
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -53,6 +70,16 @@ export default {
 
 body {
   position: relative;
+  margin: 0;
+}
+
+#all-correct {
+  font-size: 56px;
+  position: absolute;
+  top: 128px;
+  width: 100%;
+  text-align: center;
+  color: var(--v-sentence-base);
 }
 
 #answer-group {

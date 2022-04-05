@@ -7,3 +7,21 @@ export const getters = {
     return state.score
   }
 }
+
+export const mutations = {
+  increment(state) {
+    state.score++
+  },
+  reset(state) {
+    state.score = 0
+  }
+}
+
+export const actions = {
+  updateScore(context) {
+    context.commit('increment')
+  },
+  resetScore(context) {
+    context.commit('reset')
+  }
+}

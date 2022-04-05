@@ -6,31 +6,14 @@
       :correct="isCorrect"
       :answer_num="String(multiplicandNum * multiplyingNum)"
     />
-    <!-- ここからテスト -->
-    <div id="test">
-      <v-btn
-        color="secondary"
-        fab
-        outlined
-        @click="
-          NextQuestion(), reset()
-        "
-      >
-        <v-icon x-large>
-          mdi-cached
-        </v-icon>
-      </v-btn>
-    </div>
-    <!-- ここまでテスト -->
     <div id="progress">
       <v-progress-circular
         :value="progressNum * 10"
-        size="72"
+        size="80"
         rotate="270"
-        width="36"
+        width="40"
         color="secondary"
       ></v-progress-circular>
-      {{ correctNum }}
     </div>
     <div v-if="isCorrect" id="answer">
       <v-img src="/svg/correct.svg" />
@@ -92,7 +75,6 @@ export default {
       isCorrect: false,
       isWrong: false,
       progressNum: 1,
-      correctNum: 0,
       disabled: false,
       showPopup: false,
     }
@@ -155,26 +137,33 @@ export default {
       this.isCorrect = false
       this.isWrong = false
       this.progressNum = 1
-      this.correctNum = 0
     },
     correct() {
-      if (this.progressNum === 10) this.reset()
+      if (this.progressNum === 10) {
+        setTimeout(this.toResult, 1000)
+      }
       else {
         this.progressNum += 1
-        this.correctNum += 1
       }
+      this.$store.dispatch('score/updateScore')
       this.isCorrect = true
       this.disabled = true
       this.showPopup = true
       setTimeout(this.NextQuestion, 1000)
     },
     wrong() {
-      if (this.progressNum === 10) this.reset()
+      if (this.progressNum === 10) {
+        setTimeout(this.toResult, 1000)
+      }
       else this.progressNum += 1
       this.isWrong = true
       this.disabled = true
       this.showPopup = true
       setTimeout(this.NextQuestion, 1000)
+    },
+    toResult() {
+      this.$router.push('/result')
+      this.reset()
     }
   },
 }
@@ -205,13 +194,9 @@ body {
 }
 
 #progress {
-  font-family: 'Graduate';
-  font-size: 32px;
   position: absolute;
   top: 40%;
   right: 16px;
-  height: 80px;
-  width: 80px;
 }
 
 #correct-num {
