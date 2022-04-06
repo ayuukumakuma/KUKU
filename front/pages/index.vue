@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="index">
 		<div
 			id="title"
 			class="sentence--text"

@@ -75,6 +75,9 @@ body {
 #menu {
   position: absolute;
   top: 96px;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 600px;
 }
 #title {
   font-size: 40px;
