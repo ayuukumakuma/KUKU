@@ -13,7 +13,7 @@
             height="300px"
             class="content rounded-lg"
             elevation="0"
-            @click="$router.push('./kuku')"
+            @click="$router.push('./kuku'), $store.dispatch('score/resetScore')"
            >
             <v-card-title
               id="title"
