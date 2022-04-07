@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="index">
 		<div
 			id="title"
 			class="sentence--text"
@@ -55,7 +55,7 @@ body {
 #cross {
 	position: absolute;
 	top: 55%;
-	left: 45%;
+	right: 45%;
 	z-index: 0;
 	transform: rotate(-20deg);
 }
