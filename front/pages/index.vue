@@ -19,6 +19,16 @@
 		>
 			はじめる
 		</v-btn>
+		<v-btn
+			id="login-btn"
+			class="rounded-lg"
+			color="content"
+			height="48px"
+			depressed
+			@click="$router.push('./login')"
+		>
+			保護者・教員の方へ
+		</v-btn>
 	</div>
 </template>
 
@@ -100,4 +110,10 @@ body {
 	}
 }
 
+#login-btn {
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+	font-size: 20px;
+}
 </style>

@@ -14,6 +14,5 @@ module.exports = {
   rules: {
     'vue/multi-word-component-names': 'off',
     'vue/prop-name-casing': 'off',
-    'vue/no-console': 'on'
   },
 }

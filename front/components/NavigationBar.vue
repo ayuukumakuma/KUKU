@@ -8,7 +8,7 @@
         id="back-icon"
         size="56px"
         color="sentence"
-        @click="$route.name === 'menu' ? $router.push('/') : $router.push('menu')"
+        @click="$route.name === 'menu' || $route.name === 'login' ? $router.push('/') : $router.push('menu')"
       >
         mdi-arrow-left
       </v-icon>
@@ -41,6 +41,9 @@ export default {
       }
       else if (route === 'result') {
         res = 'けっか'
+      }
+      else if (route === 'login') {
+        res = 'ログイン'
       }
       return res
     }
