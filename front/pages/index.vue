@@ -14,6 +14,7 @@
 			id="start-btn"
 			class="rounded-xl sentence--text"
 			color="primary"
+			depressed
 			@click="$router.push('./menu')"
 		>
 			はじめる

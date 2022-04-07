@@ -12,7 +12,7 @@
            <v-card
             height="300px"
             class="content rounded-xl"
-            hover
+            elevation="0"
             @click="$router.push('./kuku')"
            >
             <v-card-title
@@ -28,7 +28,7 @@
            <v-card
             height="150"
             class="content rounded-xl"
-            hover
+            elevation="0"
             @click="$router.push('./data')"
            >
             <v-card-title
@@ -44,7 +44,7 @@
            <v-card
             height="150"
             class=" content rounded-xl"
-            hover
+            elevation="0"
             @click="$router.push('./test_api')"
            >
              <v-card-title
