@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - front',
-    title: 'front',
+    titleTemplate: '',
+    title: 'KUKU',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -53,13 +53,14 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      lang: 'jp',
     },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     theme: {
       dark: false,
       themes: {
@@ -74,12 +75,13 @@ export default {
         },
         light: {
           primary: '#00bcd4',
-          plight: '#62efff',
-          pdark: '#008ba3',
+          pLight: '#62efff',
+          pDark: '#008ba3',
           secondary: '#ffc107',
-          slight: '#fff350',
-          sdark: '#c79100',
+          sLight: '#fff350',
+          sDark: '#c79100',
           content: '#b2ebf2',
+          cLight: '#e0f7fa',
           sentence: '#212121',
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
