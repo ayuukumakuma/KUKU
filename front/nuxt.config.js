@@ -39,7 +39,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    ['@nuxtjs/dotenv', { path: '/.env' }],
+    ['@nuxtjs/dotenv', { path: './' }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
