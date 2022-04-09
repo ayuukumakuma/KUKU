@@ -77,7 +77,7 @@
       </v-row>
       <v-row>
         <v-col style="text-align: center" class="py-0">
-          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight">
+          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="loginGoogle">
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
           </v-btn>
@@ -88,6 +88,7 @@
 </template>
 
 <script>
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 export default {
   data() {
     return {
@@ -105,6 +106,26 @@ export default {
         max: (v) => v.length <= 16 || '最大16桁です',
         emailMatch: () => `入力したメールアドレスとパスワードが一致しません`,
       },
+    }
+  },
+  mounted() {
+    console.log(process.env.apiKey)
+    console.log(process.env.authDomain)
+    console.log(process.env.projectId)
+    console.log(process.env.storageBucket)
+    console.log(process.env.messagingSenderId)
+    console.log(process.env.appId)
+    console.log(process.env.measurementId)
+  },
+  methods: {
+    loginGoogle() {
+      const provider = new GoogleAuthProvider()
+      const auth = getAuth()
+      signInWithPopup(auth, provider).then(() => {
+        this.$router.push({ path: '/' })
+      }).catch((error) => {
+        console.error(error)
+      })
     }
   },
 }
