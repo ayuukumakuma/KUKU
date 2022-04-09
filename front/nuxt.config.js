@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-require('dotenv').config()
+require('dotenv').config();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -39,6 +39,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    ['@nuxtjs/dotenv', { path: '/.env' }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -106,6 +107,7 @@ export default {
       poll: true,
     },
   },
+
   env: {
     apiKey: process.env.apiKey || '',
     authDomain: process.env.authDomain || '',
@@ -114,5 +116,9 @@ export default {
     messagingSenderId: process.env.messagingSenderId || '',
     appId: process.env.appId || '',
     measurementId: process.env.measurementId || '',
-  }
+  },
+
+  dotenv: {
+    path: process.cwd()
+  },
 }
