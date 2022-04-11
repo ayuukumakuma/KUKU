@@ -77,7 +77,7 @@
       </v-row>
       <v-row>
         <v-col style="text-align: center" class="py-0">
-          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="login">
+          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="googleLogin(), update()">
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
           </v-btn>
@@ -88,7 +88,6 @@
 </template>
 
 <script>
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 export default {
   data() {
     return {
@@ -108,16 +107,16 @@ export default {
       },
     }
   },
+  mounted() {
+    this.$store.dispatch("auth/userInfoInit")
+  },
   methods: {
-    async login() {
-      const provider = new GoogleAuthProvider()
-      const auth = getAuth()
-      await signInWithPopup(auth, provider).then(() => {
-        this.$router.push({ path: '/' })
-      }).catch((error) => {
-        console.error(error)
-      })
-    }
+    googleLogin() {
+      this.$store.dispatch("auth/googleAuthLogin")
+    },
+    update() {
+      this.$store.dispatch("auth/updateUserInfo")
+    },
   },
 }
 </script>
