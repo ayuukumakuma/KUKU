@@ -77,7 +77,7 @@
       </v-row>
       <v-row>
         <v-col style="text-align: center" class="py-0">
-          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="loginGoogle">
+          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="login">
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
           </v-btn>
@@ -109,10 +109,10 @@ export default {
     }
   },
   methods: {
-    loginGoogle() {
+    async login() {
       const provider = new GoogleAuthProvider()
       const auth = getAuth()
-      signInWithPopup(auth, provider).then(() => {
+      await signInWithPopup(auth, provider).then(() => {
         this.$router.push({ path: '/' })
       }).catch((error) => {
         console.error(error)
