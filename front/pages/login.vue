@@ -17,7 +17,6 @@
             :rules="[
               emailRules.required,
               emailRules.format,
-              emailRules.passwordMatch,
             ]"
             label="メールアドレス"
             hint="メールアドレスを入力してください"
@@ -36,7 +35,6 @@
               passwordRules.required,
               passwordRules.min,
               passwordRules.max,
-              passwordRules.emailMatch,
             ]"
             :type="show ? 'text' : 'password'"
             label="パスワード"
@@ -55,6 +53,7 @@
             height="72px"
             color="primary"
             depressed
+            @click="createUser(), update()"
           >
             <div id="button-text">新規登録</div>
           </v-btn>
@@ -65,6 +64,7 @@
             height="72px"
             color="secondary"
             depressed
+            @click="loginUser(), update()"
           >
             <div id="button-text">ログイン</div>
           </v-btn>
@@ -77,7 +77,7 @@
       </v-row>
       <v-row>
         <v-col style="text-align: center" class="py-0">
-          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="googleLogin(), update()">
+          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="googleLogin(), updateGoogle()">
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
           </v-btn>
@@ -97,26 +97,35 @@ export default {
       emailRules: {
         required: (v) => !!v || '入力してください',
         format: (v) => /.+@.+/.test(v) || '正しい形式で入力してください',
-        passwordMatch: () => `入力したメールアドレスとパスワードが一致しません`,
       },
       passwordRules: {
         required: (v) => !!v || '入力してください',
         min: (v) => v.length >= 8 || '8桁以上にしてください',
         max: (v) => v.length <= 16 || '最大16桁です',
-        emailMatch: () => `入力したメールアドレスとパスワードが一致しません`,
       },
     }
   },
-  mounted() {
+  created() {
     this.$store.dispatch("auth/userInfoInit")
   },
   methods: {
     googleLogin() {
       this.$store.dispatch("auth/googleAuthLogin")
     },
+    updateGoogle() {
+      this.$store.dispatch("auth/googleUpdateUserInfo")
+    },
     update() {
       this.$store.dispatch("auth/updateUserInfo")
     },
+    createUser() {
+      this.$store.dispatch("auth/createUser", { email: this.email, password: this.password })
+      console.log(this.email, this.password)
+    },
+    loginUser() {
+      this.$store.dispatch("auth/loginUser", { email: this.email, password: this.password })
+      console.log(this.email, this.password)
+    }
   },
 }
 </script>

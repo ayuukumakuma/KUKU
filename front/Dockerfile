@@ -16,7 +16,8 @@ ENV HOME=/${WORKDIR} \
 # 作業ディレクトリ設定
 WORKDIR ${HOME}
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 RUN yarn install
 # ルートディレクトリをまんまコンテナにコピー
 COPY . .
