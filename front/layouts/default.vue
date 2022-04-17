@@ -13,6 +13,14 @@ export default {
   data() {
     return {}
   },
+  head: {
+    htmlAttrs: {
+      class: 'html-class'
+    },
+    bodyAttrs: {
+      class: 'body-class'
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

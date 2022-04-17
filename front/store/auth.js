@@ -1,18 +1,32 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth'
 
-import firebaseApp  from '~/plugins/firebase'
+import firebaseApp from '~/plugins/firebase'
 
 const auth = getAuth(firebaseApp)
 
 export const state = () => ({
   isLogin: false, // ログイン状態
-  user: null // ログイン情報
+  user: {
+    uid: '',
+    displayName: '',
+    email: '',
+    emailVerified: '',
+    photoURL: '',
+  }, // ログイン情報
 })
 
 export const getters = {
   // "!!"で真偽値に変換している
-  isLogin: state => state.isLogin,
-  userInfo: state => state.user
+  isLogin: (state) => state.isLogin,
+  userInfo: (state) => state.user,
 }
 
 export const mutations = {
@@ -21,12 +35,18 @@ export const mutations = {
   },
   updateUserInfo(state, status) {
     state.user = status
-  }
+  },
 }
 
 export const actions = {
   userInfoInit({ commit }) {
-    commit('updateUserInfo', null)
+    commit('updateUserInfo', {
+      uid: '',
+      displayName: '',
+      email: '',
+      emailVerified: '',
+      photoURL: '',
+    })
     commit('updateIsLogin', false)
   },
 
@@ -35,19 +55,19 @@ export const actions = {
     await signInWithPopup(auth, provider)
       .then((res) => {
         commit('updateIsLogin', true)
-        console.log("Success: login")
-        this.$router.push('/auth_test')
+        console.log('Success: login')
+        this.$router.push('/menu')
       })
       .catch((err) => {
-        console.error("Error: " + err.code)
+        console.error('Error: ' + err.code)
       })
   },
 
   async loginUser({ commit }, { email, password }) {
-     await signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log("Success: createUser")
-        this.$router.push('/auth_test')
+        console.log('Success: createUser')
+        this.$router.push('/menu')
       })
       .catch((err) => {
         const errorCode = err.code
@@ -56,10 +76,11 @@ export const actions = {
       })
   },
   async createUser({ commit }, { email, password }) {
-     await createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log("Success: createUser")
-        this.$router.push('/auth_test')
+        commit('updateIsLogin', true)
+        console.log('Success: createUser')
+        this.$router.push('/menu')
       })
       .catch((err) => {
         const errorCode = err.code
@@ -70,16 +91,37 @@ export const actions = {
 
   async logout({ commit }) {
     await signOut(auth)
-      .then(() => {
-        console.log("Success: Logout")
+      .then((res) => {
+        console.log('Success: Logout')
         commit('updateIsLogin', false)
+        commit('updateUserInfo', {
+          uid: '',
+          displayName: '',
+          email: '',
+          emailVerified: '',
+          photoURL: '',
+        })
       })
       .catch((err) => {
-        console.error("Error: " + err.code)
+        console.error('Error: ' + err.code)
       })
   },
 
-  async googleUpdateUserInfo({ commit }) {
+  async stateChanged({ commit }, { userName }) {
+    await onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const userInfo = {
+          uid: user.uid,
+          displayName: userName,
+          email: user.email,
+          emailVerified: user.emailVerified,
+          photoURL: user.photoURL,
+        }
+        commit('updateUserInfo', userInfo)
+      }
+    })
+  },
+  async googleStateChanged({ commit }) {
     await onAuthStateChanged(auth, (user) => {
       if (user) {
         const userInfo = {
@@ -87,24 +129,10 @@ export const actions = {
           displayName: user.displayName,
           email: user.email,
           emailVerified: user.emailVerified,
+          photoURL: user.photoURL,
         }
         commit('updateUserInfo', userInfo)
       }
     })
   },
-
-  async updateUserInfo({ commit }) {
-    await onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const userInfo = {
-          uid: user.uid,
-          displayName: user.email,
-          email: user.email,
-          emailVerified: user.emailVerified,
-        }
-        commit('updateUserInfo', userInfo)
-      }
-    })
-  }
-
 }

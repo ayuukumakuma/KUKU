@@ -9,7 +9,19 @@
           </p>
         </v-col>
       </v-row>
-      <v-row class="py-1 mt-10">
+      <v-row class="py-1">
+        <v-col>
+          <v-text-field
+            v-model="userName"
+            class="rounded-lg"
+            label="ニックネーム"
+            hint="ニックネームを入力してください"
+            outlined
+          >
+          </v-text-field>
+        </v-col>
+      </v-row>
+      <v-row class="py-1">
         <v-col>
           <v-text-field
             v-model="email"
@@ -94,6 +106,7 @@ export default {
       show: false,
       email: '',
       password: '',
+      userName: '',
       emailRules: {
         required: (v) => !!v || '入力してください',
         format: (v) => /.+@.+/.test(v) || '正しい形式で入力してください',
@@ -113,10 +126,10 @@ export default {
       this.$store.dispatch("auth/googleAuthLogin")
     },
     updateGoogle() {
-      this.$store.dispatch("auth/googleUpdateUserInfo")
+      this.$store.dispatch("auth/googleStateChanged")
     },
     update() {
-      this.$store.dispatch("auth/updateUserInfo")
+      this.$store.dispatch("auth/stateChanged", { userName: this.userName })
     },
     createUser() {
       this.$store.dispatch("auth/createUser", { email: this.email, password: this.password })
@@ -134,7 +147,7 @@ export default {
 #explanation {
   padding: 0 24px;
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 #google-img {
