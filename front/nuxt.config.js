@@ -1,10 +1,13 @@
+import colors from 'vuetify/es5/util/colors'
+require('dotenv').config();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'front',
+    titleTemplate: '',
+    title: 'KUKU',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [ '@/plugins/firebase.js' ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -29,6 +32,9 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    // https://go.nuxtjs.dev/vuetify
+    '@nuxtjs/vuetify',
+    // ['@nuxtjs/dotenv', { path: './' }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -37,6 +43,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // '@nuxtjs/dotenv'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -48,10 +55,65 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      lang: 'jp',
+    },
+  },
+
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+    theme: {
+      dark: false,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+        },
+        light: {
+          primary: '#00bcd4',
+          pLight: '#62efff',
+          pDark: '#008ba3',
+          secondary: '#ffc107',
+          sLight: '#fff350',
+          sDark: '#c79100',
+          content: '#b2ebf2',
+          cLight: '#e0f7fa',
+          sentence: '#212121',
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+        },
+      },
+      options: { customProperties: true },
     },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: { hardSource: true },
+
+  watchers: {
+    webpack: {
+      poll: true,
+    },
+  },
+
+  env: {
+    apiKey: process.env.apiKey || '',
+    authDomain: process.env.authDomain || '',
+    projectId: process.env.projectId || '',
+    storageBucket: process.env.storageBucket || '',
+    messagingSenderId: process.env.messagingSenderId || '',
+    appId: process.env.appId || '',
+    measurementId: process.env.measurementId || '',
+  },
+
+  dotenv: {
+    path: process.cwd()
+  },
 }

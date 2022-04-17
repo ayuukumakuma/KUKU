@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "color": "#918D91",
+    "shape": "circle"
+  },
+  {
+    "id": "2",
+    "color": "#FF0030",
+    "shape": "drop"
+  },
+  {
+    "id": "3",
+    "color": "#00C2FF",
+    "shape": "heart"
+  },
+  {
+    "id": "4",
+    "color": "#7AE000",
+    "shape": "hexagon"
+  },
+  {
+    "id": "5",
+    "color": "#AD00D3",
+    "shape": "pentagon"
+  },
+  {
+    "id": "6",
+    "color": "#EDF400",
+    "shape": "rhombus"
+  },
+  {
+    "id": "7",
+    "color": "#F46E00",
+    "shape": "square"
+  },
+  {
+    "id": "8",
+    "color": "#0062F4",
+    "shape": "star"
+  },
+  {
+    "id": "9",
+    "color": "#F400B1",
+    "shape": "triangle"
+  }
+]
