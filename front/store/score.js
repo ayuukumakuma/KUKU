@@ -1,11 +1,11 @@
 export const state = () => ({
-  score: 0
+  score: 0,
 })
 
 export const getters = {
   getScore(state) {
     return state.score
-  }
+  },
 }
 
 export const mutations = {
@@ -14,7 +14,7 @@ export const mutations = {
   },
   reset(state) {
     state.score = 0
-  }
+  },
 }
 
 export const actions = {
@@ -23,5 +23,5 @@ export const actions = {
   },
   resetScore(context) {
     context.commit('reset')
-  }
+  },
 }

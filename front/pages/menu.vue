@@ -47,7 +47,11 @@
                 <v-img v-else-if="userInfo.photoURL" :src="userInfo.photoURL" />
                 <v-icon v-else x-large> mdi-account </v-icon>
               </v-avatar>
-              <p>{{ !userInfo.displayName ? '未ログイン' : userInfo.displayName }}</p>
+              <p>
+                {{
+                  !userInfo.displayName ? '未ログイン' : userInfo.displayName
+                }}
+              </p>
             </div>
           </v-card>
         </v-col>
