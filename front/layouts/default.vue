@@ -3,6 +3,7 @@
     <v-main>
       <NavigationBar v-if="$route.path != '/'" />
       <Nuxt />
+      <SnackBar />
     </v-main>
   </v-app>
 </template>

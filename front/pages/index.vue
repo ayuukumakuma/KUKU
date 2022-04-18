@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="index">
 		<div
 			id="title"
 			class="sentence--text"
@@ -38,6 +38,13 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+#index {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
 #title {
 	font-size: 72px;
 	position: absolute;

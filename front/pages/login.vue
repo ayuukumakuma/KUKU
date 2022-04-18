@@ -26,10 +26,7 @@
           <v-text-field
             v-model="email"
             class="rounded-lg"
-            :rules="[
-              emailRules.required,
-              emailRules.format,
-            ]"
+            :rules="[emailRules.required, emailRules.format]"
             label="メールアドレス"
             hint="メールアドレスを入力してください"
             outlined
@@ -89,7 +86,13 @@
       </v-row>
       <v-row>
         <v-col style="text-align: center" class="py-0">
-          <v-btn class="rounded-lg pt-1" height="72px" depressed color="cLight" @click="googleLogin(), updateGoogle()">
+          <v-btn
+            class="rounded-lg pt-1"
+            height="72px"
+            depressed
+            color="cLight"
+            @click="googleLogin(), updateGoogle()"
+          >
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
           </v-btn>
@@ -119,26 +122,32 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch("auth/userInfoInit")
+    this.$store.dispatch('auth/userInfoInit')
   },
   methods: {
     googleLogin() {
-      this.$store.dispatch("auth/googleAuthLogin")
+      this.$store.dispatch('auth/googleAuthLogin')
     },
     updateGoogle() {
-      this.$store.dispatch("auth/googleStateChanged")
+      this.$store.dispatch('auth/googleStateChanged')
     },
     update() {
-      this.$store.dispatch("auth/stateChanged", { userName: this.userName })
+      this.$store.dispatch('auth/stateChanged', { userName: this.userName })
     },
     createUser() {
-      this.$store.dispatch("auth/createUser", { email: this.email, password: this.password })
+      this.$store.dispatch('auth/createUser', {
+        email: this.email,
+        password: this.password,
+      })
       console.log(this.email, this.password)
     },
     loginUser() {
-      this.$store.dispatch("auth/loginUser", { email: this.email, password: this.password })
+      this.$store.dispatch('auth/loginUser', {
+        email: this.email,
+        password: this.password,
+      })
       console.log(this.email, this.password)
-    }
+    },
   },
 }
 </script>
