@@ -9,73 +9,30 @@
           </p>
         </v-col>
       </v-row>
-      <v-row class="py-1">
-        <v-col>
-          <v-text-field
-            v-model="userName"
-            class="rounded-lg"
-            label="ニックネーム"
-            hint="ニックネームを入力してください"
-            outlined
-          >
-          </v-text-field>
-        </v-col>
-      </v-row>
-      <v-row class="py-1">
-        <v-col>
-          <v-text-field
-            v-model="email"
-            class="rounded-lg"
-            :rules="[emailRules.required, emailRules.format]"
-            label="メールアドレス"
-            hint="メールアドレスを入力してください"
-            outlined
-          >
-          </v-text-field>
-        </v-col>
-      </v-row>
-      <v-row class="py-1">
-        <v-col>
-          <v-text-field
-            v-model="password"
-            class="rounded-lg"
-            :append-icon="!show ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[
-              passwordRules.required,
-              passwordRules.min,
-              passwordRules.max,
-            ]"
-            :type="show ? 'text' : 'password'"
-            label="パスワード"
-            hint="最大16桁"
-            counter
-            outlined
-            @click:append="show = !show"
-          >
-          </v-text-field>
-        </v-col>
-      </v-row>
+      <AuthForm />
       <v-row>
-        <v-col style="text-align: center" class="py-0">
+        <v-col style="text-align: center;" class="py-0">
           <v-btn
+            style="font-size: 20px;"
             class="rounded-lg pt-1"
-            height="72px"
+            height="56px"
             color="primary"
             depressed
             @click="createUser(), update()"
           >
-            <div id="button-text">新規登録</div>
+            新規登録
           </v-btn>
         </v-col>
         <v-col style="text-align: center" class="py-0">
           <v-btn
+            style="font-size: 20px;"
             class="rounded-lg pt-1"
-            height="72px"
+            height="56px"
             color="secondary"
             depressed
             @click="loginUser(), update()"
           >
-            <div id="button-text">ログイン</div>
+            ログイン
           </v-btn>
         </v-col>
       </v-row>
@@ -105,21 +62,7 @@
 <script>
 export default {
   data() {
-    return {
-      show: false,
-      email: '',
-      password: '',
-      userName: '',
-      emailRules: {
-        required: (v) => !!v || '入力してください',
-        format: (v) => /.+@.+/.test(v) || '正しい形式で入力してください',
-      },
-      passwordRules: {
-        required: (v) => !!v || '入力してください',
-        min: (v) => v.length >= 8 || '8桁以上にしてください',
-        max: (v) => v.length <= 16 || '最大16桁です',
-      },
-    }
+    return {}
   },
   created() {
     this.$store.dispatch('auth/userInfoInit')
