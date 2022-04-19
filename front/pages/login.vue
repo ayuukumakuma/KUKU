@@ -11,32 +11,6 @@
       </v-row>
       <AuthForm />
       <v-row>
-        <v-col style="text-align: center;" class="py-0">
-          <v-btn
-            style="font-size: 20px;"
-            class="rounded-lg pt-1"
-            height="56px"
-            color="primary"
-            depressed
-            @click="createUser(), update()"
-          >
-            新規登録
-          </v-btn>
-        </v-col>
-        <v-col style="text-align: center" class="py-0">
-          <v-btn
-            style="font-size: 20px;"
-            class="rounded-lg pt-1"
-            height="56px"
-            color="secondary"
-            depressed
-            @click="loginUser(), update()"
-          >
-            ログイン
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-row>
         <v-col class="pt-6">
           <p style="text-align: center; font-size: 18px">または</p>
         </v-col>
@@ -73,23 +47,6 @@ export default {
     },
     updateGoogle() {
       this.$store.dispatch('auth/googleStateChanged')
-    },
-    update() {
-      this.$store.dispatch('auth/stateChanged', { userName: this.userName })
-    },
-    createUser() {
-      this.$store.dispatch('auth/createUser', {
-        email: this.email,
-        password: this.password,
-      })
-      console.log(this.email, this.password)
-    },
-    loginUser() {
-      this.$store.dispatch('auth/loginUser', {
-        email: this.email,
-        password: this.password,
-      })
-      console.log(this.email, this.password)
     },
   },
 }

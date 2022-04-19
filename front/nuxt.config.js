@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-require('dotenv').config();
+require('dotenv').config()
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [ '@/plugins/firebase.js' ],
+  plugins: ['@/plugins/firebase.js', '@/plugins/vuelidate.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -114,6 +114,6 @@ export default {
   },
 
   dotenv: {
-    path: process.cwd()
+    path: process.cwd(),
   },
 }
