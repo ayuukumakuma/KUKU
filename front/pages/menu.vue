@@ -12,7 +12,7 @@
           >
             <v-card-title id="title">
               <v-icon x-large color="sentence">mdi-controller-classic</v-icon>
-              <h3 class="pl-2">KUKU</h3>
+              <h4 class="pl-2">KUKU</h4>
             </v-card-title>
           </v-card>
         </v-col>
@@ -27,7 +27,7 @@
           >
             <v-card-title id="title">
               <v-icon x-large color="sentence">mdi-clipboard-text</v-icon>
-              <h3 class="pl-2">きろく</h3>
+              <h4 class="pl-2">きろく</h4>
             </v-card-title>
           </v-card>
         </v-col>
@@ -39,26 +39,44 @@
             height="150"
             class="content rounded-lg"
             elevation="0"
-            @click="$router.push(isLogin ? './auth_test' : './login')"
+            @click="$router.push(isLogin ? '' : './login')"
           >
-            <div>
-              <v-card-title id="title">
-                <v-icon x-large color="sentence">mdi-account-circle</v-icon>
-                <h3 class="pl-2">アカウント</h3>
-              </v-card-title>
-            </div>
-            <div id="account">
-              <v-avatar color="cLight" size="80">
-                <v-icon v-if="!isLogin" x-large> mdi-account-off </v-icon>
-                <v-img v-else-if="userInfo.photoURL" :src="userInfo.photoURL" />
-                <v-icon v-else x-large> mdi-account </v-icon>
-              </v-avatar>
-              <p>
-                {{
-                  !userInfo.displayName ? '未ログイン' : userInfo.displayName
-                }}
-              </p>
-            </div>
+            <v-avatar
+              id="avatar"
+              size="100px"
+              color="cLight"
+              class="rounded-lg py-auto"
+            >
+              <v-icon v-if="!isLogin" x-large color="sentence">
+                mdi-account-off
+              </v-icon>
+              <v-img v-else-if="userInfo.photoURL" :src="userInfo.photoURL" />
+              <v-icon v-else x-large> mdi-account </v-icon>
+            </v-avatar>
+            <v-card-text v-show="isLogin" id="avatar-text" class="px-0">
+              <span>{{ userInfo.displayName }}</span
+              ><br />
+              がログイン中
+            </v-card-text>
+            <v-card-text v-show="!isLogin" id="avatar-text" class="px-0">
+              ログイン<br />してもらおう!
+            </v-card-text>
+            <v-menu offset-y transition="slide-y-transition">
+              <template #activator="{ on, attrs }">
+                <v-btn
+                  v-show="isLogin"
+                  id="logout-btn"
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item @click="logout()"> ログアウト </v-list-item>
+              </v-list>
+            </v-menu>
           </v-card>
         </v-col>
       </v-row>
@@ -69,7 +87,9 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      showLogoutMenu: false,
+    }
   },
   computed: {
     userInfo() {
@@ -77,6 +97,11 @@ export default {
     },
     isLogin() {
       return this.$store.getters['auth/isLogin']
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout')
     },
   },
 }
@@ -95,11 +120,25 @@ body {
 }
 #title {
   font-size: 32px;
+  display: flex;
 }
-#account {
-  margin: 24px 24px 0 auto;
-  p {
-    text-align: center;
+#avatar {
+  margin: auto 16px;
+}
+
+#avatar-text {
+  font-size: 24px;
+  margin: auto;
+  color: var(--v-base-sentence);
+  text-align: center;
+  span {
+    font-size: 32px;
   }
+}
+
+#logout-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
 </style>
