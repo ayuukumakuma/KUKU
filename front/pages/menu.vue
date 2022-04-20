@@ -10,7 +10,10 @@
             elevation="0"
             @click="$router.push('./kuku'), $store.dispatch('score/resetScore')"
           >
-            <v-card-title id="title"> KUKU </v-card-title>
+            <v-card-title id="title">
+              <v-icon x-large color="sentence">mdi-controller-classic</v-icon>
+              <h3 class="pl-2">KUKU</h3>
+            </v-card-title>
           </v-card>
         </v-col>
       </v-row>
@@ -22,7 +25,10 @@
             elevation="0"
             @click="$router.push('./data')"
           >
-            <v-card-title id="title"> きろく </v-card-title>
+            <v-card-title id="title">
+              <v-icon x-large color="sentence">mdi-clipboard-text</v-icon>
+              <h3 class="pl-2">きろく</h3>
+            </v-card-title>
           </v-card>
         </v-col>
       </v-row>
@@ -36,10 +42,10 @@
             @click="$router.push(isLogin ? './auth_test' : './login')"
           >
             <div>
-              <v-card-title id="title"> アカウント </v-card-title>
-              <v-card-subtitle style="font-size: 16px">
-                {{ isLogin ? '編集とか' : 'ログインしてね' }}
-              </v-card-subtitle>
+              <v-card-title id="title">
+                <v-icon x-large color="sentence">mdi-account-circle</v-icon>
+                <h3 class="pl-2">アカウント</h3>
+              </v-card-title>
             </div>
             <div id="account">
               <v-avatar color="cLight" size="80">
@@ -53,18 +59,6 @@
                 }}
               </p>
             </div>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col class="px-6 pb-3">
-          <v-card
-            height="150"
-            class="content rounded-lg"
-            elevation="0"
-            @click="$router.push('./test_api')"
-          >
-            <v-card-title id="title"> API </v-card-title>
           </v-card>
         </v-col>
       </v-row>
