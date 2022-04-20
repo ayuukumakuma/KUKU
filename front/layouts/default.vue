@@ -14,14 +14,6 @@ export default {
   data() {
     return {}
   },
-  head: {
-    htmlAttrs: {
-      class: 'html-class'
-    },
-    bodyAttrs: {
-      class: 'body-class'
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>
@@ -32,6 +24,15 @@ export default {
 @font-face {
   font-family: 'Graduate';
   src: url('../assets/font/Graduate-Regular.ttf');
+}
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
 }
 .v-application {
   font-family: 'Makinas-sq';
