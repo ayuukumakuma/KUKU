@@ -2,7 +2,7 @@
   <div>
     <v-container style="display: flex; justify-content: center;">
       <v-row  id="menu">
-        <v-col cols="12" md="6" class="px-0">
+        <v-col cols="12" md="6" class="px-3">
           <v-card
             id="kuku"
             class="content rounded-lg"
@@ -15,7 +15,7 @@
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="12" md="6" class="px-0">
+        <v-col cols="12" md="6" class="px-3">
           <v-row>
             <v-col>
               <v-card
