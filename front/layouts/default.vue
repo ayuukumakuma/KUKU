@@ -25,14 +25,9 @@ export default {
   font-family: 'Graduate';
   src: url('../assets/font/Graduate-Regular.ttf');
 }
-@supports (-webkit-touch-callout: none) {
-  html {
-    height: -webkit-fill-available;
-  }
-  body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
+body {
+  height: 100vh;
+  height: 100dvh;
 }
 .v-application {
   font-family: 'Makinas-sq';
