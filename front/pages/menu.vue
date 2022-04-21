@@ -72,7 +72,7 @@
                       v-bind="attrs"
                       v-on="on"
                     >
-                      <v-icon>mdi-dots-vertical</v-icon>
+                      <v-icon>mdi-dots-horizontal</v-icon>
                     </v-btn>
                   </template>
                   <v-list>
@@ -118,12 +118,12 @@ body {
 #menu {
   width: 90%;
   position: absolute;
-  top: 104px;
+  top: 96px;
   #kuku {
-    height: 86vh;
+    height: 84vh;
   }
   #data {
-    height: calc(66vh - 12px);
+    height: calc(64vh - 12px);
   }
   #account {
     height: calc(20vh - 12px);
@@ -138,30 +138,29 @@ body {
 }
 
 #avatar-text {
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 1.2em;
-  letter-spacing: .25em;
+  letter-spacing: 0.2em;
   margin: auto;
   color: var(--v-base-sentence);
-  text-align: center;
   span {
-    font-size: 32px;
+    font-size: 1.5em;
   }
 }
 
 #logout-btn {
   position: absolute;
   right: 8px;
-  top: 8px;
+  top: 4px;
 }
 
 @media screen and (max-width: 960px) {
   #menu {
     #kuku {
-      height: 33vh;
+      height: 30vh;
     }
     #data {
-      height: 33vh;
+      height: 30vh;
     }
     #account {
       height: 15vh;

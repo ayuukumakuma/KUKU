@@ -1,7 +1,7 @@
 <template>
   <form>
     <v-row>
-      <v-col class="px-4 pt-0 pb-6">
+      <v-col class="px-4 py-6">
         <v-text-field
           v-model="form.userName"
           class="rounded-lg"
@@ -100,19 +100,6 @@
           @click="createUser(), update()"
         >
           新規登録
-        </v-btn>
-      </v-col>
-      <v-col style="text-align: center" class="py-0">
-        <v-btn
-          style="font-size: 20px"
-          class="rounded-lg pt-1"
-          height="56px"
-          color="secondary"
-          depressed
-          :disabled="changeDisable"
-          @click="loginUser(), update()"
-        >
-          ログイン
         </v-btn>
       </v-col>
     </v-row>
