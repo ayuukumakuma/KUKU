@@ -36,14 +36,14 @@ export default {
       else if (route === 'kuku') {
         res = 'KUKU'
       }
-      else if (route === 'test_api') {
-        res = 'APIテスト'
-      }
       else if (route === 'result') {
         res = 'けっか'
       }
       else if (route === 'login') {
         res = 'ログイン'
+      }
+      else if (route === 'new-account') {
+        res = '新規登録'
       }
       return res
     }

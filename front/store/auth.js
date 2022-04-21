@@ -66,6 +66,7 @@ export const actions = {
   async loginUser({ commit }, { email, password }) {
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        commit('updateIsLogin', true)
         console.log('Success: createUser')
         this.$router.push('/menu')
       })

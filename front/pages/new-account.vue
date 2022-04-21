@@ -2,16 +2,7 @@
   <v-form style="margin-top: 68px" lazy-validation>
     <v-container>
       <v-row>
-        <v-col>
-          <p id="explanation" class="pt-3 mb-0">
-            --- 保護者・教員の方へ ---<br />ログインするとプレイヤーの学習状況を<br />
-            記録、管理、閲覧することが<br />出来るようになります。
-          </p>
-        </v-col>
-      </v-row>
-     <v-row id="divider"/>
-      <v-row>
-        <v-col style="text-align: center" class="pt-0">
+        <v-col style="text-align: center" class="pt-8">
           <v-btn
             class="rounded-lg pt-1"
             height="72px"
@@ -20,25 +11,14 @@
             @click="googleLogin(), updateGoogle()"
           >
             <GoogleImg id="google-img" />
-            <div id="button-text"><span>Google</span>でログイン</div>
+            <div id="button-text"><span>Google</span>で新規登録</div>
           </v-btn>
         </v-col>
       </v-row>
       <v-row>
         <v-col id="or-text"> または </v-col>
       </v-row>
-      <AuthFormLogin />
-      <v-row id="divider"/>
-      <v-row style="display: flex; justify-content: center;">
-        <v-btn
-        id="create-user"
-        class="rounded-lg"
-        depressed
-        @click="$router.push('./new-account')"
-      >
-        新規登録はこちらから
-      </v-btn>
-      </v-row>
+      <AuthFormNewAccount />
     </v-container>
   </v-form>
 </template>
