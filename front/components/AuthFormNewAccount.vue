@@ -185,14 +185,12 @@ export default {
         email: this.form.email,
         password: this.form.password,
       })
-      console.log(this.form.email, this.form.password)
     },
     loginUser() {
       this.$store.dispatch('auth/loginUser', {
         email: this.form.email,
         password: this.form.password,
       })
-      console.log(this.form.email, this.form.password)
     },
   }
 }

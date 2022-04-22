@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from 'firebase/auth'
 
 import firebaseApp from '~/plugins/firebase'
@@ -18,13 +19,12 @@ export const state = () => ({
     uid: '',
     displayName: '',
     email: '',
-    emailVerified: '',
+    emailVerified: false,
     photoURL: '',
   }, // ログイン情報
 })
 
 export const getters = {
-  // "!!"で真偽値に変換している
   isLogin: (state) => state.isLogin,
   userInfo: (state) => state.user,
 }
@@ -36,6 +36,9 @@ export const mutations = {
   updateUserInfo(state, status) {
     state.user = status
   },
+  updateUserVerified(state, verified) {
+    state.user.emailVerified = verified
+  }
 }
 
 export const actions = {
@@ -44,7 +47,7 @@ export const actions = {
       uid: '',
       displayName: '',
       email: '',
-      emailVerified: '',
+      emailVerified: false,
       photoURL: '',
     })
     commit('updateIsLogin', false)
@@ -63,12 +66,21 @@ export const actions = {
       })
   },
 
-  async loginUser({ commit }, { email, password }) {
+  async loginUser({ commit, dispatch }, { email, password }) {
     await signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        commit('updateIsLogin', true)
-        console.log('Success: createUser')
-        this.$router.push('/menu')
+      .then((res) => {
+        if (res.user.emailVerified) {
+          commit('updateIsLogin', true)
+          console.log('Success: createUser')
+          console.log(res)
+          this.$router.push('/menu')
+        } else {
+          dispatch('checkVerified')
+          commit('updateIsLogin', true)
+          console.log('Success: createUser')
+          console.log(res)
+          this.$router.push('/menu')
+        }
       })
       .catch((err) => {
         const errorCode = err.code
@@ -76,18 +88,27 @@ export const actions = {
         console.error(errorCode, errMsg)
       })
   },
-  async createUser({ commit }, { email, password }) {
+  // eslint-disable-next-line no-empty-pattern
+  async createUser({}, { email, password, userName }) {
     await createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        commit('updateIsLogin', true)
+      .then((res) => {
         console.log('Success: createUser')
-        this.$router.push('/menu')
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+            console.log('verified: ', res.user.emailVerified)
+            this.$router.push('/await-auth')
+          })
+          .catch(() => {
+            console.error('dont send email')
+          })
       })
       .catch((err) => {
-        const errorCode = err.code
-        const errMsg = err.message
-        console.error(errorCode, errMsg)
+        console.error('cant create user: ', err)
       })
+  },
+
+  async updateVerified({ commit }) {
+    await commit('updateUserVerified', auth.currentUser.emailVerified)
   },
 
   async logout({ commit }) {
