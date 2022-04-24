@@ -3,7 +3,6 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
@@ -39,71 +38,84 @@ export const mutations = {
   updateUserVerified(state, verified) {
     state.user.emailVerified = verified
   },
-  updateUserDisplayName(state, displayName) {
-    state.user.displayName = displayName
-  }
 }
 
 export const actions = {
-  userInfoInit({ commit }) {
-    commit('updateUserInfo', {
+  async userInfoInit({ commit }) {
+    await commit('updateUserInfo', {
       uid: '',
       displayName: '',
       email: '',
       emailVerified: false,
-      photoURL: '',
+      photoURL: null,
     })
-    commit('updateIsLogin', false)
+    await commit('updateIsLogin', false)
   },
 
   async googleAuthLogin({ commit }) {
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider)
       .then((res) => {
+        const user = res.user
         commit('updateIsLogin', true)
+        commit('updateUserInfo', {
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          emailVerified: user.emailVerified,
+          photoURL: user.photoURL,
+        })
         console.log('Success: login')
         this.$router.push('/menu')
       })
       .catch((err) => {
-        console.error('Error: ' + err.code)
+        console.error('google login error' + err)
       })
   },
 
-  async loginUser({ commit, dispatch }, { email, password }) {
+  async loginUser({ commit, dispatch }, { email, password, userName }) {
     await signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        if (res.user.emailVerified) {
+        const user = res.user
+        if (user.emailVerified) {
           commit('updateIsLogin', true)
-          console.log('Success: createUser')
+          commit('updateUserInfo', {
+            uid: user.uid,
+            displayName: userName,
+            email: user.email,
+            emailVerified: user.emailVerified,
+            photoURL: null,
+          })
+          console.log('Success: LoginUser')
           console.log(res)
           this.$router.push('/menu')
         } else {
-          dispatch('checkVerified')
-          commit('updateIsLogin', true)
-          console.log('Success: createUser')
-          console.log(res)
-          this.$router.push('/menu')
+          dispatch('sendVerifiedEmail')
         }
       })
       .catch((err) => {
-        const errorCode = err.code
-        const errMsg = err.message
-        console.error(errorCode, errMsg)
+        console.error(err)
       })
   },
-  // eslint-disable-next-line no-empty-pattern
-  async createUser({ commit, dispatch }, { email, password, userName }) {
+
+  async createUser({ commit, dispatch }, { email, password, userName}) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         const user = res.user
+        commit('updateUserInfo', {
+          uid: user.uid,
+          displayName: userName,
+          email: user.email,
+          emailVerified: user.emailVerified,
+          photoURL: null,
+        })
         console.log('Success: createUser')
-        console.log(user)
         // 認証メール送信
         dispatch('sendVerifiedEmail')
         console.log('success:login')
       })
       .catch((err) => {
-        console.error('cant create user: ', err)
+        console.error(err)
       })
   },
 
@@ -118,56 +130,26 @@ export const actions = {
         console.error(err)
       })
   },
+
   async watchUserVerified({ commit }) {
     // ユーザー情報を更新
     await auth.currentUser.reload()
     commit('updateUserVerified', auth.currentUser.emailVerified)
   },
 
-  async logout({ commit }) {
-    await signOut(auth)
-      .then((res) => {
-        console.log('Success: Logout')
-        commit('updateIsLogin', false)
-        commit('updateUserInfo', {
-          uid: '',
-          displayName: '',
-          email: '',
-          emailVerified: '',
-          photoURL: '',
-        })
-      })
-      .catch((err) => {
-        console.error('Error: ' + err.code)
-      })
+  async changeIsLogin({ commit }, bool) {
+    await commit('updateIsLogin', bool)
   },
 
-  async stateChanged({ commit }, { userName }) {
-    await onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const userInfo = {
-          uid: user.uid,
-          displayName: userName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: user.photoURL,
-        }
-        commit('updateUserInfo', userInfo)
-      }
-    })
-  },
-  async googleStateChanged({ commit }) {
-    await onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const userInfo = {
-          uid: user.uid,
-          displayName: user.displayName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: user.photoURL,
-        }
-        commit('updateUserInfo', userInfo)
-      }
-    })
+  async logout({ commit, dispatch }) {
+    await signOut(auth)
+      .then(() => {
+        console.log('Success: Logout')
+        commit('updateIsLogin', false)
+        dispatch('userInfoInit')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   },
 }

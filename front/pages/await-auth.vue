@@ -10,7 +10,8 @@
       indeterminate
       color="primary"
     ></v-progress-circular>
-    <div id="progress-text">認証待ち
+    <div id="progress-text">
+      認証待ち
       <span>.</span>
       <span>.</span>
       <span>.</span>
@@ -24,30 +25,36 @@ export default {
   data() {
     return {
       isError: false,
+      reload: null,
     }
   },
+
   computed: {
     emailVerified() {
       return this.$store.getters['auth/userInfo'].emailVerified
     },
   },
+
   mounted() {
     this.checkVerified()
   },
-  beforeDestroy() {
-    clearInterval(this.checkVerified)
+
+  destroyed() {
+    clearInterval(this.reload)
   },
+
   methods: {
     async checkVerified() {
-      await setInterval(() => {
+      this.reload = await setInterval(() => {
         this.check()
       }, 5000)
     },
+
     async check() {
       await this.$store.dispatch('auth/watchUserVerified')
-      console.log(this.emailVerified)
       if (this.emailVerified) {
         this.$router.push('/menu')
+        await this.$store.dispatch('auth/changeIsLogin', true)
       }
     },
   },
@@ -83,10 +90,10 @@ export default {
       animation-delay: 0s;
     }
     &:nth-child(2) {
-      animation-delay: .25s;
+      animation-delay: 0.25s;
     }
     &:nth-child(3) {
-      animation-delay: .5s;
+      animation-delay: 0.5s;
     }
   }
   @keyframes anim {

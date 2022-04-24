@@ -76,7 +76,7 @@
                     </v-btn>
                   </template>
                   <v-list>
-                    <v-list-item @click="logout()"> ログアウト </v-list-item>
+                    <v-list-item @click="logout()">ログアウト</v-list-item>
                   </v-list>
                 </v-menu>
               </v-card>
@@ -104,8 +104,9 @@ export default {
     },
   },
   methods: {
-    logout() {
-      this.$store.dispatch('auth/logout')
+    async logout() {
+      await this.$store.dispatch('auth/logout')
+      console.log(this.userInfo)
     },
   },
 }

@@ -44,7 +44,7 @@
           color="secondary"
           depressed
           :disabled="changeDisable"
-          @click="loginUser(), update()"
+          @click="loginUser()"
         >
           ログイン
         </v-btn>
@@ -91,9 +91,6 @@ export default {
     this.$v.$reset()
   },
   methods: {
-    update() {
-      this.$store.dispatch('auth/stateChanged', { userName: this.form.userName })
-    },
     createUser() {
       this.$store.dispatch('auth/createUser', {
         email: this.form.email,
