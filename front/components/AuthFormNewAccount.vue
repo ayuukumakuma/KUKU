@@ -180,11 +180,13 @@ export default {
     update() {
       this.$store.dispatch('auth/stateChanged', { userName: this.form.userName })
     },
-    createUser() {
-      this.$store.dispatch('auth/createUser', {
+    async createUser() {
+      await this.$store.dispatch('auth/createUser', {
         email: this.form.email,
         password: this.form.password,
+        userName: this.form.userName
       })
+      console.log(this.$store.getters['auth/userInfo'])
     },
     loginUser() {
       this.$store.dispatch('auth/loginUser', {

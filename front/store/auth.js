@@ -38,6 +38,9 @@ export const mutations = {
   },
   updateUserVerified(state, verified) {
     state.user.emailVerified = verified
+  },
+  updateUserDisplayName(state, displayName) {
+    state.user.displayName = displayName
   }
 }
 
@@ -89,26 +92,36 @@ export const actions = {
       })
   },
   // eslint-disable-next-line no-empty-pattern
-  async createUser({}, { email, password, userName }) {
+  async createUser({ commit, dispatch }, { email, password, userName }) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
+        const user = res.user
         console.log('Success: createUser')
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            console.log('verified: ', res.user.emailVerified)
-            this.$router.push('/await-auth')
-          })
-          .catch(() => {
-            console.error('dont send email')
-          })
+        console.log(user)
+        // 認証メール送信
+        dispatch('sendVerifiedEmail')
+        console.log('success:login')
       })
       .catch((err) => {
         console.error('cant create user: ', err)
       })
   },
 
-  async updateVerified({ commit }) {
-    await commit('updateUserVerified', auth.currentUser.emailVerified)
+  async sendVerifiedEmail() {
+    await sendEmailVerification(auth.currentUser)
+      .then(() => {
+        // 待機画面へ遷移
+        this.$router.push('/await-auth')
+        console.log('success send email')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  },
+  async watchUserVerified({ commit }) {
+    // ユーザー情報を更新
+    await auth.currentUser.reload()
+    commit('updateUserVerified', auth.currentUser.emailVerified)
   },
 
   async logout({ commit }) {

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <NavigationBar v-if="$route.path != '/' || $route.path != '/await-auth'" />
+      <NavigationBar v-if="$route.path !== '/' && $route.path !== '/await-auth'" />
       <Nuxt />
       <SnackBar />
     </v-main>
