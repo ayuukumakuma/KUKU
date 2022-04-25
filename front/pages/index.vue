@@ -39,26 +39,20 @@ export default {
 </script>
 <style lang='scss' scoped>
 #index {
-	// position: fixed;
-	// top: 0;
-	// left: 0;
-	// height: 100%;
-	// width: 100%;
 	padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
 #title {
 	font-size: 72px;
-	position: absolute;
+	position: fixed;
 	top: 30%;
 	left: 50%;
-	z-index: 1;
 	transform: translate(-50%);
 }
 
 #start-btn {
 	font-size: 40px;
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	bottom: 20%;
 	transform: translate(-50%);
@@ -67,7 +61,7 @@ export default {
 }
 
 #cross {
-	position: absolute;
+	position: fixed;
 	top: 55%;
 	right: 45%;
 	z-index: 0;
@@ -75,7 +69,7 @@ export default {
 }
 
 #cross-content {
-	position: absolute;
+	position: fixed;
 	background: var(--v-content-base);
 	height: 16px;
 	width: 170px;
@@ -91,7 +85,7 @@ export default {
 }
 
 #equal {
-	position: absolute;
+	position: fixed;
 	top: 15%;
 	left: 10%;
 	z-index: 0;
@@ -99,12 +93,12 @@ export default {
 }
 
 #equal-content {
-	position: absolute;
+	position: fixed;
 	background: var(--v-content-base);
 	height: 16px;
 	width: 150px;
 	&::after {
-		position: absolute;
+		position: fixed;
 		background: var(--v-content-base);
 		display: block;
 		content: "";
@@ -115,9 +109,9 @@ export default {
 }
 
 #login-btn {
-	position: absolute;
-	bottom: 8px;
-	left: 8px;
+	position: fixed;
+	bottom: 16px;
+	left: 16px;
 	font-size: 20px;
 }
 </style>
