@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-container style="display: flex; justify-content: center; overflow: hidden;">
-      <v-row  id="menu">
+    <v-container id="main">
+      <v-row id="menu">
         <v-col cols="12" md="6" class="px-3">
           <v-card
             id="kuku"
@@ -35,7 +35,7 @@
             <v-col>
               <v-card
                 id="account"
-                style="display: flex;"
+                style="display: flex"
                 class="content rounded-lg"
                 elevation="0"
                 @click="$router.push(isLogin ? '' : './login')"
@@ -113,8 +113,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
 #menu {
-  position: absolute;
+  position: fixed;
   width: 90%;
   margin-top: 88px;
   margin-bottom: constant(safe-area-inset-bottom);
