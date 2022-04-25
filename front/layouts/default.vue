@@ -1,7 +1,9 @@
 <template>
-  <v-app>
+  <v-app id="default">
     <v-main>
-      <NavigationBar v-if="$route.path !== '/' && $route.path !== '/await-auth'" />
+      <NavigationBar
+        v-if="$route.path !== '/' && $route.path !== '/await-auth'"
+      />
       <Nuxt />
       <SnackBar />
     </v-main>
@@ -28,6 +30,8 @@ export default {
 body {
   height: 100vh;
   height: 100dvh;
+}
+#default {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }

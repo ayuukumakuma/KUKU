@@ -12,7 +12,8 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, viewport-fit=cover',
+        content:
+          'width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=n',
       },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
@@ -66,7 +67,7 @@ export default {
       description: 'KUKUを視覚的に覚えることができるwebアプリです。',
       'og:description': 'KUKUを視覚的に覚えることができるwebアプリです。',
       theme_color: '#fff',
-      background_color: '#fff'
+      background_color: '#fff',
     },
   },
 
@@ -130,5 +131,5 @@ export default {
 
   workbox: {
     dev: false,
-  }
+  },
 }
