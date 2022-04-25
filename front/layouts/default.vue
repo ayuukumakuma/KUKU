@@ -28,7 +28,6 @@ export default {
 body {
   height: 100vh;
   height: 100dvh;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 .v-application {
   font-family: 'Makinas-sq';
