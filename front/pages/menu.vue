@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container style="display: flex; justify-content: center;">
+    <v-container style="display: flex; justify-content: center;" class="pa-0">
       <v-row  id="menu">
         <v-col cols="12" md="6" class="px-3">
           <v-card
@@ -42,7 +42,7 @@
               >
                 <v-avatar
                   id="avatar"
-                  size="80px"
+                  size="70px"
                   color="cLight"
                   class="rounded-lg py-auto"
                 >
@@ -113,13 +113,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  position: relative;
-}
 #menu {
   width: 90%;
   position: absolute;
-  top: 96px;
+  margin-top: 96px;
   #kuku {
     height: 84vh;
   }
