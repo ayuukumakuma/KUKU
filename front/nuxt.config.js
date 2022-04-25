@@ -58,7 +58,15 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'KUKU',
       lang: 'jp',
+      short_name: 'KUKU',
+      title: 'KUKU',
+      'og:title': 'KUKU',
+      description: 'KUKUを視覚的に覚えることができるwebアプリです。',
+      'og:description': 'KUKUを視覚的に覚えることができるwebアプリです。',
+      theme_color: '#fff',
+      background_color: '#fff'
     },
   },
 
@@ -119,4 +127,8 @@ export default {
   dotenv: {
     path: process.cwd(),
   },
+
+  workbox: {
+    dev: false,
+  }
 }

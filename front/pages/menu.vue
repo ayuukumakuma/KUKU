@@ -42,7 +42,7 @@
               >
                 <v-avatar
                   id="avatar"
-                  size="100px"
+                  size="80px"
                   color="cLight"
                   class="rounded-lg py-auto"
                 >
@@ -157,13 +157,13 @@ body {
 @media screen and (max-width: 960px) {
   #menu {
     #kuku {
-      height: 30vh;
+      height: 28vh;
     }
     #data {
-      height: 30vh;
+      height: 28vh;
     }
     #account {
-      height: 15vh;
+      height: 14vh;
     }
   }
 }
