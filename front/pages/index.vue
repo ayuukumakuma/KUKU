@@ -39,12 +39,13 @@ export default {
 </script>
 <style lang='scss' scoped>
 #index {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	padding-bottom: env(safe-area-inset-bottom);
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// height: 100%;
+	// width: 100%;
+	padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 #title {
 	font-size: 72px;
