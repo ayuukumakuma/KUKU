@@ -19,11 +19,16 @@ export default {
 }
 </script>
 <style lang="scss">
-body {
-  height: 100vh;
-  height: 100dvh;
+* {
+box-sizing:border-box;
 }
+
+html,body {
+  height: 100%;
+}
+
 #default {
+  height: 100%;
   font-family: 'SmartFontUI';
 }
 </style>

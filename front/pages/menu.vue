@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container style="display: flex; justify-content: center;" class="pa-0">
+    <v-container style="display: flex; justify-content: center; overflow: hidden;">
       <v-row  id="menu">
         <v-col cols="12" md="6" class="px-3">
           <v-card
@@ -35,7 +35,7 @@
             <v-col>
               <v-card
                 id="account"
-                style="display: flex"
+                style="display: flex;"
                 class="content rounded-lg"
                 elevation="0"
                 @click="$router.push(isLogin ? '' : './login')"
@@ -114,17 +114,19 @@ export default {
 
 <style lang="scss" scoped>
 #menu {
-  width: 90%;
   position: absolute;
-  margin-top: 96px;
+  width: 90%;
+  margin-top: 88px;
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
   #kuku {
     height: 84vh;
   }
   #data {
-    height: calc(64vh - 12px);
+    height: calc(84vh - 126px);
   }
   #account {
-    height: calc(20vh - 12px);
+    height: 102px;
   }
 }
 #title {
@@ -136,7 +138,7 @@ export default {
 }
 
 #avatar-text {
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 1.2em;
   letter-spacing: 0.2em;
   margin: auto;
@@ -155,13 +157,13 @@ export default {
 @media screen and (max-width: 960px) {
   #menu {
     #kuku {
-      height: 28vh;
+      max-height: 25vh;
     }
     #data {
-      height: 28vh;
+      max-height: 25vh;
     }
     #account {
-      height: 14vh;
+      height: 102px;
     }
   }
 }

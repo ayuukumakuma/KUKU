@@ -66,7 +66,7 @@ export default {
 }
 
 #nav-bar-text {
-  font-size: 32px;
+  font-size: 2rem;
   padding-top: 10px;
   position: absolute;
   left: 50%;

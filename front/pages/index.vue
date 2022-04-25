@@ -35,7 +35,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 #title {
-  font-size: 72px;
+  font-size: 5.5rem;
   position: fixed;
   top: 30%;
   left: 50%;
@@ -43,7 +43,7 @@ export default {
 }
 
 #start-btn {
-  font-size: 40px;
+  font-size: 2.5rem;
   position: fixed;
   left: 50%;
   bottom: 20%;
@@ -54,12 +54,12 @@ export default {
 
 #login-btn {
   position: fixed;
-  height: 5%;
   bottom: 16px;
   left: 16px;
-  font-size: 20px;
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
+  font-size: 1.2rem;
+  height: 2.5rem;
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
 }
 
 // #cross {
