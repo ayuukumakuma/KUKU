@@ -52,10 +52,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
-}
 #answer-text {
   position: absolute;
   font-size: 40px;

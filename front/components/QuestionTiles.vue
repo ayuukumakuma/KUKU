@@ -67,10 +67,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
-}
 #multiplicand {
   position: absolute;
   top: 96px;

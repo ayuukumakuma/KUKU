@@ -63,16 +63,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
-}
-
-body {
-  position: relative;
-  margin: 0;
-}
-
 #all-correct {
   font-size: 56px;
   position: absolute;

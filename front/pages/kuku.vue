@@ -170,19 +170,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
-}
-body {
-  position: relative;
-}
-#test {
-  position: absolute;
-  left: 8px;
-  top: 44%;
-}
-
 #answer {
   position: absolute;
   width: 240px;
