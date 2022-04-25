@@ -97,7 +97,7 @@
           color="primary"
           depressed
           :disabled="changeDisable"
-          @click="createUser(), update()"
+          @click="createUser()"
         >
           新規登録
         </v-btn>
@@ -177,22 +177,19 @@ export default {
     this.$v.$reset()
   },
   methods: {
-    update() {
-      this.$store.dispatch('auth/stateChanged', { userName: this.form.userName })
-    },
-    createUser() {
-      this.$store.dispatch('auth/createUser', {
+    async createUser() {
+      await this.$store.dispatch('auth/createUser', {
         email: this.form.email,
         password: this.form.password,
+        userName: this.form.userName
       })
-      console.log(this.form.email, this.form.password)
+      console.log(this.$store.getters['auth/userInfo'])
     },
     loginUser() {
       this.$store.dispatch('auth/loginUser', {
         email: this.form.email,
         password: this.form.password,
       })
-      console.log(this.form.email, this.form.password)
     },
   }
 }

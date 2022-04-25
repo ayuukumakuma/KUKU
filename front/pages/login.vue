@@ -17,7 +17,7 @@
             height="72px"
             depressed
             color="cLight"
-            @click="googleLogin(), updateGoogle()"
+            @click="googleLogin()"
           >
             <GoogleImg id="google-img" />
             <div id="button-text"><span>Google</span>でログイン</div>
@@ -54,9 +54,6 @@ export default {
   methods: {
     googleLogin() {
       this.$store.dispatch('auth/googleAuthLogin')
-    },
-    updateGoogle() {
-      this.$store.dispatch('auth/googleStateChanged')
     },
   },
 }
