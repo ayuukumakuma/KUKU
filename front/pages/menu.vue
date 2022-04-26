@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-container id="main">
+    <SnackBar />
+    <v-container id="main" class="px-6">
       <v-row id="menu">
         <v-col cols="12" md="6" class="px-3">
           <v-card
@@ -76,7 +77,7 @@
                     </v-btn>
                   </template>
                   <v-list>
-                    <v-list-item @click="logout()">ログアウト</v-list-item>
+                    <v-list-item width="25%" @click="logout()">ログアウト</v-list-item>
                   </v-list>
                 </v-menu>
               </v-card>
@@ -114,13 +115,12 @@ export default {
 
 <style lang="scss" scoped>
 #main {
-  position: relative;
+  // position: relative;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  // overflow: hidden;
 }
 #menu {
-  position: fixed;
   width: 90%;
   margin-top: 88px;
   margin-bottom: constant(safe-area-inset-bottom);
@@ -156,7 +156,7 @@ export default {
 
 #logout-btn {
   position: absolute;
-  right: 8px;
+  right: 16px;
   top: 4px;
 }
 

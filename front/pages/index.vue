@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 #title {
   font-size: 5.5rem;
-  position: fixed;
+  position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%);
@@ -44,7 +44,7 @@ export default {
 
 #start-btn {
   font-size: 2.5rem;
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 20%;
   transform: translate(-50%);
@@ -53,7 +53,7 @@ export default {
 }
 
 #login-btn {
-  position: fixed;
+  position: absolute;
   bottom: 16px;
   left: 16px;
   font-size: 1.2rem;

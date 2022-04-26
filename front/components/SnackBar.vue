@@ -1,38 +1,44 @@
 <template>
-  <div>
-    <v-snackbar v-model="isSnack">
-      {{ content }}
-      <template #action="{ attrs }">
-        <v-btn v-bind="attrs" icon @click="changeSnack(false)">
-          <v-icon> mdi-close </v-icon>
-        </v-btn>
-      </template>
-    </v-snackbar>
-  </div>
+  <v-snackbar
+    id="snack-bar"
+    v-model="isSnack"
+    class="rounded-lg"
+    timeout="-1"
+    top
+    multi-line
+  >
+    {{ content }}
+    <template #action="{ attrs }">
+      <v-btn v-bind="attrs" icon @click="changeSnack(false)">
+        <v-icon> mdi-close </v-icon>
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      isSnack: true,
     }
   },
   computed: {
-    isSnack() {
-      return this.$store.getters['snackBar/getAlert']
-    },
+    // isSnack() {
+    //   return this.$store.getters['snackBar/getAlert']
+    // },
     content() {
       return this.$store.getters['snackBar/getContent']
     },
     authState() {
       return this.$store.getters['auth/isLogin']
-    }
+    },
   },
   watch: {
     authState(val) {
       this.$store.dispatch('snackBar/updateContent', val)
       this.changeSnack(true)
-    }
+    },
   },
   methods: {
     changeSnack(bool) {
@@ -42,4 +48,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#snack-bar {
+  position: fixed;
+  z-index: 2;
+}
+</style>

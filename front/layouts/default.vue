@@ -5,7 +5,6 @@
         v-if="$route.path !== '/' && $route.path !== '/await-auth'"
       />
       <Nuxt />
-      <SnackBar />
     </v-main>
   </v-app>
 </template>
