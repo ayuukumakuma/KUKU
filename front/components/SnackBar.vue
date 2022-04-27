@@ -19,14 +19,12 @@
 <script>
 export default {
   data() {
-    return {
-      isSnack: true,
-    }
+    return {}
   },
   computed: {
-    // isSnack() {
-    //   return this.$store.getters['snackBar/getAlert']
-    // },
+    isSnack() {
+      return this.$store.getters['snackBar/getAlert']
+    },
     content() {
       return this.$store.getters['snackBar/getContent']
     },

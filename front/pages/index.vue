@@ -1,5 +1,5 @@
 <template>
-  <div id="index">
+  <div>
     <div id="title" class="sentence--text">KUKU</div>
     <!-- <div id="cross">
 			<div id="cross-content" />
@@ -29,9 +29,7 @@
 </template>
 
 <script>
-export default {
-  name: 'IndexPage',
-}
+export default {}
 </script>
 <style lang="scss" scoped>
 #title {

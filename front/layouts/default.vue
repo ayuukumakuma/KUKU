@@ -1,9 +1,9 @@
 <template>
   <v-app id="default">
     <v-main>
-      <NavigationBar
+      <!-- <NavigationBar
         v-if="$route.path !== '/' && $route.path !== '/await-auth'"
-      />
+      /> -->
       <Nuxt />
     </v-main>
   </v-app>
@@ -11,23 +11,19 @@
 
 <script>
 export default {
-  name: 'DefaultLayout',
   data() {
     return {}
   },
 }
 </script>
 <style lang="scss">
-* {
-box-sizing:border-box;
+html::-webkit-scrollbar {
+  display: none;
 }
-
-html,body {
-  height: 100%;
+html {
+  overscroll-behavior-y: none;
 }
-
 #default {
-  height: 100%;
   font-family: 'SmartFontUI';
 }
 </style>
