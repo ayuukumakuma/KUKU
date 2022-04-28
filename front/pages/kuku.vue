@@ -9,9 +9,9 @@
     <div id="progress">
       <v-progress-circular
         :value="progressNum * 10"
-        size="80"
+        size="70"
         rotate="270"
-        width="40"
+        width="35"
         color="secondary"
       ></v-progress-circular>
     </div>

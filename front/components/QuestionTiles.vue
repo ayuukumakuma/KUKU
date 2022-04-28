@@ -1,32 +1,27 @@
 <template>
   <div>
     <div id="multiplicand">
-      <v-img
-        id="multiplicand-shape"
-        :src="`/svg/shapes/${GetShape}.svg`"
-        width="120px"
-        height="120px"
-      />
+      <v-img id="multiplicand-shape" :src="`/svg/shapes/${GetShape}.svg`" />
       <div id="multiplicand-text">
         {{ multiplicand }}
       </div>
     </div>
     <div id="cross">
-      <div id="cross-content" />
+      <v-img src="/svg/cross.svg" width="64px" height="64px"></v-img>
+    </div>
+    <div id="equal">
+      <v-img src="/svg/equal.svg" width="64px" height="64px"></v-img>
     </div>
     <div id="multiplying">
-      <ColorSvg :color="`${GetColor}`" />
+      <ColorSvg id="multiplying-shape" :color="`${GetColor}`" />
       <div id="multiplying-text">
         {{ multiplying }}
       </div>
     </div>
-    <div id="equal">
-      <div id="equal-content" />
+    <div v-show="!correct" id="answer">
+      <v-img src="/svg/question.svg" width="48px" height="48px"></v-img>
     </div>
-    <div v-show="!correct" id="answer" style="top: 310px">
-      <v-img src="/svg/question.svg" width="64px" height="64px"></v-img>
-    </div>
-    <div v-show="correct" id="answer">
+    <div v-show="correct" id="answer-correct">
       <ShapeSvg :shape="GetShape" :color="GetColor" />
       <div id="answer-text">
         {{ answer_num }}
@@ -68,96 +63,90 @@ export default {
 
 <style lang="scss" scoped>
 #multiplicand {
-  position: absolute;
-  top: 96px;
-  left: 6vw;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  left: 20%;
+  top: 16%;
+  transform: translate(-50%);
+  #multiplicand-text {
+    position: absolute;
+    font-family: Graduate;
+    font-size: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #multiplicand-shape {
+    position: absolute;
+  }
 }
 
 #multiplying {
-  position: absolute;
-  top: 96px;
-  right: 4vw;
-}
-
-#multiplicand-text {
-  font-family: 'Graduate';
-  position: absolute;
-  top: 11%;
-  left: 33%;
-  font-size: 64px;
-}
-
-#multiplying-text {
-  font-family: 'Graduate';
-  position: absolute;
-  top: 11%;
-  right: 37%;
-  font-size: 64px;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  left: 80%;
+  top: 16%;
+  transform: translate(-50%);
+  #multiplying-text {
+    position: absolute;
+    font-family: Graduate;
+    font-size: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #multiplying-shape {
+    position: absolute;
+    left: -5%;
+    top: -2%;
+  }
 }
 
 #cross {
-  position: absolute;
-  top: 154px;
+  position: fixed;
   left: 50%;
-  z-index: 0;
-}
-
-#cross-content {
-  position: absolute;
-  background: var(--v-sentence-base);
-  height: 8px;
-  width: 56px;
-  left: -28px;
-  transform: rotate(-45deg);
-  &::before {
-    background: var(--v-sentence-base);
-    display: block;
-    content: '';
-    height: 8px;
-    width: 56px;
-    transform: rotate(90deg);
-  }
-}
-
-#equal {
-  position: absolute;
-  top: 220px;
-  left: 50%;
-  z-index: 0;
-  transform: rotate(90deg);
-}
-
-#equal-content {
-  position: absolute;
-  background: var(--v-sentence-base);
-  height: 8px;
-  width: 56px;
-  top: -19px;
-  &::before {
-    position: absolute;
-    background: var(--v-sentence-base);
-    display: block;
-    content: '';
-    height: 8px;
-    width: 56px;
-    top: 30px;
-  }
-}
-
-#answer {
-  position: absolute;
-  left: 50%;
-  top: 290px;
+  top: 17%;
   transform: translate(-50%);
 }
 
-#answer-text {
-  font-family: 'Graduate';
-  font-size: 40px;
-  position: absolute;
-  z-index: 1;
+#equal {
+  position: fixed;
   left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
+  top: 27%;
+  transform: translate(-50%) rotate(90deg);
+}
+
+#answer {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%);
+  #answer-text {
+    font-family: 'Graduate';
+    font-size: 2rem;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#answer-correct {
+  position: fixed;
+  left: 50%;
+  top: 36%;
+  transform: translate(-50%);
+  #answer-text {
+    font-family: 'Graduate';
+    font-size: 2rem;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

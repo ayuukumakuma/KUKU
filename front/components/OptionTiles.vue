@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 #answer-text {
   position: absolute;
-  font-size: 40px;
+  font-size: 2rem;
   font-family: 'Graduate';
 }
 </style>

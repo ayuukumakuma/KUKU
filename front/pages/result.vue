@@ -64,26 +64,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 #all-correct {
-  font-size: 56px;
-  position: absolute;
-  top: 128px;
+  font-size: 3rem;
+  position: fixed;
+  top: 88px;
   width: 100%;
   text-align: center;
   color: var(--v-sentence-base);
 }
 
 #answer-group {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 30%;
   width: 100%;
   height: 35%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
 
   #answer-before {
     position: absolute;
-    font-size: 32px;
+    font-size: 2rem;
     width: 100%;
     text-align: center;
     top: 0;
@@ -96,7 +95,7 @@ export default {
     position: absolute;
     top: 28px;
     width: 100%;
-    font-size: 32px;
+    font-size: 2rem;
     text-align: center;
     span {
       font-family: 'Graduate';
@@ -105,11 +104,12 @@ export default {
   }
 
   #answer-after {
-    font-size: 32px;
+    font-size: 2rem;
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: 0;
+    bottom: -20px;
+    margin: 0;
   }
 }
 
