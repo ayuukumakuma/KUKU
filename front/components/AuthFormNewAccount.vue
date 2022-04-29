@@ -9,6 +9,7 @@
           outlined
           hide-details
           placeholder="山田 太郎"
+          dense
           @focus="isFocusUserName = true"
           @blur="isFocusUserName = false"
           @input="$v.form.userName.$touch()"
@@ -36,6 +37,7 @@
           outlined
           hide-details
           placeholder="kuku.kuku@kuku.com"
+          dense
           @focus="isFocusEmail = true"
           @blur="isFocusEmail = false"
           @input="$v.form.email.$touch()"
@@ -62,6 +64,7 @@
           label="パスワード"
           outlined
           hide-details
+          dense
           @click:append="isPassword = !isPassword"
           @focus="isFocusPassword = true"
           @blur="isFocusPassword = false"
@@ -202,7 +205,7 @@ export default {
     display: flex;
     margin: 6px 0 6px 0;
     span {
-      font-size: 14px;
+      font-size: .7rem;
       color: var(--v-sentence-lighten5);
     }
   }

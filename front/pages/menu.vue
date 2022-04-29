@@ -115,10 +115,9 @@ export default {
 
 <style lang="scss" scoped>
 #main {
-  // position: relative;
   display: flex;
   justify-content: center;
-  // overflow: hidden;
+  overflow: hidden;
 }
 #menu {
   width: 90%;

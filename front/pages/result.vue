@@ -22,9 +22,9 @@
     <div id="button-group">
       <v-btn
         id="once-more"
-        class="mx-4 rounded-lg"
+        class="rounded-lg"
         x-large
-        max-width="156px"
+        width="148px"
         height="64px"
         depressed
         color="secondary"
@@ -33,11 +33,10 @@
       >
       <v-btn
         id="to-menu"
-        class="mx-4 rounded-lg"
+        class="rounded-lg"
         x-large
-        max-width="156px"
+        width="148px"
         height="64px"
-        rounded
         depressed
         color="primary"
         @click="clickEvent('menu')"
@@ -74,56 +73,54 @@ export default {
 
 #answer-group {
   position: fixed;
-  top: 30%;
+  top: 27%;
   width: 100%;
-  height: 35%;
   display: flex;
   flex-direction: column;
 
   #answer-before {
-    position: absolute;
     font-size: 2rem;
     width: 100%;
     text-align: center;
-    top: 0;
     span {
       font-family: 'Graduate';
     }
   }
 
   #answer {
-    position: absolute;
-    top: 28px;
     width: 100%;
     font-size: 2rem;
     text-align: center;
     span {
       font-family: 'Graduate';
-      font-size: 150px;
+      font-size: 10rem;
     }
   }
 
   #answer-after {
     font-size: 2rem;
-    position: absolute;
     width: 100%;
     text-align: center;
-    bottom: -20px;
-    margin: 0;
+  }
+
+  p {
+    margin-bottom: -20px;
   }
 }
 
 #button-group {
   display: flex;
-  position: absolute;
+  justify-content: space-around;
+  position: fixed;
   left: 50%;
-  bottom: 20%;
+  bottom: 10%;
+  width: 100%;
   transform: translate(-50%);
   #once-more {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   #to-menu {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
 }
 </style>

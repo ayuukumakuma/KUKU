@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow: hidden;">
       <QuestionTiles
       :multiplicand="String(multiplicandNum)"
       :multiplying="String(multiplyingNum)"
@@ -23,6 +23,7 @@
     </div>
     <div id="option-tiles">
       <OptionTiles
+        id="tiles"
         :multiplicand="String(multiplicandNum)"
         :multiplying="String(multiplyingNum)"
         :answer="String(multiplicandNum * multiplyingNum)"
@@ -31,6 +32,7 @@
         @click="correct"
       />
       <OptionTiles
+        id="tiles"
         :multiplicand="String(dummyMultiplicand1)"
         :multiplying="String(dummyMultiplying1)"
         :answer="String(dummyMultiplicand1 * dummyMultiplying1)"
@@ -39,6 +41,7 @@
         @click="wrong"
       />
       <OptionTiles
+        id="tiles"
         :multiplicand="String(dummyMultiplicand2)"
         :multiplying="String(dummyMultiplying2)"
         :answer="String(dummyMultiplicand2 * dummyMultiplying2)"
@@ -47,6 +50,7 @@
         @click="wrong"
       />
       <OptionTiles
+        id="tiles"
         :multiplicand="String(dummyMultiplicand3)"
         :multiplying="String(dummyMultiplying3)"
         :answer="String(dummyMultiplicand3 * dummyMultiplying3)"
@@ -171,7 +175,7 @@ export default {
 
 <style lang="scss" scoped>
 #answer {
-  position: absolute;
+  position: fixed;
   width: 240px;
   height: 240px;
   top: 50%;
@@ -181,33 +185,21 @@ export default {
 }
 
 #progress {
-  position: absolute;
-  top: 40%;
+  position: fixed;
+  top: 37%;
   right: 16px;
-}
-
-#correct-num {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-}
-
-#question-num {
-  position: absolute;
-  bottom: -4px;
-  right: 0;
-  margin: 0;
 }
 
 #option-tiles {
   bottom: 16px;
-  height: 45%;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
+  #tiles {
+    margin: 8px auto;
+  }
 }
 
 #bg-cover {

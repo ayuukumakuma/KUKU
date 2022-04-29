@@ -25,5 +25,9 @@ html {
 }
 #default {
   font-family: 'SmartFontUI';
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 </style>

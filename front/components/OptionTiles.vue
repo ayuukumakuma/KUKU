@@ -1,23 +1,20 @@
 <template>
   <div>
     <v-btn
-    id="tile"
-    height="20vh"
-    width="40vw"
-    color="cLight"
-    rounded
-    depressed
-    :disabled="disabled"
-    @click="$emit('click')"
-  >
-    <ShapeSvg
-      :shape="GetMultiplicand"
-      :color="GetMultiplying"
-    />
-    <div id="answer-text">
-      {{ answer }}
-    </div>
-  </v-btn>
+      id="tile"
+      height="20vh"
+      width="40vw"
+      color="cLight"
+      rounded
+      depressed
+      :disabled="disabled"
+      @click="$emit('click')"
+    >
+      <ShapeSvg :shape="GetMultiplicand" :color="GetMultiplying" />
+      <div id="answer-text">
+        {{ answer }}
+      </div>
+    </v-btn>
   </div>
 </template>
 
@@ -39,7 +36,7 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   computed: {
     GetMultiplicand() {

@@ -1,7 +1,7 @@
 <template>
   <form>
     <v-row>
-      <v-col class="px-4 py-6">
+      <v-col class="px-4 py-4">
         <v-text-field
           v-model="form.email"
           class="rounded-lg"
@@ -10,6 +10,8 @@
           outlined
           hide-details
           placeholder="kuku.kuku@kuku.com"
+          height="48px"
+          dense
           @focus="isFocusEmail = true"
           @blur="isFocusEmail = false"
           @input="$v.form.email.$touch()"
@@ -18,7 +20,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col class="px-4 pt-0 pb-6">
+      <v-col class="px-4 pt-0 pb-4">
         <v-text-field
           v-model="form.password"
           class="rounded-lg"
@@ -27,6 +29,8 @@
           label="パスワード"
           outlined
           hide-details
+          height="48px"
+          dense
           @click:append="isPassword = !isPassword"
           @focus="isFocusPassword = true"
           @blur="isFocusPassword = false"
@@ -38,9 +42,9 @@
     <v-row>
       <v-col style="text-align: center" class="pt-0 pb-3">
         <v-btn
-          style="font-size: 20px"
+          style="font-size: 1.1rem"
           class="rounded-lg pt-1"
-          height="56px"
+          height="48px"
           color="secondary"
           depressed
           :disabled="changeDisable"
@@ -91,13 +95,6 @@ export default {
     this.$v.$reset()
   },
   methods: {
-    createUser() {
-      this.$store.dispatch('auth/createUser', {
-        email: this.form.email,
-        password: this.form.password,
-      })
-      console.log(this.form.email, this.form.password)
-    },
     loginUser() {
       this.$store.dispatch('auth/loginUser', {
         email: this.form.email,

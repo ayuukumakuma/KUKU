@@ -65,8 +65,8 @@ export default {
 #text {
   width: 80%;
   text-align: center;
-  font-size: 24px;
-  margin: 30% auto auto auto;
+  font-size: 1.5rem;
+  margin: 20% auto auto auto;
 }
 
 #progress {
@@ -77,7 +77,7 @@ export default {
 }
 
 #progress-text {
-  font-size: 20px;
+  font-size: 1.5rem;
   position: absolute;
   left: 50%;
   top: 50%;

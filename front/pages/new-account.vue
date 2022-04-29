@@ -5,7 +5,7 @@
         <v-col style="text-align: center" class="pt-8">
           <v-btn
             class="rounded-lg pt-1"
-            height="72px"
+            height="48px"
             depressed
             color="cLight"
             @click="googleLogin()"
@@ -43,7 +43,6 @@ export default {
 #explanation {
   padding: 0 24px;
   text-align: center;
-  font-size: 16px;
 }
 
 #divider {
@@ -62,16 +61,15 @@ export default {
 
 #button-text {
   margin-left: 8px;
-  font-size: 20px;
   letter-spacing: 0.1em;
   span {
-    font-size: 28px;
+    font-size: 1.3rem;
     text-transform: capitalize;
   }
 }
 
 #create-user {
-  font-size: 1.1em;
-  height: 56px;
+  font-size: 1.1rem;
+  height: 48px;
 }
 </style>

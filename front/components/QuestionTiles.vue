@@ -72,7 +72,7 @@ export default {
   #multiplicand-text {
     position: absolute;
     font-family: Graduate;
-    font-size: 2rem;
+    font-size: 2.5rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -92,7 +92,7 @@ export default {
   #multiplying-text {
     position: absolute;
     font-family: Graduate;
-    font-size: 2rem;
+    font-size: 2.5rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
