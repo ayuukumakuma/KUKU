@@ -3,7 +3,7 @@
     id="snack-bar"
     v-model="isSnack"
     class="rounded-lg"
-    timeout="-1"
+    timeout="4000"
     top
     multi-line
   >

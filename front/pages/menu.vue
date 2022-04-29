@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SnackBar />
     <v-container id="main" class="px-6">
       <v-row id="menu">
         <v-col cols="12" md="6" class="px-3">
@@ -107,7 +106,6 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout')
-      console.log(this.userInfo)
     },
   },
 }

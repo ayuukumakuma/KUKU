@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  updateProfile
 } from 'firebase/auth'
 
 import firebaseApp from '~/plugins/firebase'
@@ -38,6 +39,9 @@ export const mutations = {
   updateUserVerified(state, verified) {
     state.user.emailVerified = verified
   },
+  updateUserDisplayName(state, displayName) {
+    state.user.displayName = displayName
+  }
 }
 
 export const actions = {
@@ -73,18 +77,17 @@ export const actions = {
       })
   },
 
-  async loginUser({ commit, dispatch }, { email, password, userName }) {
+  async loginUser({ commit, dispatch }, { email, password }) {
     await signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        const user = res.user
-        if (user.emailVerified) {
+        if (auth.currentUser.emailVerified) {
           commit('updateIsLogin', true)
           commit('updateUserInfo', {
-            uid: user.uid,
-            displayName: userName,
-            email: user.email,
-            emailVerified: user.emailVerified,
-            photoURL: null,
+            uid: auth.currentUser.uid,
+            displayName: auth.currentUser.displayName,
+            email: auth.currentUser.email,
+            emailVerified: auth.currentUser.emailVerified,
+            photoURL: auth.currentUser.photoURL,
           })
           console.log('Success: LoginUser')
           console.log(res)
@@ -98,17 +101,10 @@ export const actions = {
       })
   },
 
-  async createUser({ commit, dispatch }, { email, password, userName}) {
+  async createUser({ dispatch }, { email, password, userName}) {
     await createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        const user = res.user
-        commit('updateUserInfo', {
-          uid: user.uid,
-          displayName: userName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: null,
-        })
+      .then(() => {
+        dispatch('serUserInfo', { userName })
         console.log('Success: createUser')
         // 認証メール送信
         dispatch('sendVerifiedEmail')
@@ -117,6 +113,26 @@ export const actions = {
       .catch((err) => {
         console.error(err)
       })
+  },
+
+  // eslint-disable-next-line no-empty-pattern
+  async serUserInfo({ commit }, { userName }) {
+    await updateProfile(auth.currentUser, { displayName: userName })
+      .then(() => {
+        commit('updateUserInfo', {
+          uid: auth.currentUser.uid,
+          displayName: auth.currentUser.displayName,
+          email: auth.currentUser.email,
+          emailVerified: auth.currentUser.emailVerified,
+          photoURL: auth.currentUser.photoURL,
+        })
+        console.log('updateDisplayName: ' + auth.currentUser.displayName)
+        console.log('success update displayName')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+    await auth.currentUser.reload()
   },
 
   async sendVerifiedEmail() {

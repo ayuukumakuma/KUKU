@@ -1,6 +1,7 @@
 <template>
   <v-app id="default">
     <v-main>
+      <SnackBar />
       <NavigationBar
         v-if="$route.path !== '/' && $route.path !== '/await-auth'"
       />

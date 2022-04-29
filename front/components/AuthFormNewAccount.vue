@@ -186,14 +186,7 @@ export default {
         password: this.form.password,
         userName: this.form.userName
       })
-      console.log(this.$store.getters['auth/userInfo'])
-    },
-    loginUser() {
-      this.$store.dispatch('auth/loginUser', {
-        email: this.form.email,
-        password: this.form.password,
-      })
-    },
+    }
   }
 }
 </script>
