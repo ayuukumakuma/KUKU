@@ -90,7 +90,6 @@ export const actions = {
             photoURL: auth.currentUser.photoURL,
           })
           console.log('Success: LoginUser')
-          console.log(res)
           this.$router.push('/menu')
         } else {
           dispatch('sendVerifiedEmail')
@@ -105,10 +104,10 @@ export const actions = {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch('serUserInfo', { userName })
-        console.log('Success: createUser')
+        console.log('Success: CreateUser')
         // 認証メール送信
         dispatch('sendVerifiedEmail')
-        console.log('success:login')
+        console.log('Success: Login')
       })
       .catch((err) => {
         console.error(err)
@@ -126,8 +125,7 @@ export const actions = {
           emailVerified: auth.currentUser.emailVerified,
           photoURL: auth.currentUser.photoURL,
         })
-        console.log('updateDisplayName: ' + auth.currentUser.displayName)
-        console.log('success update displayName')
+        console.log('Success: Update DisplayName')
       })
       .catch((err) => {
         console.error(err)
@@ -140,7 +138,7 @@ export const actions = {
       .then(() => {
         // 待機画面へ遷移
         this.$router.push('/await-auth')
-        console.log('success send email')
+        console.log('Success: Send Email')
       })
       .catch((err) => {
         console.error(err)

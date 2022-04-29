@@ -8,7 +8,7 @@
           label="ニックネーム"
           outlined
           hide-details
-          placeholder="山田 太郎"
+          placeholder="九九 太郎"
           dense
           @focus="isFocusUserName = true"
           @blur="isFocusUserName = false"
@@ -21,7 +21,7 @@
               >mdi-check-circle-outline</v-icon
             >
             <span :class="`${changeColorUserName}--text`"
-              >1字以上20文字以下</span
+              >1字以上10文字以下</span
             >
           </div>
         </div>
@@ -36,7 +36,7 @@
           label="メールアドレス"
           outlined
           hide-details
-          placeholder="kuku.kuku@kuku.com"
+          placeholder="kuku.kuku@keisan.com"
           dense
           @focus="isFocusEmail = true"
           @blur="isFocusEmail = false"
@@ -144,7 +144,7 @@ export default {
       userName: {
         required,
         minLength: minLength(1),
-        maxLength: maxLength(20)
+        maxLength: maxLength(10)
       },
       email: {
         required,

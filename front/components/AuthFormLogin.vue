@@ -100,7 +100,6 @@ export default {
         email: this.form.email,
         password: this.form.password,
       })
-      console.log(this.form.email, this.form.password)
     },
   }
 }
