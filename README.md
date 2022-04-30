@@ -78,4 +78,5 @@ LinuxやMacでの環境テストはしていません。
 - NITIC students
 
 ## Deploy
+Using heroku
 https://kuku-app.herokuapp.com/
