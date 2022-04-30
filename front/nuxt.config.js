@@ -18,13 +18,15 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: 'static/icon.png' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{
-    src: '@/assets/css/style.scss'
-  }],
+  css: [
+    {
+      src: '@/assets/css/style.scss',
+    },
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/firebase.js', '@/plugins/vuelidate.js'],
@@ -40,7 +42,6 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    // ['@nuxtjs/dotenv', { path: './' }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -60,6 +61,11 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      mobileApp: true,
+      mobileAppIOS: true,
+      appleStatusBarStyle: 'black-translucent',
+    },
     manifest: {
       name: 'KUKU',
       lang: 'jp',
@@ -70,6 +76,14 @@ export default {
       'og:description': 'KUKUを視覚的に覚えることができるwebアプリです。',
       theme_color: '#fff',
       background_color: '#fff',
+      display: 'standalone',
+      icons: [
+        {
+          src: '/icon.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
     },
   },
 
