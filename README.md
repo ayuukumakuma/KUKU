@@ -11,7 +11,6 @@
 |vuelidate|0.x|
 |vuetify|2.x|
 |@nuxtjs/pwa|3.x|
-|@nuxtjs/axios|5.x|
 
 ## Link
 https://kuku-app.herokuapp.com/
