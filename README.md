@@ -18,6 +18,7 @@
 - ユーザーは表示された数字と色、数字と図形のペアをもとに、それらの積を選択していきます。
 - 積の選択肢は色がついた図形になっており、ユーザーはそれらの情報をもとに選択することができます。
 - ユーザー登録をすることでプレイしたデータを保存することができ、成長度や継続度を把握することができます。
+- PWAに対応し、ネイティブアプリのように利用することができます。
 
 皆さんは共感覚をご存じでしょうか。このWebアプリ「**KUKU**」は数字から色を連想させる共感覚を基に作成したWebアプリです。
 
@@ -27,6 +28,7 @@
 - The user selects the product of the displayed pairs of numbers and colors or numbers and shapes based on the pairs of numbers and colors or numbers and shapes. 
 - The product choices are colored shapes, and users can make their selections based on this information.
 - By registering as a user, the user can save the data played and keep track of the level of growth and continuity.
+- It supports PWA and can be used like a native application.
 
 Have you ever heard of synaesthesia? This web application "KUKU" was created based on synesthesia, which associates numbers with colors.
 
@@ -66,6 +68,9 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 2. `docker-compose build`
 3. `docker-compose up`
 
+## Usage
+1. Access to [link](https://kuku-app.herokuapp.com/)
+2. 
 ## Note
 LinuxやMacでの環境テストはしていません。
 
@@ -79,4 +84,5 @@ LinuxやMacでの環境テストはしていません。
 
 ## Deploy
 Using heroku
+
 https://kuku-app.herokuapp.com/
