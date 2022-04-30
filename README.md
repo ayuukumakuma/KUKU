@@ -1,6 +1,6 @@
 # KUKU
 <p align="center">
- <a href="http://kuku-app.herokuapp.com/">
+ <a href="http://kuku-app.herokuapp.com/" target="_blank">
   <img src="https://user-images.githubusercontent.com/67136466/166087357-6d2b873f-66d8-4513-9bdb-455e825e46de.svg" width="256px">
  </a>
 </p>
