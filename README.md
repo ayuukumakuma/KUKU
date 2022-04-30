@@ -1,4 +1,20 @@
-<img src="https://img.shields.io/badge/-Nuxt.js-00C58E.svg?logo=nuxt.js&style=plastic">
+<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=popout">
+<img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=popout">
+<img src="https://img.shields.io/badge/-Nuxt.js-00C58E.svg?logo=nuxt.js&style=popout">
+<img src="https://img.shields.io/badge/-Node.js-339933.svg?logo=node.js&style=popout">
+<img src="https://img.shields.io/badge/-Yarn-2C8EBB.svg?logo=yarn&style=popout">
+<img src="https://img.shields.io/badge/-Javascript-F7DF1E.svg?logo=javascript&style=popout">
+<img src="https://img.shields.io/badge/-Css3-1572B6.svg?logo=css3&style=popout">
+<img src="https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=popout">
+<img src="https://img.shields.io/badge/-Html5-E34F26.svg?logo=html5&style=popout">
+<img src="https://img.shields.io/badge/-Docker-1488C6.svg?logo=docker&style=popout">
+<img src="https://img.shields.io/badge/-Firebase-FFCA28.svg?logo=firebase&style=popout">
+<img src="https://img.shields.io/badge/-Postgresql-336791.svg?logo=postgresql&style=popout">
+<img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=popout">
+<img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=popout">
+
+
+
 # KUKU
 <p align="center">
  <a href="http://kuku-app.herokuapp.com/" target="_blank">
