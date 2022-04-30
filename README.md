@@ -65,7 +65,7 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 1. `git clone https://github.com/ayuukumakuma/KUKU.git`
 2. `docker-compose build`
 3. `docker-compose up`
-4. 
+
 ## Note
 LinuxやMacでの環境テストはしていません。
 
