@@ -78,11 +78,7 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 4. Let's Play!
 
 ## Note
-LinuxやMacでの環境テストはしていません。
-
----
-
-I don't test environments under Linux and Mac.
+LinuxやMacでの環境テストはしていません。 | I don't test environments under Linux and Mac.
 
 ## Author
 <a href="https://github.com/ayuukumakuma">
