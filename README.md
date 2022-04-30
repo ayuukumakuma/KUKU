@@ -20,9 +20,13 @@
 ユーザー登録をすることでプレイしたデータを保存することができ、成長度や継続度を把握することができます。
 
 (Have you ever heard of synaesthesia? This web application "KUKU" was created based on synesthesia, which associates numbers with colors.
+
 The goal of "KUKU" is to connect numbers with colors and shapes so that users will be able to remember them visually and mathematically, instead of just remembering them by using conventional words such as "saburoku-juhachi" or "kuku-hachijuichi".
+
 The user selects the product of the displayed pairs of numbers and colors or numbers and shapes based on the pairs of numbers and colors or numbers and shapes. 
+
 The product choices are colored shapes, and users can make their selections based on this information.
+
 By registering as a user, the user can save the data played and keep track of the level of growth and continuity.)
 
 ## Requirement
