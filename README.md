@@ -2,13 +2,13 @@
 
 # KUKU: 九九を視覚的に覚える教育向けWebアプリ
 ## Requirement
-| name | version |
-| ------------- | ------------- |
-| nuxt  | 2.x  |
-|  firebase | 9.x  |
-| core-js| 3.x|
-|vuelidate| 0.x|
-|vuetify| 2.x|
+|name|version|
+|-------------|-------------|
+|nuxt|2.x|
+|firebase |9.x|
+|core-js|3.x|
+|vuelidate|0.x|
+|vuetify|2.x|
 |@nuxtjs/pwa|3.x|
 |@nuxtjs/axios|5.x|
 
