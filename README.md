@@ -94,7 +94,7 @@ LinuxやMacでの環境テストはしていません。 | I don't test environm
 </a>
 
 - Ayuu
-- NITIC students
+- I'm a student at the National Institute of Technology.
 
 ## Deploy
 Using heroku
