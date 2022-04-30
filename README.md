@@ -3,11 +3,13 @@
 # KUKU: 九九を視覚的に覚える教育向けWebアプリ
 ## Demo
 - index
-![kuku-app herokuapp com_(iPhone X) (1)](https://user-images.githubusercontent.com/67136466/166092268-4be0d95c-640e-4d96-bafe-5259dc5a1e66.png)
+<img src="https://user-images.githubusercontent.com/67136466/166092268-4be0d95c-640e-4d96-bafe-5259dc5a1e66.png" width="100px">
+
 - menu
-![kuku-app herokuapp com_(iPhone X) (2)](https://user-images.githubusercontent.com/67136466/166092277-a82ad771-5e37-43d9-8e11-3e8ebc66088c.png)
+<img src="(https://user-images.githubusercontent.com/67136466/166092277-a82ad771-5e37-43d9-8e11-3e8ebc66088c.png" width="100px">
+
 - kuku
-![kuku-app herokuapp com_(iPhone X) (4)](https://user-images.githubusercontent.com/67136466/166092295-182543ca-c3a4-41a2-bebd-5b5c70a3a4c7.png)
+<img src="https://user-images.githubusercontent.com/67136466/166092295-182543ca-c3a4-41a2-bebd-5b5c70a3a4c7.png" width="100px">
 
 ## Requirement
 |name|version|
