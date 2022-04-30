@@ -64,7 +64,6 @@ export default {
     meta: {
       mobileApp: true,
       mobileAppIOS: true,
-      appleStatusBarStyle: 'black-translucent',
     },
     manifest: {
       name: 'KUKU',
