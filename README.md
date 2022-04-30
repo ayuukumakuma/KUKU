@@ -1,3 +1,4 @@
+<img src="https://img.shields.io/badge/-Nuxt.js-00C58E.svg?logo=nuxt.js&style=plastic">
 # KUKU
 <p align="center">
  <a href="http://kuku-app.herokuapp.com/" target="_blank">
