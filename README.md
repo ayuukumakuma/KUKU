@@ -74,7 +74,8 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 ## Usage
 1. [KUKU](https://kuku-app.herokuapp.com/)にアクセス | Access to [KUKU](https://kuku-app.herokuapp.com/)
 2. ホーム画面に追加 | Add to Home Screen
-3. 使用 | Use
+3. ユーザー登録・ログイン(登録なしでもプレイできます) | User registration and login (you can play without registration)
+4. Let's Play!
 
 ## Note
 LinuxやMacでの環境テストはしていません。
