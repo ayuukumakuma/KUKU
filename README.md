@@ -57,9 +57,13 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 |rails|6.0.x|
 |puma|4.3.11|
 |postgres|13.6|
+
+## Installation
+1. `.env`をディレクトリに追加(Add `.env` to the directory)
 ## Note
- 
-I don't test environments under Linux and Mac.
+LinuxやMacでの環境テストはしていません。
+
+(I don't test environments under Linux and Mac.)
 
 ## Author
 ![image](https://user-images.githubusercontent.com/67136466/166094080-ab827dfa-719a-4f38-9010-cf139e31a0e9.png)
