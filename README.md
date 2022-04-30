@@ -40,5 +40,9 @@ By registering as a user, the user can save the data played and keep track of th
 |vuetify|2.x|
 |@nuxtjs/pwa|3.x|
 
+## Author
+- Ayuu
+- NITIC students
+
 ## Deploy
 https://kuku-app.herokuapp.com/
