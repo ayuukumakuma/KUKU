@@ -41,6 +41,8 @@ By registering as a user, the user can save the data played and keep track of th
 |@nuxtjs/pwa|3.x|
 
 ## Author
+![image](https://user-images.githubusercontent.com/67136466/166094080-ab827dfa-719a-4f38-9010-cf139e31a0e9.png)
+
 - Ayuu
 - NITIC students
 
