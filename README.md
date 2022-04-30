@@ -7,7 +7,9 @@
 
 九九を視覚的に覚える教育向けWebアプリ
 
-(Educational web application to visually memorize the times tables.)
+---
+
+Educational web application to visually memorize the times tables.
 
 ## Demo
 |index|menu|kuku|login|data|
@@ -24,7 +26,8 @@
 
 「**KUKU**」は数字と色・図形を結び付け、これまでの「さぶろくじゅうはち」、「くくはちじゅういち」といった語呂合わせで覚えるのではなく視覚的に、数学的に覚えられるようになることを目標としています。
 
-(
+---
+
 - The user selects the product of the displayed pairs of numbers and colors or numbers and shapes based on the pairs of numbers and colors or numbers and shapes. 
 - The product choices are colored shapes, and users can make their selections based on this information.
 - By registering as a user, the user can save the data played and keep track of the level of growth and continuity.
@@ -32,7 +35,7 @@
 
 Have you ever heard of synaesthesia? This web application "KUKU" was created based on synesthesia, which associates numbers with colors.
 
-The goal of "KUKU" is to connect numbers with colors and shapes so that users will be able to remember them visually and mathematically, instead of just remembering them by using conventional words such as "saburoku-juhachi" or "kuku-hachijuichi".)
+The goal of "KUKU" is to connect numbers with colors and shapes so that users will be able to remember them visually and mathematically, instead of just remembering them by using conventional words such as "saburoku-juhachi" or "kuku-hachijuichi".
 
 ## Requirement
 ### Infrastructure
@@ -74,7 +77,9 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 ## Note
 LinuxやMacでの環境テストはしていません。
 
-(I don't test environments under Linux and Mac.)
+---
+
+I don't test environments under Linux and Mac.
 
 ## Author
 <a href="https://github.com/ayuukumakuma">
