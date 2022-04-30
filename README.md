@@ -72,8 +72,10 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 3. `docker-compose up`
 
 ## Usage
-1. Access to [link](https://kuku-app.herokuapp.com/)
-2. 
+1. [KUKU](https://kuku-app.herokuapp.com/)にアクセス | Access to [KUKU](https://kuku-app.herokuapp.com/)
+2. ホーム画面に追加 | Add to Home Screen
+3. 使用 | Use
+
 ## Note
 LinuxやMacでの環境テストはしていません。
 
