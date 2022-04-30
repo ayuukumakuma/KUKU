@@ -61,7 +61,11 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 |postgres|13.6|
 
 ## Installation
-1. `.env`をディレクトリに追加(Add `.env` to the directory)
+0. `.env`をディレクトリに追加(Add `.env` to the directory)
+1. `git clone https://github.com/ayuukumakuma/KUKU.git`
+2. `docker-compose build`
+3. `docker-compose up`
+4. 
 ## Note
 LinuxやMacでの環境テストはしていません。
 
