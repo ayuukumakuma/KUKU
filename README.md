@@ -4,6 +4,7 @@
 ## Requirement
 |name|version|
 |-------------|-------------|
+|node|14.17.x|
 |nuxt|2.15.x|
 |firebase |9.x|
 |core-js|3.x|
