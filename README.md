@@ -3,7 +3,8 @@
 # KUKU
 九九を視覚的に覚える教育向けWebアプリ
 
-Educational web application to visually memorize the times tables
+(Educational web application to visually memorize the times tables.)
+
 ## Demo
 |index|menu|kuku|login|data|
 |---|---|---|---|---|
@@ -20,5 +21,5 @@ Educational web application to visually memorize the times tables
 |vuetify|2.x|
 |@nuxtjs/pwa|3.x|
 
-## Link
+## Deploy
 https://kuku-app.herokuapp.com/
