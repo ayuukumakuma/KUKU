@@ -77,7 +77,9 @@ LinuxやMacでの環境テストはしていません。
 (I don't test environments under Linux and Mac.)
 
 ## Author
-![image](https://user-images.githubusercontent.com/67136466/166094080-ab827dfa-719a-4f38-9010-cf139e31a0e9.png)
+<a href="https://github.com/ayuukumakuma">
+ <img src="https://user-images.githubusercontent.com/67136466/166094080-ab827dfa-719a-4f38-9010-cf139e31a0e9.png">
+</a>
 
 - Ayuu
 - NITIC students
