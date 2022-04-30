@@ -16,7 +16,7 @@ Educational web application to visually memorize the times tables.
 |---|---|---|---|---|
 |<img src="https://user-images.githubusercontent.com/67136466/166092268-4be0d95c-640e-4d96-bafe-5259dc5a1e66.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092367-c610e68d-207d-43fa-a9b9-834376fc1481.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092295-182543ca-c3a4-41a2-bebd-5b5c70a3a4c7.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092435-cbb8b4c9-edcb-4840-8d7d-e0884892fd8f.png" width="100px">|Now in production
 
-## Features
+## Description
 - ユーザーは表示された数字と色、数字と図形のペアをもとに、それらの積を選択していきます。
 - 積の選択肢は色がついた図形になっており、ユーザーはそれらの情報をもとに選択することができます。
 - ユーザー登録をすることでプレイしたデータを保存することができ、成長度や継続度を把握することができます。
