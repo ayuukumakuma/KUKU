@@ -4,7 +4,7 @@
 ## Requirement
 |name|version|
 |-------------|-------------|
-|nuxt|2.x|
+|nuxt|2.15.x|
 |firebase |9.x|
 |core-js|3.x|
 |vuelidate|0.x|
