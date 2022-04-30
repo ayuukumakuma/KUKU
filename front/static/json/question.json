@@ -2,12 +2,12 @@
   {
     "id": "1",
     "color": "#918D91",
-    "shape": "circle"
+    "shape": "triangle"
   },
   {
     "id": "2",
     "color": "#FF0030",
-    "shape": "drop"
+    "shape": "star"
   },
   {
     "id": "3",
@@ -37,11 +37,11 @@
   {
     "id": "8",
     "color": "#0062F4",
-    "shape": "star"
+    "shape": "circle"
   },
   {
     "id": "9",
     "color": "#F400B1",
-    "shape": "triangle"
+    "shape": "drop"
   }
 ]

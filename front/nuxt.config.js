@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+require('dotenv').config()
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -10,18 +10,26 @@ export default {
     title: 'KUKU',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=n',
+      },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    {
+      src: '@/assets/css/style.scss',
+    },
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/firebase.js', '@/plugins/vuelidate.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,6 +50,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // '@nuxtjs/dotenv'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -52,8 +61,29 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      mobileApp: true,
+      mobileAppIOS: true,
+      appleStatusBarStyle: 'black-translucent',
+    },
     manifest: {
+      name: 'KUKU',
       lang: 'jp',
+      short_name: 'KUKU',
+      title: 'KUKU',
+      'og:title': 'KUKU',
+      description: 'KUKUを視覚的に覚えることができるwebアプリです。',
+      'og:description': 'KUKUを視覚的に覚えることができるwebアプリです。',
+      theme_color: '#fff',
+      background_color: '#fff',
+      display: 'standalone',
+      icons: [
+        {
+          src: '/icon.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
     },
   },
 
@@ -99,5 +129,23 @@ export default {
     webpack: {
       poll: true,
     },
+  },
+
+  env: {
+    apiKey: process.env.apiKey || '',
+    authDomain: process.env.authDomain || '',
+    projectId: process.env.projectId || '',
+    storageBucket: process.env.storageBucket || '',
+    messagingSenderId: process.env.messagingSenderId || '',
+    appId: process.env.appId || '',
+    measurementId: process.env.measurementId || '',
+  },
+
+  dotenv: {
+    path: process.cwd(),
+  },
+
+  workbox: {
+    dev: false,
   },
 }

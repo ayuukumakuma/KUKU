@@ -22,9 +22,9 @@
     <div id="button-group">
       <v-btn
         id="once-more"
-        class="mx-4 rounded-lg"
+        class="rounded-lg"
         x-large
-        max-width="156px"
+        width="148px"
         height="64px"
         depressed
         color="secondary"
@@ -33,11 +33,10 @@
       >
       <v-btn
         id="to-menu"
-        class="mx-4 rounded-lg"
+        class="rounded-lg"
         x-large
-        max-width="156px"
+        width="148px"
         height="64px"
-        rounded
         depressed
         color="primary"
         @click="clickEvent('menu')"
@@ -63,77 +62,65 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
-}
-
-body {
-  position: relative;
-  margin: 0;
-}
-
 #all-correct {
-  font-size: 56px;
-  position: absolute;
-  top: 128px;
+  font-size: 3rem;
+  position: fixed;
+  top: 88px;
   width: 100%;
   text-align: center;
   color: var(--v-sentence-base);
 }
 
 #answer-group {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 27%;
   width: 100%;
-  height: 35%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
 
   #answer-before {
-    position: absolute;
-    font-size: 32px;
+    font-size: 2rem;
     width: 100%;
     text-align: center;
-    top: 0;
     span {
       font-family: 'Graduate';
     }
   }
 
   #answer {
-    position: absolute;
-    top: 28px;
     width: 100%;
-    font-size: 32px;
+    font-size: 2rem;
     text-align: center;
     span {
       font-family: 'Graduate';
-      font-size: 150px;
+      font-size: 10rem;
     }
   }
 
   #answer-after {
-    font-size: 32px;
-    position: absolute;
+    font-size: 2rem;
     width: 100%;
     text-align: center;
-    bottom: 0;
+  }
+
+  p {
+    margin-bottom: -20px;
   }
 }
 
 #button-group {
   display: flex;
-  position: absolute;
+  justify-content: space-around;
+  position: fixed;
   left: 50%;
-  bottom: 20%;
+  bottom: 10%;
+  width: 100%;
   transform: translate(-50%);
   #once-more {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   #to-menu {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
 }
 </style>

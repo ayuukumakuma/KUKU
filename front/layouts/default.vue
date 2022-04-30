@@ -1,7 +1,10 @@
 <template>
-  <v-app>
+  <v-app id="default">
     <v-main>
-      <NavigationBar v-if="$route.path != '/'" />
+      <SnackBar />
+      <NavigationBar
+        v-if="$route.path !== '/' && $route.path !== '/await-auth'"
+      />
       <Nuxt />
     </v-main>
   </v-app>
@@ -9,22 +12,23 @@
 
 <script>
 export default {
-  name: 'DefaultLayout',
   data() {
     return {}
   },
 }
 </script>
-<style lang="scss" scoped>
-@font-face {
-  font-family: 'Makinas-sq';
-  src: url('./assets/font/Makinas-4-Square.otf') format('opentype');
+<style lang="scss">
+html::-webkit-scrollbar {
+  display: none;
 }
-@font-face {
-  font-family: 'Graduate';
-  src: url('../assets/font/Graduate-Regular.ttf');
+html {
+  overscroll-behavior-y: none;
 }
-.v-application {
-  font-family: 'Makinas-sq';
+#default {
+  font-family: 'SmartFontUI';
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 </style>
