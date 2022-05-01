@@ -90,11 +90,12 @@ LinuxやMacでの環境テストはしていません。 | I don't test environm
 
 ## Author
 <a href="https://github.com/ayuukumakuma">
- <img src="https://user-images.githubusercontent.com/67136466/166094080-ab827dfa-719a-4f38-9010-cf139e31a0e9.png">
+ <img src="https://user-images.githubusercontent.com/67136466/166139029-487958a4-903c-48d4-bc2e-ba64ff98491d.png">
 </a>
 
 - Ayuu
 - I'm a student at the National Institute of Technology.
+
 
 ## Deploy
 Using heroku
