@@ -90,7 +90,7 @@ LinuxやMacでの環境テストはしていません。 | I don't test environm
 
 ## Author
 <a href="https://github.com/ayuukumakuma">
- <img src="https://user-images.githubusercontent.com/67136466/166139029-487958a4-903c-48d4-bc2e-ba64ff98491d.png">
+ <img src="https://user-images.githubusercontent.com/67136466/166139029-487958a4-903c-48d4-bc2e-ba64ff98491d.png" width="256px">
 </a>
 
 - Ayuu
