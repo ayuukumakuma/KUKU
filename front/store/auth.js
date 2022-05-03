@@ -115,6 +115,37 @@ export const actions = {
   },
 
   // eslint-disable-next-line no-empty-pattern
+  async testCreateUser({}, { email, password }) {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        const userInfo = res.user
+        auth.currentUser.getIdToken()
+          .then((res) => {
+            const params = {
+              token: res,
+              registration: {
+                email:userInfo.email
+              }
+            }
+            const url = '/api/v1/users/registrations'
+            this.$axios.post(url, params)
+              .then((res) => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.error(err)
+              })
+          })
+          .catch((error) => {
+          console.error(error)
+        })
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  },
+
+  // eslint-disable-next-line no-empty-pattern
   async serUserInfo({ commit }, { userName }) {
     await updateProfile(auth.currentUser, { displayName: userName })
       .then(() => {

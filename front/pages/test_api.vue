@@ -1,13 +1,8 @@
 <template>
   <div>
-    <NavigationBar
-      page="APIテスト"
-      back="./menu"
-     />
-    <button type="button" name="button" @click="getMsg">getAPI</button>
-    <div v-for="(msg, i) in msgs" :key="i">
-      {{ msg }}
-    </div>
+    <v-btn style="font-size: 3rem; position: absolute; left: 50%; transform: translate(-50%); top: 40%;" x-large @click="sendApi()">
+      TEST
+    </v-btn>
   </div>
 </template>
 
@@ -15,13 +10,17 @@
 export default {
   data() {
     return {
-      msgs: [],
+      users: {
+        email: 'ayuu.kumakuma@gmail.com',
+        password: '20020721',
+        userName: 'Ayuu'
+      }
     }
   },
   methods: {
-    getMsg() {
-      this.$axios.$get('/api/v1/hello').then((res) => this.msgs.push(res))
-    },
+    sendApi() {
+      this.$store.dispatch('auth/testCreateUser', { email: this.users.email, password: this.users.password, userName: this.users.userName})
+    }
   },
 }
 </script>
