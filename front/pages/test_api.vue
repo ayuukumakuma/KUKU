@@ -1,6 +1,16 @@
 <template>
   <div>
-    <v-btn style="font-size: 3rem; position: absolute; left: 50%; transform: translate(-50%); top: 40%;" x-large @click="sendApi()">
+    <v-btn
+      style="
+        font-size: 3rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        top: 40%;
+      "
+      x-large
+      @click="sendApi()"
+    >
       TEST
     </v-btn>
   </div>
@@ -11,16 +21,18 @@ export default {
   data() {
     return {
       users: {
-        email: 'ayuu.kumakuma@gmail.com',
+        email: 'test1.kumakuma@gmail.com',
         password: '20020721',
-        userName: 'Ayuu'
-      }
+      },
     }
   },
   methods: {
     sendApi() {
-      this.$store.dispatch('auth/testCreateUser', { email: this.users.email, password: this.users.password, userName: this.users.userName})
-    }
+      this.$store.dispatch('auth/testCreateUser', {
+        email: this.users.email,
+        password: this.users.password,
+      })
+    },
   },
 }
 </script>
