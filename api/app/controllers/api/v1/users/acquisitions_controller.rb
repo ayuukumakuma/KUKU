@@ -3,10 +3,10 @@ module Api
     module Users
       class AcquisitionsController < ApplicationController
         def index
-          # raise ArgumentError, 'BadRequest Parameter' if payload.blank?
-          user = User.find_by(user_id: payload['sub'])
-          record = user
-          render json: record, status: :ok
+          raise ArgumentError, 'BadRequest Parameter' if payload.blank?
+          @user = User.find_by(user_id: payload['sub'])
+          @record = @user.records.all
+          render json: @record, status: :ok
         end
 
         private

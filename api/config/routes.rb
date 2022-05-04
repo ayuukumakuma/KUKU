@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       namespace 'users' do
         resources :registrations, only: [:create]
         resources :additions, only: [:create]
-        resources :acquisitions , only: [:index]
+        get 'acquisitions' => 'acquisitions#index'
       end
     end
   end

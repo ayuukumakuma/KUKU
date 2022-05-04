@@ -70,7 +70,7 @@ export const actions = {
       }
       this.$axios.get(url, param)
         .then((res) => {
-          
+
         })
     })
   },
