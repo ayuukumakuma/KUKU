@@ -55,6 +55,7 @@ export default {
       if (this.emailVerified) {
         this.$router.push('/menu')
         await this.$store.dispatch('auth/changeIsLogin', true)
+        await this.$store.dispatch('auth/addUserInfoToApi')
       }
     },
   },

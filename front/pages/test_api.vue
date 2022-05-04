@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       users: {
-        email: 'test1.kumakuma@gmail.com',
+        email: 'ayuu.kumakuma@gmail.com',
         password: '20020721',
       },
     }

@@ -4,7 +4,7 @@ module Api
       class RegistrationsController < ApplicationController
         def create
           raise ArgumentError, 'BadRequest Parameter' if payload.blank?
-          user = User.create!(sign_up_params.merge(uid: payload['sub']))
+          user = User.create!(sign_up_params.merge(user_id: payload['sub']))
           render json: user, status: :ok
         end
 

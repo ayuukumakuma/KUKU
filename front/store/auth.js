@@ -56,7 +56,7 @@ export const actions = {
     await commit('updateIsLogin', false)
   },
 
-  async googleAuthLogin({ commit }) {
+  async googleAuthLogin({ commit, dispatch }) {
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider)
       .then((res) => {
@@ -69,6 +69,7 @@ export const actions = {
           emailVerified: user.emailVerified,
           photoURL: user.photoURL,
         })
+        dispatch('addUserInfoToApi')
         console.log('Success: login')
         this.$router.push('/menu')
       })
@@ -79,7 +80,7 @@ export const actions = {
 
   async loginUser({ commit, dispatch }, { email, password }) {
     await signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
+      .then(() => {
         if (auth.currentUser.emailVerified) {
           commit('updateIsLogin', true)
           commit('updateUserInfo', {
@@ -100,7 +101,7 @@ export const actions = {
       })
   },
 
-  async createUser({ dispatch }, { email, password, userName}) {
+  async createUser({ dispatch }, { email, password, userName }) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch('serUserInfo', { userName })
@@ -114,31 +115,26 @@ export const actions = {
       })
   },
 
-  // eslint-disable-next-line no-empty-pattern
-  async testCreateUser({}, { email, password }) {
-    await createUserWithEmailAndPassword(auth, email, password)
+  async addUserInfoToApi() {
+    await auth.currentUser
+      .getIdToken()
       .then((res) => {
-        const userInfo = res.user
-        auth.currentUser.getIdToken()
+        const params = {
+          token: res,
+          registration: {
+            email: auth.currentUser.email,
+          },
+        }
+        const url = '/api/v1/users/registrations'
+        this.$axios
+          .post(url, params)
           .then((res) => {
-            const params = {
-              token: res,
-              registration: {
-                email:userInfo.email
-              }
-            }
-            const url = '/api/v1/users/registrations'
-            this.$axios.post(url, params)
-              .then((res) => {
-                console.log(res)
-              })
-              .catch((err) => {
-                console.error(err)
-              })
+            console.log('Success: PushApi')
+            console.log(res)
           })
-          .catch((error) => {
-          console.error(error)
-        })
+          .catch((err) => {
+            console.error(err)
+          })
       })
       .catch((err) => {
         console.error(err)
