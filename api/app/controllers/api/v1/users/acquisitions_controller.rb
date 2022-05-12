@@ -11,13 +11,13 @@ module Api
 
         private
 
-        def before_date
-          params.require(:acquisition).permit(:before_date)
-        end
+        # def before_date
+        #   params.require(:acquisition).permit(:before_date)
+        # end
 
-        def after_date
-          params.require(:acquisition).permit(:after_date)
-        end
+        # def after_date
+        #   params.require(:acquisition).permit(:after_date)
+        # end
 
         def token_from_request_headers
           request.headers['Authorization']&.split&.last
