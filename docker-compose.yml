@@ -26,6 +26,7 @@ services:
       # Dockerfileへ環境変数を渡す
       args:
         WORKDIR: $WORKDIR
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       API_DOMAIN: "localhost:$FRONT_PORT"

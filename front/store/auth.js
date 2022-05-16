@@ -6,7 +6,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
-  updateProfile
+  updateProfile,
+  setPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged,
 } from 'firebase/auth'
 
 import firebaseApp from '~/plugins/firebase'
@@ -41,10 +44,24 @@ export const mutations = {
   },
   updateUserDisplayName(state, displayName) {
     state.user.displayName = displayName
-  }
+  },
 }
 
 export const actions = {
+  async onAuth({ commit }) {
+    await onAuthStateChanged(auth, (user) => {
+      user = user || {}
+      commit('updateIsLogin', !!user.uid)
+      commit('updateUserInfo', {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+        emailVerified: user.emailVerified,
+        photoURL: user.photoURL,
+      })
+    })
+  },
+
   async userInfoInit({ commit }) {
     await commit('updateUserInfo', {
       uid: '',
@@ -58,61 +75,67 @@ export const actions = {
 
   async googleAuthLogin({ commit, dispatch }) {
     const provider = new GoogleAuthProvider()
-    await signInWithPopup(auth, provider)
-      .then((res) => {
-        const user = res.user
-        commit('updateIsLogin', true)
-        commit('updateUserInfo', {
-          uid: user.uid,
-          displayName: user.displayName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: user.photoURL,
+    await setPersistence(auth, browserLocalPersistence).then(async () => {
+      await signInWithPopup(auth, provider)
+        .then((res) => {
+          const user = res.user
+          commit('updateIsLogin', true)
+          commit('updateUserInfo', {
+            uid: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            emailVerified: user.emailVerified,
+            photoURL: user.photoURL,
+          })
+          dispatch('addUserInfoToApi')
+          console.log('Success: login')
+          this.$router.push('/menu')
         })
-        dispatch('addUserInfoToApi')
-        console.log('Success: login')
-        this.$router.push('/menu')
-      })
-      .catch((err) => {
-        console.error('google login error' + err)
-      })
+        .catch((err) => {
+          console.error('google login error' + err)
+        })
+    })
   },
 
   async loginUser({ commit, dispatch }, { email, password }) {
-    await signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        if (auth.currentUser.emailVerified) {
-          commit('updateIsLogin', true)
-          commit('updateUserInfo', {
-            uid: auth.currentUser.uid,
-            displayName: auth.currentUser.displayName,
-            email: auth.currentUser.email,
-            emailVerified: auth.currentUser.emailVerified,
-            photoURL: auth.currentUser.photoURL,
-          })
-          console.log('Success: LoginUser')
-          this.$router.push('/menu')
-        } else {
-          dispatch('sendVerifiedEmail')
-        }
-      })
-      .catch((err) => {
-        console.error(err)
-      })
+    await setPersistence(auth, browserLocalPersistence).then(async () => {
+      await signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          if (auth.currentUser.emailVerified) {
+            commit('updateIsLogin', true)
+            commit('updateUserInfo', {
+              uid: auth.currentUser.uid,
+              displayName: auth.currentUser.displayName,
+              email: auth.currentUser.email,
+              emailVerified: auth.currentUser.emailVerified,
+              photoURL: auth.currentUser.photoURL,
+            })
+            console.log('Success: LoginUser')
+            this.$router.push('/menu')
+          } else {
+            dispatch('sendVerifiedEmail')
+          }
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    })
   },
 
   async createUser({ dispatch }, { email, password, userName }) {
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        dispatch('serUserInfo', { userName })
-        console.log('Success: CreateUser')
-        // 認証メール送信
-        dispatch('sendVerifiedEmail')
-        console.log('Success: Login')
-      })
-      .catch((err) => {
-        console.error(err)
-      })
+    await setPersistence(auth, browserLocalPersistence).then(async () => {
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          dispatch('serUserInfo', { userName })
+          console.log('Success: CreateUser')
+          // 認証メール送信
+          dispatch('sendVerifiedEmail')
+          console.log('Success: Login')
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    })
   },
 
   async addUserInfoToApi() {
