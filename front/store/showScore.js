@@ -23,15 +23,13 @@ export const actions = {
   async getScoreFromApi({ commit }) {
     await auth.currentUser
       .getIdToken()
-      .then((res) => {
+      .then(async (res) => {
         const url = '/api/v1/users/acquisitions'
         const param = { token: res }
-        console.log(param)
-        this.$axios
+        await this.$axios
           // getメソッドの第二引数はdata型じゃなくてconfig型なので{ config: this.config }のように指定しましょう！！！
           .get(url, { params: param })
           .then((res) => {
-            console.log(res.data)
             commit('update', res.data)
           })
           .catch((err) => {
