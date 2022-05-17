@@ -1,5 +1,43 @@
 <template>
-  <div style="margin-top: 88px">
+  <v-container id="data">
+    <v-row>
+      <v-col>
+        <v-card id="today-accuracy">
+          <v-card-title>
+            今日の正解率
+          </v-card-title>
+          <p>
+            100%
+          </p>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card id="today-play">
+          <v-card-title>
+            今日のプレイ
+          </v-card-title>
+          <p>
+            3回
+          </p>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-card id="today-score">
+          <v-card-title>
+            今日のスコア
+          </v-card-title>
+          <v-sparkline
+            :value="value"
+            auto-draw
+            smooth
+          />
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+  <!-- <div style="margin-top: 88px">
     通算正解率
     {{ accuracyAvg }}%
     <br />
@@ -17,13 +55,14 @@
     <br />
     今日のプレイ回数
     {{ todayPlay }}回
-  </div>
+  </div> -->
 </template>
 
 <script>
 export default {
   data() {
     return {
+      value: [2, 5, 0, 8, 1, 6, 9, 4],
       todayScores: [],
       sumScores: [],
     }
@@ -97,3 +136,30 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  #data {
+    margin-top: 88px;
+  }
+  #today-accuracy {
+    text-align: center;
+    p {
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+  #today-play {
+    text-align: center;
+    p {
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+  #today-score {
+    text-align: center;
+    p {
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+</style>
