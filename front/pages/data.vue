@@ -2,7 +2,11 @@
   <v-container id="data">
     <v-row>
       <v-col>
-        <v-card id="today-accuracy">
+        <v-card
+          id="today-accuracy"
+          class="rounded-lg content"
+          elevation="0"
+        >
           <v-card-title>
             今日の正解率
           </v-card-title>
@@ -12,7 +16,11 @@
         </v-card>
       </v-col>
       <v-col>
-        <v-card id="today-play">
+        <v-card
+          id="today-play"
+          class="rounded-lg content"
+          elevation="0"
+        >
           <v-card-title>
             今日のプレイ
           </v-card-title>
@@ -24,7 +32,11 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card id="today-score">
+        <v-card
+          id="today-score"
+          class="rounded-lg content"
+          elevation="0"
+        >
           <v-card-title>
             今日のスコア
           </v-card-title>
@@ -32,6 +44,60 @@
             :value="value"
             auto-draw
             smooth
+            color="secondary"
+          />
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-divider
+      color="sentence"
+      class="my-4"
+    />
+    <v-row>
+      <v-col>
+        <v-card
+          id="today-accuracy"
+          class="rounded-lg content"
+          elevation="0"
+        >
+          <v-card-title>
+            通算正解率
+          </v-card-title>
+          <p>
+            98%
+          </p>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card
+          id="today-play"
+          class="rounded-lg content"
+          elevation="0"
+        >
+          <v-card-title>
+            通算プレイ
+          </v-card-title>
+          <p>
+            120回
+          </p>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-card
+          id="today-score"
+          class="rounded-lg content"
+          elevation="0"
+        >
+          <v-card-title>
+            通算スコア
+          </v-card-title>
+          <v-sparkline
+            :value="value"
+            auto-draw
+            smooth
+            color="secondary"
           />
         </v-card>
       </v-col>

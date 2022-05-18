@@ -29,6 +29,6 @@ html {
   height: 100vh;
   height: 100dvh;
   box-sizing: border-box;
-  overflow: hidden;
+  // overflow: hidden;
 }
 </style>
