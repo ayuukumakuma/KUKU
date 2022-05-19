@@ -64,7 +64,7 @@
             通算正解率
           </v-card-title>
           <p>
-            98%
+            {{ accuracyAvg }}%
           </p>
         </v-card>
       </v-col>
@@ -78,7 +78,7 @@
             通算プレイ
           </v-card-title>
           <p>
-            120回
+            {{ sumPlay }}回
           </p>
         </v-card>
       </v-col>
@@ -94,7 +94,7 @@
             通算スコア
           </v-card-title>
           <v-sparkline
-            :value="value"
+            :value="sumScores"
             auto-draw
             smooth
             color="secondary"
@@ -102,8 +102,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
-  <!-- <div style="margin-top: 88px">
+    <div style="margin-top: 88px">
     通算正解率
     {{ accuracyAvg }}%
     <br />
@@ -121,14 +120,15 @@
     <br />
     今日のプレイ回数
     {{ todayPlay }}回
-  </div> -->
+  </div>
+  </v-container>
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      value: [2, 5, 0, 8, 1, 6, 9, 4],
       todayScores: [],
       sumScores: [],
     }
