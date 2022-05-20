@@ -1,6 +1,7 @@
 <template>
   <v-app id="default">
     <v-main>
+      <CheckUpdate />
       <SnackBar />
       <NavigationBar
         v-if="$route.path !== '/' && $route.path !== '/await-auth'"
@@ -11,10 +12,30 @@
 </template>
 
 <script>
+import CheckUpdate from '~/components/CheckUpdate.vue'
 export default {
-  data() {
-    return {}
-  },
+    data() {
+        return {};
+    },
+    methods: {
+        checkUpdate() {
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("/serviceworker.js")
+                    .then((registration) => {
+                    // 登録成功
+                    registration.onupdatefound = function () {
+                        console.log("アップデートがあります！");
+                        registration.update();
+                    };
+                })
+                    .catch((err) => {
+                    console.error(err);
+                });
+            }
+        },
+    },
+    components: { CheckUpdate }
 }
 </script>
 <style lang="scss">

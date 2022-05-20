@@ -48,7 +48,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col class="pb-6">
         <v-card id="today-score" class="rounded-lg content" elevation="0">
           <v-card-title class="px-2"> 通算スコア </v-card-title>
           <div v-if="isTodayPlay" class="pa-3">
@@ -91,8 +91,8 @@
 export default {
   data() {
     return {
-      todayScores: [],
-      sumScores: [],
+      todayScores: [1,4,6,2,8,7,4],
+      sumScores: [8,1,4,7,9,4,2],
       isTodayPlay: false,
     }
   },

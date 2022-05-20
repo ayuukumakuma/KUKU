@@ -2,7 +2,7 @@
   <v-snackbar
     id="snack-bar"
     v-model="isSnack"
-    class="rounded-lg"
+    class="rounded-lg" 
     timeout="4000"
     top
     multi-line
