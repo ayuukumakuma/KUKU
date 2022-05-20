@@ -26,4 +26,4 @@ RUN apk update && \
 # ルートディレクトリをまんまコンテナにコピー
 COPY . .
 # docker run時に実行するデフォルト処理
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# CMD ["rails", "server", "-b", "0.0.0.0"]

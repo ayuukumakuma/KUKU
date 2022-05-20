@@ -4,13 +4,14 @@
     v-model="isSnack"
     class="rounded-lg"
     timeout="4000"
+    color="secondary"
     top
     multi-line
   >
-    {{ content }}
+    <p>{{ content }}</p>
     <template #action="{ attrs }">
       <v-btn v-bind="attrs" icon @click="changeSnack(false)">
-        <v-icon> mdi-close </v-icon>
+        <v-icon color="sentence"> mdi-close </v-icon>
       </v-btn>
     </template>
   </v-snackbar>
@@ -50,5 +51,10 @@ export default {
 #snack-bar {
   position: fixed;
   z-index: 2;
+  p {
+    margin: 0;
+    color: var(--v-sentence-base);
+    font-size: 1.4rem;
+  }
 }
 </style>

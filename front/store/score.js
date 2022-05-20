@@ -1,3 +1,8 @@
+import { getAuth } from 'firebase/auth'
+import firebaseApp from '~/plugins/firebase'
+
+const auth = getAuth(firebaseApp)
+
 export const state = () => ({
   score: 0,
 })
@@ -18,10 +23,37 @@ export const mutations = {
 }
 
 export const actions = {
-  updateScore(context) {
-    context.commit('increment')
+  updateScore({ commit }) {
+    commit('increment')
   },
-  resetScore(context) {
-    context.commit('reset')
+  resetScore({ commit }) {
+    commit('reset')
   },
+  async pushScoreToApi({ state }) {
+    await auth.currentUser
+      .getIdToken()
+      .then((res) => {
+        const score = state.score
+        const accuracyScore = score / 10
+        const params = {
+          token: res,
+          addition: {
+            accuracy: accuracyScore,
+            number_of_correct_answer: score,
+          },
+        }
+        const url = '/api/v1/users/additions'
+        this.$axios
+          .post(url, params)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.error(err)
+          })
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 }

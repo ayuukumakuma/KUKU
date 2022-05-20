@@ -11,6 +11,14 @@ services:
     volumes:
       - ./api/tmp/db:/var/lib/postgresql/data
 
+  redis:
+    image: redis:5.0.5
+    ports:
+      - $REDIS_PORT:$REDIS_PORT
+    volumes:
+      - ./redis:/data
+    command: redis-server --appendonly yes
+
   api:
     build:
       # Dockerfileの保存場所がdocker-compose.ymlと異なる場合はcontextで指定、名前がDockerfileでないときはDockerfile: ファイル名で指定する
@@ -18,14 +26,17 @@ services:
       # Dockerfileへ環境変数を渡す
       args:
         WORKDIR: $WORKDIR
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       API_DOMAIN: "localhost:$FRONT_PORT"
+      REDIS_URL: redis://redis:$REDIS_PORT
     volumes:
       - ./api:/$WORKDIR
     # 他コンテナとの依存関係
     depends_on:
       - db
+      - redis
     ports:
       - "$API_PORT:$CONTAINER_PORT"
 

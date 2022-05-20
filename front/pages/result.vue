@@ -53,6 +53,9 @@ export default {
       return this.$store.getters['score/getScore']
     },
   },
+  mounted() {
+    this.$store.dispatch('score/pushScoreToApi')
+  },
   methods: {
     clickEvent(router) {
       this.$router.push(`/${router}`)
