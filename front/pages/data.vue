@@ -18,7 +18,7 @@
       <v-col>
         <v-card id="today-score" class="rounded-lg content" elevation="0">
           <v-card-title class="px-2"> 今日のスコア </v-card-title>
-          <div v-if="isTodayPlay" class="pa-3">
+          <div v-if="todayPlay !== 0" class="pa-3">
             <v-sparkline
               :value="todayScores"
               auto-draw
@@ -51,7 +51,7 @@
       <v-col class="pb-6">
         <v-card id="today-score" class="rounded-lg content" elevation="0">
           <v-card-title class="px-2"> 通算スコア </v-card-title>
-          <div v-if="isTodayPlay" class="pa-3">
+          <div v-if="sumPlay !== 0" class="pa-3">
             <v-sparkline
               :value="sumScores"
               auto-draw
@@ -91,9 +91,8 @@
 export default {
   data() {
     return {
-      todayScores: [1,4,6,2,8,7,4],
-      sumScores: [8,1,4,7,9,4,2],
-      isTodayPlay: false,
+      todayScores: [],
+      sumScores: []
     }
   },
   computed: {
@@ -135,37 +134,34 @@ export default {
       return Math.trunc(todayAccuracy / todayLength)
     },
   },
+  created() {
+    this.$store.dispatch('auth/onAuth')
+  },
 
   mounted() {
     this.getRecord()
     this.todayScore()
     this.sumScore()
-    this.checkTodayPlay()
   },
 
   methods: {
-    getRecord() {
-      this.$store.dispatch('showScore/getScoreFromApi')
+    async getRecord() {
+      await this.$store.dispatch('showScore/getScoreFromApi')
     },
-    todayScore() {
-      const array = this.$store.getters['showScore/getScore']
+    async todayScore() {
+      const array = await this.$store.getters['showScore/getScore']
       for (let i = 0; i < array.length; i++) {
         if (array[i].created_at.substr(0, 10) === this.getToday) {
           this.todayScores.push(array[i].number_of_correct_answer)
         }
       }
     },
-    sumScore() {
-      const array = this.$store.getters['showScore/getScore']
+    async sumScore() {
+      const array = await this.$store.getters['showScore/getScore']
       for (let i = 0; i < array.length; i++) {
         this.sumScores.push(array[i].number_of_correct_answer)
       }
-    },
-    checkTodayPlay() {
-      if (this.todayPlay !== 0) {
-        this.isTodayPlay = true
-      }
-    },
+    }
   },
 }
 </script>

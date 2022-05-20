@@ -103,9 +103,6 @@ export default {
       return this.$store.getters['auth/isLogin']
     },
   },
-  created() {
-    this.$store.dispatch('auth/onAuth')
-  },
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout')
