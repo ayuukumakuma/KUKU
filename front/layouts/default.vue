@@ -14,28 +14,32 @@
 <script>
 import CheckUpdate from '~/components/CheckUpdate.vue'
 export default {
-    data() {
-        return {};
-    },
-    methods: {
-        checkUpdate() {
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker
-                    .register("/serviceworker.js")
-                    .then((registration) => {
-                    // 登録成功
-                    registration.onupdatefound = function () {
-                        console.log("アップデートがあります！");
-                        registration.update();
-                    };
-                })
-                    .catch((err) => {
-                    console.error(err);
-                });
+  components: { CheckUpdate },
+  data() {
+    return {}
+  },
+  created() {
+    this.checkUpdate()
+  },
+  methods: {
+    checkUpdate() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/serviceworker.js')
+          .then((registration) => {
+            // 登録成功
+            registration.onupdatefound = function () {
+              this.$store.dispatch('checkUpdate/change', true)
+              console.log('アップデートがあります！')
+              // registration.update()
             }
-        },
+          })
+          .catch((err) => {
+            console.error(err)
+          })
+      }
     },
-    components: { CheckUpdate }
+  },
 }
 </script>
 <style lang="scss">
@@ -50,6 +54,6 @@ html {
   height: 100vh;
   height: 100dvh;
   box-sizing: border-box;
-  // overflow: hidden;
+  overflow: hidden;
 }
 </style>

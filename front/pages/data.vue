@@ -65,25 +65,6 @@
         </v-card>
       </v-col>
     </v-row>
-    <!-- <div>
-      通算正解率
-      {{ accuracyAvg }}%
-      <br />
-      通算プレイ回数
-      {{ sumPlay }}回
-      <br />
-      通算スコア
-      {{ sumScores }}
-      <br />
-      今日の正解率
-      {{ todayAccuracyAvg }}%
-      <br />
-      今日のスコア
-      {{ todayScores }}
-      <br />
-      今日のプレイ回数
-      {{ todayPlay }}回
-    </div> -->
   </v-container>
 </template>
 
@@ -169,6 +150,7 @@ export default {
 <style lang="scss" scoped>
 #data {
   margin-top: 88px;
+  overflow: auto !important;
 }
 #today-accuracy {
   text-align: center;
