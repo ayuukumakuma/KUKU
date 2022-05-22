@@ -245,3 +245,13 @@ $30
 firebase_id_token:certificates
 $13
 1653066587653
+*2
+$6
+SELECT
+$1
+0
+*2
+$3
+DEL
+$30
+firebase_id_token:certificates

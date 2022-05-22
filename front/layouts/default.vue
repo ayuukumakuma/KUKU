@@ -22,21 +22,21 @@ export default {
     this.checkUpdate()
   },
   methods: {
-    checkUpdate() {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/serviceworker.js')
-          .then((registration) => {
-            // 登録成功
-            registration.onupdatefound = function () {
-              this.$store.dispatch('checkUpdate/change', true)
-              console.log('アップデートがあります！')
-              // registration.update()
-            }
-          })
-          .catch((err) => {
-            console.error(err)
-          })
+    async checkUpdate() {
+      const workbox = await window.$workbox
+      if (workbox) {
+        workbox.addEventListener('installed', (event) => {
+          if (event.isUpdate) {
+            console.warn('最新版があります。')
+            window.navigator.serviceWorker
+              .getRegistrations()
+              .then((registrations) => {
+                for (const registration of registrations) {
+                  registration.unregister()
+                }
+              })
+          }
+        })
       }
     },
   },
