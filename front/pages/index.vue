@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-    <div id="title" class="sentence--text">KUKU</div>
+    <div id="title" class="sentence--text">KUKU ver1.0.0</div>
     <v-btn
       id="start-btn"
       class="rounded-lg sentence--text"
