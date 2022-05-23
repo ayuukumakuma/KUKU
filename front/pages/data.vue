@@ -77,6 +77,7 @@ export default {
     }
   },
   computed: {
+    // DBの時間に合わせよう
     getToday() {
       const dt = new Date()
       const YYYY = dt.getFullYear()
