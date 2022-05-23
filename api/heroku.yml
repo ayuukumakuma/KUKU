@@ -1,6 +1,7 @@
 setup:
   addons:
     - plan: heroku-postgresql
+    - plan: heroku-redis
   config:
     RACK_ENV: production
     RAILS_ENV: production

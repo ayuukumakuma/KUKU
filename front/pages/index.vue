@@ -1,5 +1,6 @@
 <template>
   <div id="index">
+    <div id="version">ver. 1.0.0</div>
     <div id="title" class="sentence--text">KUKU</div>
     <v-btn
       id="start-btn"
@@ -28,6 +29,10 @@ export default {}
 <style lang="scss" scoped>
 #index {
   overflow: hidden;
+  #version {
+    margin: 8px;
+    font-size: 1rem;
+  }
 }
 
 #title {
