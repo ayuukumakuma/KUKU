@@ -30,6 +30,7 @@ export default {}
 #index {
   overflow: hidden;
   #version {
+    position: fixed;
     margin: 8px;
     font-size: 1rem;
   }
