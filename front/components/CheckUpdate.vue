@@ -4,11 +4,11 @@
       <v-card v-if="!progress">
         <v-card-title>
           アップデートがあります<br />
-          ボタンを押して更新してください
+          更新してください
         </v-card-title>
         <v-card-actions style="display: flex; justify-content: end">
           <v-btn
-            style="font-size: 1.2rem"
+            style="font-size: 1rem; height: 2.5rem; margin: 24px;"
             class="rounded-lg"
             depressed
             color="content"

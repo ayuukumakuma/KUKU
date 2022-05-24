@@ -3,10 +3,12 @@
     id="snack-bar"
     v-model="isSnack"
     class="rounded-lg"
-    timeout="4000"
     color="secondary"
-    top
-    multi-line
+    bottom
+    timeout="-1"
+    elevation="0"
+    transition="scroll-y-reverse-transition"
+
   >
     <p>{{ content }}</p>
     <template #action="{ attrs }">
@@ -38,11 +40,20 @@ export default {
       this.$store.dispatch('snackBar/updateContent', val)
       this.changeSnack(true)
     },
+    isSnack(val) {
+      console.log('isSnack: ' + val)
+      if (val) {
+        setTimeout(this.changeSnackFalse, 3000)
+      }
+    }
   },
   methods: {
     changeSnack(bool) {
       this.$store.dispatch('snackBar/updateShow', bool)
     },
+    changeSnackFalse() {
+      this.changeSnack(false)
+    }
   },
 }
 </script>
@@ -54,7 +65,7 @@ export default {
   p {
     margin: 0;
     color: var(--v-sentence-base);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 </style>
