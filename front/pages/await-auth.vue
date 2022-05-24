@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="await-auth">
     <div id="text">
       届いたメールに<br />添付されているリンクに<br />アクセスしてください。
     </div>
@@ -63,6 +63,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#await-auth {
+  overflow: hidden;
+}
 #text {
   width: 80%;
   text-align: center;

@@ -1,5 +1,5 @@
 <template>
-  <v-form style="margin-top: 68px" lazy-validation>
+  <v-form id="new-account" lazy-validation>
     <v-container>
       <v-row>
         <v-col style="text-align: center" class="pt-8">
@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#new-account {
+  margin-top: 68px;
+  overflow: hidden;
+}
 #or-text {
   font-size: 16px;
   text-align: center;

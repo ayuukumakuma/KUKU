@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="result">
     <div id="all-correct">
       {{
         getScore === 10
@@ -65,6 +65,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+#result {
+  overflow: hidden;
+}
 #all-correct {
   font-size: 3rem;
   position: fixed;

@@ -1,5 +1,5 @@
 <template>
-  <v-form style="margin-top: 68px" lazy-validation>
+  <v-form id="login" lazy-validation>
     <v-container>
       <v-row>
         <v-col>
@@ -61,6 +61,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#login {
+  margin-top: 68px;
+  overflow: hidden;
+}
 #explanation {
   padding: 0 24px;
   text-align: center;

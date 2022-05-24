@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow: hidden;">
+  <div id="kuku">
       <QuestionTiles
       :multiplicand="String(multiplicandNum)"
       :multiplying="String(multiplyingNum)"
@@ -174,6 +174,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#kuku {
+  overflow: hidden;
+}
 #answer {
   position: fixed;
   width: 240px;
