@@ -15,10 +15,10 @@
         color="secondary"
       ></v-progress-circular>
     </div>
-    <div v-if="isCorrect" id="answer">
+    <div v-show="isCorrect" id="answer">
       <v-img src="/svg/correct.svg" />
     </div>
-    <div v-if="isWrong" id="answer">
+    <div v-show="isWrong" id="answer">
       <v-img src="/svg/wrong.svg" />
     </div>
     <div id="option-tiles">

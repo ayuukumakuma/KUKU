@@ -7,15 +7,15 @@
           : getScore >= 7
           ? 'おしい!!'
           : getScore >= 4
-          ? 'いい感じ!!'
-          : '頑張ろう!!'
+          ? 'いいかんじ!!'
+          : 'がんばろう!!'
       }}
     </div>
     <div id="answer-group">
-      <p id="answer-before"><span>10</span>問中...</p>
+      <p id="answer-before"><span>10</span>もんちゅう...</p>
       <p id="answer">
         <span>{{ getScore }}</span
-        >問
+        >もん
       </p>
       <p id="answer-after">せいかいしたよ！</p>
     </div>
@@ -25,7 +25,7 @@
         class="rounded-lg"
         x-large
         width="148px"
-        height="64px"
+        height="4rem"
         depressed
         color="secondary"
         @click="clickEvent('kuku')"
@@ -36,11 +36,11 @@
         class="rounded-lg"
         x-large
         width="148px"
-        height="64px"
+        height="4rem"
         depressed
         color="primary"
         @click="clickEvent('menu')"
-        >メニューに戻る</v-btn
+        >やめる</v-btn
       >
     </div>
   </div>
