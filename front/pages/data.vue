@@ -151,7 +151,7 @@ export default {
 <style lang="scss" scoped>
 #data {
   margin-top: 88px;
-  overflow: auto !important;
+  overflow: scroll !important;
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
 }
