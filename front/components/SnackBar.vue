@@ -5,10 +5,10 @@
     class="rounded-lg"
     color="secondary"
     bottom
+    height="2.5rem"
     timeout="-1"
     elevation="0"
     transition="scroll-y-reverse-transition"
-
   >
     <p>{{ content }}</p>
     <template #action="{ attrs }">
@@ -26,10 +26,10 @@ export default {
   },
   computed: {
     isSnack() {
-      return this.$store.getters['snackBar/getAlert']
+      return this.$store.getters['authSnackBar/getAlert']
     },
     content() {
-      return this.$store.getters['snackBar/getContent']
+      return this.$store.getters['authSnackBar/getContent']
     },
     authState() {
       return this.$store.getters['auth/isLogin']
@@ -37,23 +37,22 @@ export default {
   },
   watch: {
     authState(val) {
-      this.$store.dispatch('snackBar/updateContent', val)
+      this.$store.dispatch('authSnackBar/updateContent', val)
       this.changeSnack(true)
     },
     isSnack(val) {
-      console.log('isSnack: ' + val)
       if (val) {
         setTimeout(this.changeSnackFalse, 3000)
       }
-    }
+    },
   },
   methods: {
     changeSnack(bool) {
-      this.$store.dispatch('snackBar/updateShow', bool)
+      this.$store.dispatch('authSnackBar/updateShow', bool)
     },
     changeSnackFalse() {
       this.changeSnack(false)
-    }
+    },
   },
 }
 </script>
@@ -63,9 +62,9 @@ export default {
   position: fixed;
   z-index: 2;
   p {
-    margin: 0;
+    margin: 24px 0;
     color: var(--v-sentence-base);
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 </style>

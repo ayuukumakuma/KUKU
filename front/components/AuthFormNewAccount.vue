@@ -8,7 +8,7 @@
           label="ニックネーム"
           outlined
           hide-details
-          placeholder="九九 太郎"
+          placeholder="kuku kids (漢字非推奨)"
           dense
           @focus="isFocusUserName = true"
           @blur="isFocusUserName = false"
@@ -21,7 +21,7 @@
               >mdi-check-circle-outline</v-icon
             >
             <span :class="`${changeColorUserName}--text`"
-              >1字以上10文字以下</span
+              >1文字以上10文字以下</span
             >
           </div>
         </div>
