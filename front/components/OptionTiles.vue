@@ -2,7 +2,7 @@
   <div>
     <v-btn
       id="tile"
-      height="20vh"
+      height="18vh"
       width="40vw"
       color="cLight"
       rounded
