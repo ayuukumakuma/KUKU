@@ -34,33 +34,33 @@ export default {}
     margin: 8px;
     font-size: 1rem;
   }
-}
+  #title {
+    font-size: 5.5rem;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+  }
 
-#title {
-  font-size: 5.5rem;
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%);
-}
+  #start-btn {
+    font-size: 2.5rem;
+    position: fixed;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%);
+    height: 15%;
+    width: 60%;
+  }
 
-#start-btn {
-  font-size: 2.5rem;
-  position: fixed;
-  left: 50%;
-  bottom: 20%;
-  transform: translate(-50%);
-  height: 15%;
-  width: 60%;
-}
-
-#login-btn {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  font-size: 1.2rem;
-  height: 2.5rem;
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
+  #login-btn {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    font-size: 1rem;
+    height: 2.5rem;
+    padding: 24px;
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+  }
 }
 </style>

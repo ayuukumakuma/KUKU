@@ -4,7 +4,8 @@
       <v-row>
         <v-col style="text-align: center" class="pt-8">
           <v-btn
-            class="rounded-lg pt-1"
+            id="google-btn"
+            class="rounded-lg"
             height="48px"
             depressed
             color="cLight"
@@ -40,19 +41,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#explanation {
-  padding: 0 24px;
-  text-align: center;
-}
-
-#divider {
-  border: 0.5px var(--v-cLight-darken2) solid;
-  margin: 16px;
-}
-
 #or-text {
   font-size: 16px;
   text-align: center;
+}
+
+#google-btn {
+  font-size: 1rem;
+  height: 2.5rem;
+  padding: 24px;
 }
 
 #google-img {
@@ -68,8 +65,4 @@ export default {
   }
 }
 
-#create-user {
-  font-size: 1.1rem;
-  height: 48px;
-}
 </style>

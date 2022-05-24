@@ -1,6 +1,6 @@
 <template>
   <form>
-    <v-row>
+    <v-row style="max-width: 960px; margin: 0 auto;">
       <v-col class="px-4 py-4">
         <v-text-field
           v-model="form.email"
@@ -19,7 +19,7 @@
         </v-text-field>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row style="max-width: 960px; margin: 0 auto;">
       <v-col class="px-4 pt-0 pb-4">
         <v-text-field
           v-model="form.password"
@@ -42,9 +42,9 @@
     <v-row>
       <v-col style="text-align: center" class="pt-0 pb-3">
         <v-btn
-          style="font-size: 1.1rem"
-          class="rounded-lg pt-1"
-          height="48px"
+          style="font-size: 1rem; padding: 24px;"
+          class="rounded-lg"
+          height="2.5rem"
           color="secondary"
           depressed
           :disabled="changeDisable"
@@ -106,15 +106,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#validate {
-  margin: 8px 0 16px 0;
-  #validate-content {
-    display: flex;
-    margin: 6px 0 6px 0;
-    span {
-      font-size: 14px;
-      color: var(--v-sentence-lighten5);
-    }
-  }
+#form {
+  display: flex;
+  justify-content: center;
 }
 </style>

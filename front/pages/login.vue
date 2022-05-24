@@ -13,8 +13,8 @@
       <v-row>
         <v-col style="text-align: center" class="pt-0">
           <v-btn
-            class="rounded-lg pt-1"
-            height="48px"
+            id="google-btn"
+            class="rounded-lg"
             depressed
             color="cLight"
             @click="googleLogin()"
@@ -76,6 +76,11 @@ export default {
   text-align: center;
 }
 
+#google-btn {
+  font-size: 1rem;
+  height: 2.5rem;
+  padding: 24px;
+}
 #google-img {
   float: left;
 }
@@ -84,13 +89,14 @@ export default {
   margin-left: 8px;
   letter-spacing: 0.1em;
   span {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: capitalize;
   }
 }
 
 #create-user {
-  font-size: 1.1em;
-  height: 56px;
+  font-size: 1em;
+  height: 2.5rem;
+  padding: 24px;
 }
 </style>

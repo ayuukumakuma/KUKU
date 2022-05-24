@@ -2,10 +2,10 @@
   <div>
     <v-btn
       id="tile"
-      height="18vh"
+      height="19vh"
       width="40vw"
       color="cLight"
-      rounded
+      class="rounded-lg"
       depressed
       :disabled="disabled"
       @click="$emit('click')"

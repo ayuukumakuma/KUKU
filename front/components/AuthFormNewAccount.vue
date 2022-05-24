@@ -1,6 +1,6 @@
 <template>
   <form>
-    <v-row>
+    <v-row style="max-width: 960px; margin: 0 auto;">
       <v-col class="px-4 py-6">
         <v-text-field
           v-model="form.userName"
@@ -27,7 +27,7 @@
         </div>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row style="max-width: 960px; margin: 0 auto;">
       <v-col class="px-4 pt-0 pb-6">
         <v-text-field
           v-model="form.email"
@@ -54,7 +54,7 @@
         </div>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row style="max-width: 960px; margin: 0 auto;">
       <v-col class="px-4 pt-0 pb-6">
         <v-text-field
           v-model="form.password"
@@ -94,9 +94,9 @@
     <v-row>
       <v-col style="text-align: center" class="py-0">
         <v-btn
-          style="font-size: 20px"
-          class="rounded-lg pt-1"
-          height="56px"
+          style="font-size: 1rem; padding: 24px;"
+          class="rounded-lg"
+          height="2.5rem"
           color="primary"
           depressed
           :disabled="changeDisable"
@@ -198,7 +198,7 @@ export default {
     display: flex;
     margin: 6px 0 6px 0;
     span {
-      font-size: .7rem;
+      font-size: .8rem;
       color: var(--v-sentence-lighten5);
     }
   }
