@@ -149,9 +149,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100vh;
+  height: 100dvh;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+}
+
 #data {
   margin-top: 88px;
-  overflow: visible !important;
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
 }
