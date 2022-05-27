@@ -61,6 +61,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100vh;
+  height: 100dvh;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+}
+html,
+body {
+  overflow: hidden;
+}
 #login {
   margin-top: 68px;
   // overflow: hidden;

@@ -42,19 +42,19 @@ export default {
 }
 </script>
 <style lang="scss">
-html::-webkit-scrollbar {
-  display: none;
-}
-html {
-  height: 100vh;
-  height: 100dvh;
-  overscroll-behavior-y: none;
-  scrollbar-width: none;
-}
-html,
-body {
-  overflow: hidden;
-}
+// html::-webkit-scrollbar {
+//   display: none;
+// }
+// html {
+//   height: 100vh;
+//   height: 100dvh;
+//   overscroll-behavior-y: none;
+//   scrollbar-width: none;
+// }
+// html,
+// body {
+//   overflow: hidden;
+// }
 #default {
   font-family: 'SmartFontUI';
   height: 100vh;
