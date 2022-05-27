@@ -33,6 +33,9 @@ export default {
     noScroll() {
       window.addEventListener('touchmove', (event) => {
         event.preventDefault()
+      },
+      {
+        passive: false
       })
     },
   },

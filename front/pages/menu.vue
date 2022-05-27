@@ -160,10 +160,10 @@ export default {
 @media screen and (max-width: 960px) {
   #menu {
     #kuku {
-      max-height: 25vh;
+      max-height: 23vh;
     }
     #data {
-      max-height: 25vh;
+      max-height: 23vh;
     }
     #account {
       height: 102px;
