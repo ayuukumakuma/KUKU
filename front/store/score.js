@@ -46,7 +46,7 @@ export const actions = {
         this.$axios
           .post(url, params)
           .then((res) => {
-            console.log(res)
+            console.log('Success: push result')
           })
           .catch((err) => {
             console.error(err)
