@@ -15,9 +15,6 @@
 import CheckUpdate from '~/components/CheckUpdate.vue'
 export default {
   components: { CheckUpdate },
-  data() {
-    return {}
-  },
   created() {
     this.checkUpdate()
   },
@@ -41,12 +38,16 @@ html::-webkit-scrollbar {
   display: none;
 }
 html {
+  height: 100vh;
+  height: 100dvh;
   overscroll-behavior-y: none;
+}
+html, body {
+  overflow: hidden;
 }
 #default {
   font-family: 'SmartFontUI';
   height: 100vh;
   height: 100dvh;
-  box-sizing: border-box;
 }
 </style>

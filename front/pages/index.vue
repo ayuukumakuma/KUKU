@@ -28,7 +28,7 @@ export default {}
 </script>
 <style lang="scss" scoped>
 #index {
-  overflow: hidden;
+  // overflow: hidden;
   #version {
     position: fixed;
     margin: 8px;

@@ -175,7 +175,7 @@ export default {
 
 <style lang="scss" scoped>
 #kuku {
-  overflow: hidden;
+  // overflow: hidden;
 }
 #answer {
   position: fixed;

@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 #new-account {
   margin-top: 68px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 #or-text {
   font-size: 16px;

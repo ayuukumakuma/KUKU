@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 #await-auth {
-  overflow: hidden;
+  // overflow: hidden;
 }
 #text {
   width: 80%;

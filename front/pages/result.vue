@@ -66,7 +66,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 #result {
-  overflow: hidden;
+  // overflow: hidden;
 }
 #all-correct {
   font-size: 3rem;

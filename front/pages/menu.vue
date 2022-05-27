@@ -115,7 +115,7 @@ export default {
 #main {
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  // overflow: hidden;
 }
 #menu {
   width: 90%;

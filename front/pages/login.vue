@@ -63,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 #login {
   margin-top: 68px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 #explanation {
   padding: 0 24px;
