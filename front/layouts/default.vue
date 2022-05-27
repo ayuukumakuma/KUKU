@@ -30,6 +30,11 @@ export default {
         })
       }
     },
+    noScroll() {
+      window.addEventListener('touchmove', (event) => {
+        event.preventDefault()
+      })
+    },
   },
 }
 </script>
@@ -41,8 +46,10 @@ html {
   height: 100vh;
   height: 100dvh;
   overscroll-behavior-y: none;
+  scrollbar-width: none;
 }
-html, body {
+html,
+body {
   overflow: hidden;
 }
 #default {
