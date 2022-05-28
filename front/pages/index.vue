@@ -28,7 +28,6 @@ export default {}
 </script>
 <style lang="scss" scoped>
 #index {
-  overflow: hidden;
   #version {
     position: fixed;
     margin: 8px;
@@ -59,8 +58,8 @@ export default {}
     font-size: 1rem;
     height: 2.5rem;
     padding: 24px;
-    margin-bottom: constant(safe-area-inset-bottom);
-    margin-bottom: env(safe-area-inset-bottom);
+    // margin-bottom: constant(safe-area-inset-bottom);
+    // margin-bottom: env(safe-area-inset-bottom);
   }
 }
 </style>

@@ -18,6 +18,23 @@ export default {
   data() {
     return {}
   },
+  computed: {
+    path() {
+      return this.$route.path
+    }
+  },
+  watch: {
+    path(val) {
+      if (val === '/data') {
+        document.documentElement.style.overflow = 'scroll'
+        document.body.style.overflow = 'scroll'
+      }
+      else {
+        document.documentElement.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
+      }
+    }
+  },
   created() {
     this.checkUpdate()
   },
@@ -37,16 +54,16 @@ export default {
 }
 </script>
 <style lang="scss">
-html::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
-html {
-  overscroll-behavior-y: none;
+html,
+body {
+  overflow: hidden;
 }
 #default {
   font-family: 'SmartFontUI';
-  height: 100vh;
-  height: 100dvh;
-  box-sizing: border-box;
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
 }
 </style>

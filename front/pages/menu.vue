@@ -115,13 +115,12 @@ export default {
 #main {
   display: flex;
   justify-content: center;
-  overflow: hidden;
 }
 #menu {
   width: 90%;
   margin-top: 88px;
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
+  // margin-bottom: constant(safe-area-inset-bottom);
+  // margin-bottom: env(safe-area-inset-bottom);
   #kuku {
     height: 84vh;
   }

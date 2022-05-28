@@ -149,11 +149,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html,body {
+  overflow: auto !important;
+}
 #data {
   margin-top: 88px;
-  overflow: auto;
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
 }
 #today-accuracy {
   text-align: center;

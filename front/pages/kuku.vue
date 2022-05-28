@@ -200,8 +200,8 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  margin-bottom: constant(safe-area-inset-bottom);
-  margin-bottom: env(safe-area-inset-bottom);
+  // margin-bottom: constant(safe-area-inset-bottom);
+  // margin-bottom: env(safe-area-inset-bottom);
   #tiles {
     margin: 8px auto;
   }
