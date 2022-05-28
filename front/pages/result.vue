@@ -65,8 +65,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#result {
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100vh;
+  height: 100dvh;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+}
+html,
+body {
   overflow: hidden;
+}
+#result {
+  // overflow: hidden;
 }
 #all-correct {
   font-size: 3rem;

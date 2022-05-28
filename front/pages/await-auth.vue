@@ -63,8 +63,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#await-auth {
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100vh;
+  height: 100dvh;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+}
+html,
+body {
   overflow: hidden;
+}
+#await-auth {
+  // overflow: hidden;
 }
 #text {
   width: 80%;

@@ -151,9 +151,8 @@ export const actions = {
         const url = '/api/v1/users/registrations'
         this.$axios
           .post(url, params)
-          .then((res) => {
-            console.log('Success: PushApi')
-            console.log(res)
+          .then(() => {
+            console.log('Success: user push')
           })
           .catch((err) => {
             console.error(err)

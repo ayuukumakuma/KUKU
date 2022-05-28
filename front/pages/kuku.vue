@@ -174,8 +174,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#kuku {
+html::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100vh;
+  height: 100dvh;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+}
+html,
+body {
   overflow: hidden;
+}
+#kuku {
+  // overflow: hidden;
 }
 #answer {
   position: fixed;
