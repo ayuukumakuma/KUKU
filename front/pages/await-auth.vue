@@ -64,10 +64,9 @@ export default {
 
 <style lang="scss" scoped>
 #text {
-  width: 80%;
   text-align: center;
   font-size: 1.5rem;
-  margin: 20% auto auto auto;
+  margin-top: 120px;
 }
 
 #progress {
@@ -78,7 +77,7 @@ export default {
 }
 
 #progress-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
   position: absolute;
   left: 50%;
   top: 50%;
