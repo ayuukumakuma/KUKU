@@ -82,9 +82,9 @@ export default {}
     transform: translate(-50%);
     @media screen and (min-width: 960px) {
       top: 60px;
-      width: 40vw;
+      height: 70vh;
     }
-    width: 70vw;
+    height: 50vh;
     opacity: 0.2;
     z-index: 0;
   }
