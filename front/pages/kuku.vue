@@ -174,22 +174,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html::-webkit-scrollbar {
-  display: none;
-}
-html {
-  height: 100vh;
-  height: 100dvh;
-  overscroll-behavior-y: none;
-  scrollbar-width: none;
-}
-html,
-body {
-  overflow: hidden;
-}
-#kuku {
-  // overflow: hidden;
-}
 #answer {
   position: fixed;
   width: 240px;
@@ -213,8 +197,8 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  // margin-bottom: constant(safe-area-inset-bottom);
-  // margin-bottom: env(safe-area-inset-bottom);
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
   #tiles {
     margin: 8px auto;
   }

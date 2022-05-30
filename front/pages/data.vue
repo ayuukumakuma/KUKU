@@ -149,9 +149,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html,body {
-  overflow: auto !important;
-}
 #data {
   margin-top: 88px;
 }

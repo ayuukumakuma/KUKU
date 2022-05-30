@@ -41,22 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html::-webkit-scrollbar {
-  display: none;
-}
-html {
-  height: 100vh;
-  height: 100dvh;
-  overscroll-behavior-y: none;
-  scrollbar-width: none;
-}
-html,
-body {
-  overflow: hidden;
-}
 #new-account {
   margin-top: 68px;
-  // overflow: hidden;
 }
 #or-text {
   font-size: 16px;

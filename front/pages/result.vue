@@ -135,6 +135,8 @@ body {
   bottom: 10%;
   width: 100%;
   transform: translate(-50%);
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
   #once-more {
     font-size: 1.1rem;
   }
