@@ -66,12 +66,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 #all-correct {
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: fixed;
   top: 88px;
   width: 100%;
   text-align: center;
   color: var(--v-sentence-base);
+  @media screen and (min-width: 960px) {
+top: 138px;
+    }
 }
 
 #answer-group {
@@ -119,6 +122,7 @@ export default {
   bottom: 10%;
   width: 100%;
   @media screen and (min-width: 960px) {
+    bottom: 20%;
     width: 40vw;
   }
   transform: translate(-50%);

@@ -1,6 +1,6 @@
 <template>
   <div id="kuku">
-      <QuestionTiles
+    <QuestionTiles
       :multiplicand="String(multiplicandNum)"
       :multiplying="String(multiplyingNum)"
       :correct="isCorrect"
@@ -88,7 +88,7 @@ export default {
     this.reset()
   },
   methods: {
-    FirstQuestion(){
+    FirstQuestion() {
       this.SettingQuestion()
       this.DummyAnswer()
       this.NonnegativeRandomNumber()
@@ -96,7 +96,7 @@ export default {
       this.isCorrect = false
       this.isWrong = false
     },
-    NextQuestion(){
+    NextQuestion() {
       this.FirstQuestion()
       this.showPopup = false
     },
@@ -145,8 +145,7 @@ export default {
     correct() {
       if (this.progressNum === 10) {
         setTimeout(this.toResult, 1000)
-      }
-      else {
+      } else {
         this.progressNum += 1
       }
       this.$store.dispatch('score/updateScore')
@@ -158,8 +157,7 @@ export default {
     wrong() {
       if (this.progressNum === 10) {
         setTimeout(this.toResult, 1000)
-      }
-      else this.progressNum += 1
+      } else this.progressNum += 1
       this.isWrong = true
       this.disabled = true
       this.showPopup = true
@@ -168,7 +166,7 @@ export default {
     toResult() {
       this.$router.push('/result')
       this.reset()
-    }
+    },
   },
 }
 </script>
@@ -188,6 +186,10 @@ export default {
   position: fixed;
   top: 37%;
   right: 16px;
+  @media screen and (min-width: 960px) {
+    right: 27.5vw;
+    top: 40%;
+  }
 }
 
 #option-tiles {
@@ -201,6 +203,14 @@ export default {
   margin-bottom: env(safe-area-inset-bottom);
   #tiles {
     margin: 8px auto;
+  }
+  @media screen and (min-width: 960px) {
+    left: 50%;
+    transform: translate(-50%);
+    width: 50vw;
+    #tiles {
+      margin: 8px 2.5vw;
+    }
   }
 }
 

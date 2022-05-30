@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="question-tiles">
     <div id="multiplicand">
       <v-img id="multiplicand-shape" :src="`/svg/shapes/${GetShape}.svg`" />
       <div id="multiplicand-text">
@@ -67,6 +67,9 @@ export default {
   height: 80px;
   position: fixed;
   left: 20%;
+  @media screen and (min-width: 960px){
+    left: 35%;
+  }
   top: 16%;
   transform: translate(-50%);
   #multiplicand-text {
@@ -87,6 +90,9 @@ export default {
   height: 80px;
   position: fixed;
   left: 80%;
+  @media screen and (min-width: 960px){
+    left: 65%;
+  }
   top: 16%;
   transform: translate(-50%);
   #multiplying-text {
