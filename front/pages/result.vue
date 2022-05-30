@@ -65,22 +65,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-html::-webkit-scrollbar {
-  display: none;
-}
-html {
-  height: 100vh;
-  height: 100dvh;
-  overscroll-behavior-y: none;
-  scrollbar-width: none;
-}
-html,
-body {
-  overflow: hidden;
-}
-#result {
-  // overflow: hidden;
-}
 #all-correct {
   font-size: 3rem;
   position: fixed;
@@ -134,6 +118,9 @@ body {
   left: 50%;
   bottom: 10%;
   width: 100%;
+  @media screen and (min-width: 960px) {
+    width: 40vw;
+  }
   transform: translate(-50%);
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);

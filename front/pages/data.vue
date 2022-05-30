@@ -73,7 +73,7 @@ export default {
   data() {
     return {
       todayScores: [],
-      sumScores: []
+      sumScores: [],
     }
   },
   computed: {
@@ -143,7 +143,7 @@ export default {
       for (let i = 0; i < array.length; i++) {
         this.sumScores.push(array[i].number_of_correct_answer)
       }
-    }
+    },
   },
 }
 </script>
@@ -151,6 +151,9 @@ export default {
 <style lang="scss" scoped>
 #data {
   margin-top: 88px;
+  @media screen and (min-width: 960px) {
+    width: 40vw;
+  }
 }
 #today-accuracy {
   text-align: center;
