@@ -84,7 +84,7 @@ export default {}
       top: 60px;
       height: 70vh;
     }
-    height: 50vh;
+    height: 40vh;
     opacity: 0.2;
     z-index: 0;
   }
