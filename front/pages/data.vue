@@ -77,7 +77,6 @@ export default {
     }
   },
   computed: {
-    // DBの時間に合わせよう
     getToday() {
       const dt = new Date()
       const YYYY = dt.getFullYear()
@@ -128,6 +127,7 @@ export default {
 
   methods: {
     async getRecord() {
+      this.$nuxt.$loading.start()
       await this.$store.dispatch('showScore/getScoreFromApi')
     },
     async todayScore() {
