@@ -1,4 +1,4 @@
-# KUKU ※現在開発中(Now under development)
+# KUKU
 
 <p align="right">
  <img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=popout"> <img src="https://img.shields.io/badge/-Nuxt.js-00C58E.svg?logo=nuxt.js&style=popout"> <img src="https://img.shields.io/badge/-Node.js-339933.svg?logo=node.js&style=popout"> <img src="https://img.shields.io/badge/-Yarn-2C8EBB.svg?logo=yarn&style=popout"> <img src="https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=popout"> <img src="https://img.shields.io/badge/-Html5-E34F26.svg?logo=html5&style=popout"> <img src="https://img.shields.io/badge/-Docker-1488C6.svg?logo=docker&style=popout"> <img src="https://img.shields.io/badge/-Firebase-FFCA28.svg?logo=firebase&style=popout"> <img src="https://img.shields.io/badge/-Postgresql-336791.svg?logo=postgresql&style=popout"> <img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=popout"> <img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=popout">
@@ -22,7 +22,8 @@ Educational web application to visually memorize the times tables.
 ## Demo
 |index|menu|kuku|login|data|
 |---|---|---|---|---|
-|<img src="https://user-images.githubusercontent.com/67136466/166092268-4be0d95c-640e-4d96-bafe-5259dc5a1e66.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092367-c610e68d-207d-43fa-a9b9-834376fc1481.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092295-182543ca-c3a4-41a2-bebd-5b5c70a3a4c7.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092435-cbb8b4c9-edcb-4840-8d7d-e0884892fd8f.png" width="100px">|Now in production
+|<img src="https://user-images.githubusercontent.com/67136466/166092268-4be0d95c-640e-4d96-bafe-5259dc5a1e66.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092367-c610e68d-207d-43fa-a9b9-834376fc1481.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092295-182543ca-c3a4-41a2-bebd-5b5c70a3a4c7.png" width="100px">|<img src="https://user-images.githubusercontent.com/67136466/166092435-cbb8b4c9-edcb-4840-8d7d-e0884892fd8f.png" width="100px">|<img src="![kuku-app herokuapp com_login(iPhone XR)](https://user-images.githubusercontent.com/67136466/171520250-1e8916ad-d13b-46c8-abb4-160abb7aa329.png)
+" width="100px">
 
 ## Description
 - ユーザーは表示された数字と色、数字と図形のペアをもとに、それらの積を選択していきます。
