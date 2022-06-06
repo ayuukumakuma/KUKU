@@ -1,7 +1,7 @@
 <template>
   <v-app id="default">
     <v-main>
-      <Loading :is-show="isShow" />
+      <!-- <Loading :is-show="isShow" /> -->
       <CheckUpdate />
       <SnackBar />
       <NavigationBar
@@ -13,19 +13,14 @@
 </template>
 
 <script>
-import CheckUpdate from '~/components/CheckUpdate.vue'
-import Loading from '~/components/Loading.vue'
 export default {
-  components: { CheckUpdate, Loading },
   data() {
-    return {
-      isShow: false
-    }
+    return {}
   },
   computed: {
     path() {
       return this.$route.path
-    }
+    },
   },
   watch: {
     path(val) {
@@ -41,13 +36,6 @@ export default {
   },
   created() {
     this.checkUpdate()
-  },
-  mounted() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.isShow = false
-      }, 700)
-    })
   },
   methods: {
     async checkUpdate() {

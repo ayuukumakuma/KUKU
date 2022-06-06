@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isShow" class="background">
+  <div v-if="loading" class="background">
     <div class="balls">
       <div class="ball"></div>
       <div class="ball"></div>
@@ -14,13 +14,18 @@
 
 <script>
 export default {
-  props: {
-    isShow: {
-      type: Boolean,
-      default: false
+    data: () => ({
+      loading: false
+    }),
+    methods: {
+      start() {
+        this.loading = true
+      },
+      finish() {
+        this.loading = false
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>

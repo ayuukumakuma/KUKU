@@ -54,12 +54,17 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('score/pushScoreToApi')
+    this.pushScore()
   },
   methods: {
     clickEvent(router) {
       this.$router.push(`/${router}`)
       this.$store.dispatch('score/resetScore')
+    },
+    async pushScore() {
+      this.$nuxt.$loading.start()
+      await this.$store.dispatch('score/pushScoreToApi')
+      this.$nuxt.$loading.finish()
     },
   },
 }
@@ -73,8 +78,8 @@ export default {
   text-align: center;
   color: var(--v-sentence-base);
   @media screen and (min-width: 960px) {
-top: 138px;
-    }
+    top: 138px;
+  }
 }
 
 #answer-group {

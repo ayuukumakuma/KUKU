@@ -88,17 +88,17 @@
         <v-card-text>
           プレイ履歴を保存するにはログインしてください
         </v-card-text>
-        <v-card-action style="display: flex; justify-content: end;">
+        <v-card-actions style="display: flex; justify-content: end;">
           <v-btn
             id="close"
             class="rounded-lg ma-4"
             color="primary"
             depressed
-            @click="isNeedLogin = false"
+            @click="$router.push('../login')"
           >
-            閉じる
+            ログインする
           </v-btn>
-        </v-card-action>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </div>

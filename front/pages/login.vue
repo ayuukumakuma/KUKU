@@ -53,8 +53,10 @@ export default {
     this.$store.dispatch('auth/userInfoInit')
   },
   methods: {
-    googleLogin() {
-      this.$store.dispatch('auth/googleAuthLogin')
+    async googleLogin() {
+      this.$nuxt.$loading.start()
+      await this.$store.dispatch('auth/googleAuthLogin')
+      this.$nuxt.$loading.finish()
     },
   },
 }

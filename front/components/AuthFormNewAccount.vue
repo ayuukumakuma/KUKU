@@ -181,11 +181,13 @@ export default {
   },
   methods: {
     async createUser() {
+      this.$nuxt.$loading.start()
       await this.$store.dispatch('auth/createUser', {
         email: this.form.email,
         password: this.form.password,
         userName: this.form.userName
       })
+      this.$nuxt.$loading.finish()
     }
   }
 }

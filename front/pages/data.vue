@@ -127,21 +127,27 @@ export default {
 
   methods: {
     async getRecord() {
+      this.$nuxt.$loading.start()
       await this.$store.dispatch('showScore/getScoreFromApi')
+      this.$nuxt.$loading.finish()
     },
     async todayScore() {
+      this.$nuxt.$loading.start()
       const array = await this.$store.getters['showScore/getScore']
       for (let i = 0; i < array.length; i++) {
         if (array[i].created_at.substr(0, 10) === this.getToday) {
           this.todayScores.push(array[i].number_of_correct_answer)
         }
       }
+      this.$nuxt.$loading.finish()
     },
     async sumScore() {
+      this.$nuxt.$loading.start()
       const array = await this.$store.getters['showScore/getScore']
       for (let i = 0; i < array.length; i++) {
         this.sumScores.push(array[i].number_of_correct_answer)
       }
+      this.$nuxt.$loading.finish()
     },
   },
 }

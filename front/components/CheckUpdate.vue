@@ -46,6 +46,7 @@ export default {
   methods: {
     async update() {
       this.progress = true
+      this.$nuxt.$loading.start()
       await window.navigator.serviceWorker
         .getRegistrations()
         .then((registrations) => {
@@ -53,6 +54,7 @@ export default {
             registration.unregister()
           }
         })
+      this.$nuxt.$loading.finish()
       window.location.reload(true)
     },
   },

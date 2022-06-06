@@ -95,11 +95,13 @@ export default {
     this.$v.$reset()
   },
   methods: {
-    loginUser() {
-      this.$store.dispatch('auth/loginUser', {
+    async loginUser() {
+      this.$nuxt.$loading.start()
+      await this.$store.dispatch('auth/loginUser', {
         email: this.form.email,
         password: this.form.password,
       })
+      this.$nuxt.$loading.finish()
     },
   }
 }
