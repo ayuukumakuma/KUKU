@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div v-show="isShow" class="background">
     <div class="balls">
       <div class="ball"></div>
       <div class="ball"></div>
@@ -13,7 +13,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    isShow: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
