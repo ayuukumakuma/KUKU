@@ -74,79 +74,54 @@ export default {
     return {
       todayScores: [],
       sumScores: [],
+      today: '',
+      todayPlay: 0,
+      sumPlay: 0,
+      todayAccuracyAvg: 0,
+      accuracyAvg: 0,
     }
   },
-  computed: {
-    getToday() {
-      const dt = new Date()
-      const YYYY = dt.getFullYear()
-      const MM = ('0' + (dt.getMonth() + 1)).slice(-2)
-      const DD = ('0' + dt.getDate()).slice(-2)
-      return YYYY + '-' + MM + '-' + DD
-    },
-    getScore() {
-      return this.$store.getters['showScore/getScore']
-    },
-    accuracyAvg() {
-      const array = this.$store.getters['showScore/getScore']
-      let sumAccuracy = 0
-      for (let i = 0; i < array.length; i++) {
-        sumAccuracy += array[i].accuracy * 100
-      }
-      return Math.trunc(sumAccuracy / array.length)
-    },
-    sumPlay() {
-      const array = this.$store.getters['showScore/getScore']
-      return array.length
-    },
-    todayPlay() {
-      return this.todayScores.length
-    },
-    todayAccuracyAvg() {
-      const array = this.$store.getters['showScore/getScore']
-      let todayAccuracy = 0
-      let todayLength = 0
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].created_at.substr(0, 10) === this.getToday) {
-          todayLength += 1
-          todayAccuracy += array[i].accuracy * 100
-        }
-      }
-      return Math.trunc(todayAccuracy / todayLength)
-    },
-  },
+
   created() {
     this.$store.dispatch('auth/onAuth')
   },
 
   mounted() {
+    this.$nuxt.$loading.start()
     this.getRecord()
-    this.todayScore()
-    this.sumScore()
+    this.treatmentScore()
   },
 
   methods: {
     async getRecord() {
-      this.$nuxt.$loading.start()
       await this.$store.dispatch('showScore/getScoreFromApi')
       this.$nuxt.$loading.finish()
     },
-    async todayScore() {
-      this.$nuxt.$loading.start()
+    async treatmentScore() {
+      const dt = new Date()
+      const YYYY = dt.getFullYear()
+      const MM = ('0' + (dt.getMonth() + 1)).slice(-2)
+      const DD = ('0' + dt.getDate()).slice(-2)
+      this.today = YYYY + '-' + MM + '-' + DD
+
       const array = await this.$store.getters['showScore/getScore']
+      let sumAccuracy = 0
+      let todayAccuracy = 0
+      let todayLength = 0
       for (let i = 0; i < array.length; i++) {
+        sumAccuracy += array[i].accuracy * 100
+        this.sumScores.push(array[i].number_of_correct_answer)
+        if (array[i].created_at.substr(0, 10) === this.getToday) {
+          todayLength += 1
+          todayAccuracy += array[i].accuracy * 100
+        }
         if (array[i].created_at.substr(0, 10) === this.getToday) {
           this.todayScores.push(array[i].number_of_correct_answer)
         }
       }
-      this.$nuxt.$loading.finish()
-    },
-    async sumScore() {
-      this.$nuxt.$loading.start()
-      const array = await this.$store.getters['showScore/getScore']
-      for (let i = 0; i < array.length; i++) {
-        this.sumScores.push(array[i].number_of_correct_answer)
-      }
+      this.sumPlay = array.length
+      this.accuracyAvg = Math.trunc(sumAccuracy / array.length)
+      this.todayAccuracyAvg = Math.trunc(todayAccuracy / todayLength)
       this.$nuxt.$loading.finish()
     },
   },
