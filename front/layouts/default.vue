@@ -1,7 +1,6 @@
 <template>
   <v-app id="default">
     <v-main>
-      <!-- <Loading :is-show="isShow" /> -->
       <CheckUpdate />
       <SnackBar />
       <NavigationBar

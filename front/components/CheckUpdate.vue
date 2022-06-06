@@ -6,11 +6,11 @@
           アップデートがあります<br />
           更新してください
         </v-card-title>
-        <v-card-actions style="display: flex; justify-content: end">
+        <v-card-actions style="display: flex; justify-content: center">
           <v-btn
-            style="font-size: 1rem; padding: 24px;"
-            class="rounded-lg"
-            height="2.5rem"
+            style="font-size: 1rem;"
+            class="rounded-lg mb-2"
+            height="3rem"
             depressed
             color="content"
             large
@@ -25,7 +25,7 @@
           更新中
         </v-card-title>
         <v-card-actions>
-          <v-progress-linear indeterminate color="primary" />
+          <v-progress-linear indeterminate color="primary" class="mb-2" />
         </v-card-actions>
       </v-card>
     </v-dialog>

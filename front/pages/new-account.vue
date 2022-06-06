@@ -34,9 +34,7 @@ export default {
   },
   methods: {
     async googleLogin() {
-      this.$nuxt.$loading.start()
       await this.$store.dispatch('auth/googleAuthLogin')
-      this.$nuxt.$loading.finish()
     },
   },
 }

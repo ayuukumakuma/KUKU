@@ -88,15 +88,27 @@
         <v-card-text>
           プレイ履歴を保存するにはログインしてください
         </v-card-text>
-        <v-card-actions style="display: flex; justify-content: end;">
+        <v-card-actions style="display: flex; justify-content: center">
           <v-btn
-            id="close"
-            class="rounded-lg ma-4"
+            id="toLogin"
+            class="rounded-lg"
             color="primary"
             depressed
             @click="$router.push('../login')"
           >
             ログインする
+          </v-btn>
+        </v-card-actions>
+        <v-card-actions>
+          <v-btn
+            id="close"
+            icon
+            color="sentence"
+            depressed
+            large
+            @click="isNeedLogin = false"
+          >
+            <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -173,10 +185,15 @@ export default {
     }
   }
 }
-#close {
-  text-align: center;
+#toLogin {
   font-size: 1rem;
-  height: 2.5rem;
+  height: 3rem;
+  width: 150px;
+}
+#close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 @media screen and (min-width: 960px) {
