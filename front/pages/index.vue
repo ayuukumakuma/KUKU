@@ -23,7 +23,7 @@
     >
       保護者・教員の方へ
     </v-btn>
-    <img id="icon" src="/icon.png" />
+    <img id="icon" src="/icon.png" alt="KUKU"/>
   </div>
 </template>
 

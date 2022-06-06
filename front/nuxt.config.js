@@ -6,8 +6,10 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '',
     title: 'KUKU',
+    htmlAttrs: {
+      lang: 'ja',
+    },
     meta: [
       { charset: 'utf-8' },
       {
@@ -15,7 +17,12 @@ export default {
         content:
           'width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=n',
       },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Educational web application to visually memorize the times tables.',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
