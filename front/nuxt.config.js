@@ -148,5 +148,5 @@ export default {
     dev: false,
   },
 
-  loading: '~/components/Loading.vue',
+  // loading: '~/components/Loading.vue',
 }

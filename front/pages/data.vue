@@ -127,7 +127,6 @@ export default {
 
   methods: {
     async getRecord() {
-      this.$nuxt.$loading.start()
       await this.$store.dispatch('showScore/getScoreFromApi')
     },
     async todayScore() {

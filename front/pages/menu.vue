@@ -22,7 +22,7 @@
             id="data"
             class="content rounded-lg"
             elevation="0"
-            @click="$router.push('./data')"
+            @click="isLogin ? $router.push('./data') : (isNeedLogin = true)"
           >
             <v-card-title id="title">
               <v-icon x-large color="sentence">mdi-clipboard-text</v-icon>
@@ -82,6 +82,25 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-dialog v-model="isNeedLogin">
+      <v-card>
+        <v-card-title> ログインしてね！ </v-card-title>
+        <v-card-text>
+          プレイ履歴を保存するにはログインしてください
+        </v-card-text>
+        <v-card-action style="display: flex; justify-content: end;">
+          <v-btn
+            id="close"
+            class="rounded-lg ma-4"
+            color="primary"
+            depressed
+            @click="isNeedLogin = false"
+          >
+            閉じる
+          </v-btn>
+        </v-card-action>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -90,6 +109,7 @@ export default {
   data() {
     return {
       showLogoutMenu: false,
+      isNeedLogin: false,
     }
   },
   computed: {
@@ -152,6 +172,11 @@ export default {
       top: 4px;
     }
   }
+}
+#close {
+  text-align: center;
+  font-size: 1rem;
+  height: 2.5rem;
 }
 
 @media screen and (min-width: 960px) {
