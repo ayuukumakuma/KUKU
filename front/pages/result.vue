@@ -59,6 +59,7 @@ export default {
   mounted() {
     this.pushScore()
   },
+  
   methods: {
     clickEvent(router) {
       this.$router.push(`/${router}`)
