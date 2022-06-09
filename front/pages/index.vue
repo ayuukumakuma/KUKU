@@ -76,7 +76,7 @@ export default {}
   }
 
   img {
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 120px;
     transform: translate(-50%);

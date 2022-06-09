@@ -52,6 +52,9 @@ export default {
     getScore() {
       return this.$store.getters['score/getScore']
     },
+    onAuth() {
+      return this.$store.getters['auth/isLogin']
+    },
   },
   mounted() {
     this.pushScore()
@@ -62,9 +65,11 @@ export default {
       this.$store.dispatch('score/resetScore')
     },
     async pushScore() {
-      this.$nuxt.$loading.start()
-      await this.$store.dispatch('score/pushScoreToApi')
-      this.$nuxt.$loading.finish()
+      if (this.onAuth === true) {
+        this.$nuxt.$loading.start()
+        await this.$store.dispatch('score/pushScoreToApi')
+        this.$nuxt.$loading.finish()
+      }
     },
   },
 }
