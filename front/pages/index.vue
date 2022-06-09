@@ -76,11 +76,7 @@ export default {}
   }
 
   img {
-<<<<<<< HEAD
     position: fixed;
-=======
-    position: absolute;
->>>>>>> ff40597969577febd1b079242a7b7d7054ccf30e
     left: 50%;
     top: 120px;
     transform: translate(-50%);
