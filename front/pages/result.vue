@@ -52,25 +52,19 @@ export default {
     getScore() {
       return this.$store.getters['score/getScore']
     },
-    onAuth() {
-      return this.$store.getters['auth/isLogin']
-    },
   },
   mounted() {
     this.pushScore()
   },
-  
   methods: {
     clickEvent(router) {
       this.$router.push(`/${router}`)
       this.$store.dispatch('score/resetScore')
     },
     async pushScore() {
-      if (this.onAuth === true) {
-        this.$nuxt.$loading.start()
-        await this.$store.dispatch('score/pushScoreToApi')
-        this.$nuxt.$loading.finish()
-      }
+      this.$nuxt.$loading.start()
+      await this.$store.dispatch('score/pushScoreToApi')
+      this.$nuxt.$loading.finish()
     },
   },
 }
