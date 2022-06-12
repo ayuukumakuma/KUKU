@@ -70,7 +70,7 @@ The goal of "KUKU" is to connect numbers with colors and shapes so that users wi
 |---|---|
 |ruby|2.7.x|
 |rails|6.0.x|
-
+|redis|6.x|
 |puma|4.3.11|
 |postgres|13.6|
 
