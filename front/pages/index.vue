@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-    <div id="version">ver. 1.0.3</div>
+    <div id="version">ver. 1.0.4</div>
     <div id="title" class="sentence--text">
       KUKU
       <p id="text">～九九を「みて」覚えよう～</p>
